@@ -80,6 +80,7 @@ const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", tar
 
     .button {
         color: #fff;
+        cursor: pointer;
         margin-top: 20px;
         align-items: center;
         background-color: ${ ({theme}) => theme.color.primary };

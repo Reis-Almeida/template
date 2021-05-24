@@ -2,10 +2,11 @@ import Head from 'next/head'
 import Header from '@components/header'
 import Footer from '@components/footer'
 import Contact from '@components/contact'
+import Gallery from '@components/gallery'
 import Navigation from '@components/navigation'
 
 
-export default function Contato() {
+export default function Imovel() {
   return (
     <>
       <Head>
@@ -13,9 +14,9 @@ export default function Contato() {
       </Head>
       <Header/>
       <Navigation 
-        name={'Contato'}
+        name={'The Knightsbridge Ap.'}
       />
-      <Contact/>
+      <Gallery/>
       <main>
       </main>
       <Footer/>

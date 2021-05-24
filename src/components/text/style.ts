@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Main = styled.div`
-    padding: 60px;
+    padding: 50px 60px;
     * { color: ${ ({theme}) => theme.fontColor.bigTitle }; }
     hr {
         width: 100%;

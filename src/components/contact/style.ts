@@ -7,7 +7,7 @@ export const Main = styled.main`
         align-items: flex-start;
         justify-content: space-between;
         width: 100vw;
-        padding: 30px 60px 30px 60px;
+        padding: 50px 60px 30px 60px;
     }
 
     label,

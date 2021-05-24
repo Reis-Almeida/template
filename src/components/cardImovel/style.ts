@@ -16,6 +16,7 @@ export const Main = styled.div<{ change:boolean }>`
     .order {
         width: 100%;
         display: flex;
+        padding-right: 30px;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
@@ -54,6 +55,7 @@ export const Main = styled.div<{ change:boolean }>`
         flex-direction: row;
 
         .color {
+            border-color: ${({ theme }) => theme.color.primary};
             background-color: ${({ theme }) => theme.color.primary};
             color: #fff;
         }
@@ -68,6 +70,7 @@ export const Main = styled.div<{ change:boolean }>`
 export const List = styled.div<{ change:boolean }>`
     padding-top: 50px;
     width: 900px;
+    height: 200vh;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;

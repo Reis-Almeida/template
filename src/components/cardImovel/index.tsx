@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import {Div, Main, Card1, Card2, List, ListMain } from './style'
 import Icon from 'public/icons'
+import Link from 'next/link'
 
 const array = [
   { 
@@ -182,7 +183,9 @@ function card(i:any, key:number, change:boolean) {
             <p>Garagem</p>
           </span>
         </div>
-        <button><p>Mais Detalhes</p></button>
+        <Link href={"/imovel"}>
+          <button><p>Mais Detalhes</p></button>
+        </Link>
       </div>
     </Card2>
   )
@@ -235,7 +238,9 @@ function card1(i:any, key:number) {
             <p>Garagem</p>
           </span>
         </div>
-        <button><p>Mais Detalhes</p></button>
+        <Link href={"/imovel"}>
+          <button><p>Mais Detalhes</p></button>
+        </Link>
       </div>
     </Card1>
   )
