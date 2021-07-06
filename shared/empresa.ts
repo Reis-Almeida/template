@@ -67,7 +67,205 @@ const empresa = {
             descricao: 'descrição do funcionario'
 
         }
-    ]
+    ],
+    teste: [
+        { 
+            src:'/images/teste/teste1.jpg',
+            name: 'West Broadway Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Casa',
+            featured: true,
+            price: 260,
+            type: 'Aluguel',
+            square: 170,
+            bedroom: 1,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste2.jpg',
+            name: 'North Greenwich',
+            end: '42 W Broadway, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 200,
+            type: 'Venda',
+            square: 210,
+            bedroom: 2,
+            bathroom: 2
+        },
+        { 
+            src:'/images/teste/teste3.jpg',
+            name: 'Rue de Rivoli Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 390,
+            type: 'Aluguel',
+            square: 150,
+            bedroom: 3,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste1.jpg',
+            name: 'West Broadway Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Casa',
+            featured: true,
+            price: 260,
+            type: 'Aluguel',
+            square: 170,
+            bedroom: 1,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste2.jpg',
+            name: 'North Greenwich',
+            end: '42 W Broadway, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 200,
+            type: 'Venda',
+            square: 210,
+            bedroom: 2,
+            bathroom: 2
+        },
+        { 
+            src:'/images/teste/teste3.jpg',
+            name: 'Rue de Rivoli Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 390,
+            type: 'Aluguel',
+            square: 150,
+            bedroom: 3,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste1.jpg',
+            name: 'West Broadway Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Casa',
+            featured: true,
+            price: 260,
+            type: 'Aluguel',
+            square: 170,
+            bedroom: 1,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste2.jpg',
+            name: 'North Greenwich',
+            end: '42 W Broadway, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 200,
+            type: 'Venda',
+            square: 210,
+            bedroom: 2,
+            bathroom: 2
+        },
+        { 
+            src:'/images/teste/teste3.jpg',
+            name: 'Rue de Rivoli Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 390,
+            type: 'Aluguel',
+            square: 150,
+            bedroom: 3,
+            bathroom: 1
+        },
+      ],
+    teste1: [
+        { 
+            src:'/images/teste/teste1.jpg',
+            name: 'West Broadway Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Casa',
+            featured: true,
+            price: 260,
+            type: 'Aluguel',
+            square: 170,
+            bedroom: 1,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste2.jpg',
+            name: 'North Greenwich',
+            end: '42 W Broadway, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 200,
+            type: 'Venda',
+            square: 210,
+            bedroom: 2,
+            bathroom: 2
+        },
+        { 
+            src:'/images/teste/teste3.jpg',
+            name: 'Rue de Rivoli Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 390,
+            type: 'Aluguel',
+            square: 150,
+            bedroom: 3,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste1.jpg',
+            name: 'West Broadway Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Casa',
+            featured: true,
+            price: 260,
+            type: 'Aluguel',
+            square: 170,
+            bedroom: 1,
+            bathroom: 1
+        }
+      ],
+    teste2: [
+        { 
+            src:'/images/teste/teste1.jpg',
+            name: 'West Broadway Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Casa',
+            featured: true,
+            price: 260,
+            type: 'Aluguel',
+            square: 170,
+            bedroom: 1,
+            bathroom: 1
+        },
+        { 
+            src:'/images/teste/teste2.jpg',
+            name: 'North Greenwich',
+            end: '42 W Broadway, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 200,
+            type: 'Venda',
+            square: 210,
+            bedroom: 2,
+            bathroom: 2
+        },
+        { 
+            src:'/images/teste/teste3.jpg',
+            name: 'Rue de Rivoli Street',
+            end: '215 Greenwich St, New York',
+            properties: 'Apartamento',
+            featured: false,
+            price: 390,
+            type: 'Aluguel',
+            square: 150,
+            bedroom: 3,
+            bathroom: 1
+        }
+      ]
 }
 
 export default empresa

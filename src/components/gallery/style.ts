@@ -81,7 +81,7 @@ export const Main = styled.div`
         hr {
             width: 150px;
             height: 2px;
-            margin: 15px 0;
+            margin: 20px 0;
             background-color: ${ ({theme}) => theme.color.primary};
             border: none;
 
@@ -121,8 +121,74 @@ export const Main = styled.div`
 
             
         }
+
+        .specification2 {
+            width: 850px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            span {
+                display: flex;
+                flex-direction: row;
+                border: solid 1px #ddd;
+                width: 400px;
+
+                div:nth-child(1) {
+                    background-color: ${ ({theme}) => theme.color.second};
+                    padding: 15px 0;
+                    margin-right: 20px;
+                    width: 100px;
+                    text-align: center;
+                }
+            }
+        }
     }
 
+    form {
+        display: flex;
+        flex-direction: column;
+        
+        span {
+            display: flex;
+            justify-content: center;
+        }
+        
+        svg, input {
+            margin: 10px 0;
+            outline: none;
+            padding: 12px 5px;
+            font-size: 1rem;
+            border: solid 1px #ddd;
+            background-color: ${ ({theme}) => theme.color.second};
+        }
+
+        svg {
+            padding: 14px 5px;
+            font-size: 3rem;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: 1rem;
+            color: #fff;
+            padding: 10px 15px;
+            background-color: ${ ({theme}) => theme.color.primary};
+            border: none;
+        }
+
+    }
 `
 
 export const Carrossel = styled.div<{ direction:boolean }>`

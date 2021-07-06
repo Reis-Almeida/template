@@ -12,7 +12,7 @@ export const Main = styled.div<{ n:number }>`
         position: absolute;
         flex-direction: column;
         align-items: flex-start;
-        margin: -130px 140px 0 60px;
+        margin: -130px 60px 0 60px;
         box-shadow: 0 0 50px rgb(0 0 0 / 20%);
     }
 
@@ -59,12 +59,12 @@ const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", tar
        
 
     select, input {
-        width: 220px;
+        width: 240px;
         border: none;
         border-radius: 5px;
         outline: none;
         font-size: 1rem;
-        padding: 10px 10px;
+        padding: 15px 10px;
         background-color: ${ ({theme}) => theme.color.second };
     }
 
@@ -93,13 +93,10 @@ export const Form1 = styled(Form)`
 
 export const Form2 = styled(Form)`
     flex-wrap: wrap;
-    padding: 20px 40px;
+    padding: 30px 45px;
     background-color: #fff;
 
     &, * { flex-direction: row; }
-
-    select,
-    input { padding: 15px 10px; }
 
     .field {
         flex-direction: column;

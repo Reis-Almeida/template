@@ -19,6 +19,7 @@ export const Main = styled.div`
 
     h1 {
         font-size: 40px;
+        font-weight: 400;
         font-family: ${ ({theme}) => theme.fontFamily.title };
     }
 

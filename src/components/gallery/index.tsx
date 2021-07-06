@@ -70,13 +70,13 @@ export default function Gallery() {
 
     var effect = setInterval(
       function() {
-        which == true ? SetLeft(left = (left - 20.2)) :  SetRight(right = (right - 20.2))
-    }, 10)
+        which == true ? SetLeft(left = (left - 30)) :  SetRight(right = (right - 30))
+    }, 1)
 
     setTimeout(()=> {
       clearInterval(effect)
       side()
-    }, 420)
+    }, 300)
 
   }
 
@@ -266,6 +266,50 @@ export default function Gallery() {
         clari, fiant sollemnes in futurum.
         </article>
       </div>
+
+      <div className="general">
+        <h2>Locais Proximos</h2>
+        <span>
+          <hr />
+          <hr />
+        </span>
+        <span className="specification2">
+          <span>
+            <div>3 min</div>
+            <div>Hospital</div>
+          </span>
+          <span>
+            <div>1 min</div>
+            <div>Shopping</div>
+          </span>
+          <span>
+            <div>5 min</div>
+            <div>Escola</div>
+          </span>
+          <span>
+            <div>5 min</div>
+            <div>Clube</div>
+          </span>
+
+        </span>
+      </div>
+
+      <form>
+        <h3>CALCULADORA</h3>
+        <span>
+          <input type="number" />
+          <Icon.Money/>
+        </span>
+        <span>
+          <input type="number" />
+          <Icon.Money/>
+        </span>
+        <span>
+          <input type="number" />
+          <Icon.Calendar/>
+        </span>
+        <button>Calcular</button>
+      </form>
 
     </Main>
     )

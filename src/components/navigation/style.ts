@@ -16,6 +16,7 @@ export const Nav = styled.nav`
 
     h1 {
         font-size: 33px;
+        font-weight: 400;
         margin-bottom: 20px;
         font-family: ${ ({theme}) => theme.fontFamily.title };
     }
