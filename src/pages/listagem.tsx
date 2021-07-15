@@ -6,6 +6,8 @@ import Navigation from '@components/navigation'
 import empresa from 'shared/empresa'
 
 
+import { useProperty } from 'shared/useProperty'
+
 import { Main } from 'src/styles/listagem'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -34,8 +36,11 @@ function pagination(pages: number, itens: number, current:number) {
 
 
 export default function Listagem() {
+
+  const { property, setProperty } = useProperty()
+
   let conteudo:Array<object[]>= []
-  convertPage(empresa.teste.length, 4, empresa.teste, conteudo)
+  convertPage(property.length, 4, property, conteudo)
 
   const [change, setChange] = useState(true)
   const router = useRouter()
@@ -57,6 +62,7 @@ function alterPages(valor:number) {
       setCount(count  - (count - valor))
     }
 }
+
 
 
   return (

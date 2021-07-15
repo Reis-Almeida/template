@@ -1,17 +1,16 @@
-const price = (e) => {
-    let p = ''
-    p = e.PrecoLocacao == [] ? p :  e.PrecoLocacao
-    p = e.PrecoLocacaoTemporada ==[] ? p :  e.PrecoLocacaoTemporada
-    // p = e.PrecoVenda == [] ?  p :  e.PrecoVenda
-    
-    return p
+const d = [
+    {q:'b', w:121212},
+    {q:'c', w:121213},
+    {q:'a', w:121211},
+]
+
+var s = new Date();
+var n = s.getTime();
+
+function a(a, b) {
+    return a.w < b.w ? 1: a.w > b.w ? -1 : 0 
 }
 
+d.sort(a)
 
-const obj = {
-PrecoLocacao: 1,
-PrecoLocacaoTemporada: [],
-PrecoVenda: []
-}
-
-console.log(obj.PrecoLocacaoTemporada == '')
+console.log(0 == true)

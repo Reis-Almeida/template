@@ -8,20 +8,31 @@ import Qualification from '@components/qualification'
 import CardLocation from '@components/cardLocation'
 import { Div } from 'src/styles'
 import empresa from 'shared/empresa'
-import Imoveis from 'shared/imoveis'
-import { useState } from 'react'
+import { useProperty } from 'shared/useProperty'
+
+function sortDate(a:any, b:any) {
+  return a.c_date < b.c_date ? 1: a.c_date > b.c_date ? -1 : 0 
+}
+
+
+function lastFeatured(a:any) {
+  if(a.offer == '2') {
+      return a
+  }
+}
+
 
 export default function Home() {
-  const [count, setCount] = useState([])
+  const { property, setProperty } = useProperty()
 
-  const init = async () => {
-    const imoveis = await Imoveis()
+  property.sort(sortDate)
 
-    setCount(imoveis.slice(0, 4))
-  }
+  const lastProperties = property.slice(0, 4)
 
-  init()
-  // console.log(count)
+  property.filter(lastFeatured)
+
+  const lastFeaturedProperties = property.slice(0, 3)
+  // console.log(lastFeaturedProperties)
   return (
     <>
       <Head>
@@ -36,14 +47,14 @@ export default function Home() {
           <h1>Últimos Imóveis</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
         </Div>
-       <CardProperty array={empresa.teste1} superFeatured={false} change={false}/>
+       <CardProperty array={lastProperties} superFeatured={false} change={false}/>
   
       <CardLocation/>
         <Div>
           <h1>Imóveis Em Destaque</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
         </Div>
-       <CardProperty array={empresa.teste2} superFeatured={true} change={false}/>
+       <CardProperty array={lastFeaturedProperties} superFeatured={true} change={false}/>
         
 
       </>

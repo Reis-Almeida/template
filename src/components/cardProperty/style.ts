@@ -1,18 +1,69 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+export const cardFeatured = css`
+    .img {   
+        width: 370px;
+        height: 230px;
+    }
+
+    .none { margin-right: 220px; }
+
+    article { height: 90px; }
+    h4 { padding-top: 10px; }
+
+    .desc {
+        width: 370px;
+        height: 320px;
+    }
+
+`
+
+export const cardNormal = css<{ change:boolean, featured:string }>`
+flex-direction: ${({change}) => change ? 'row' : 'column'};
+
+.img {   
+    width: ${({change}) => change ? '420px' : '270px'};
+    height: ${({change}) => change ? '280px' : '170px'};
+}
+
+.featured { opacity: ${({featured}) => featured == '2' ? 1 : 0 }; }
+
+.none { margin-right: ${({change}) => change ? '270px' : '130px'}; } 
+
+.E { display: ${({change}) => change ? 'block' : 'none'}; } 
+
+h2 { font-size: ${({change}) => change ? '1.5rem' : '1.2rem'}; } 
+
+.desc {
+    width: ${({change}) => change ? '450px' : '270px'};
+    height: ${({change}) => change ? '280px' : '200px'};
+
+}
+
+article {
+    color: ${ ({theme}) => theme.fontColor.bigTitle };
+    display: ${({change}) => change ? 'block' : 'none'};
+}
+
+.details p { font-size: ${({change}) => change ? '1rem' : '.9rem'}; }
+`
+
+
 
 export const Main = styled.div<{ change:boolean }>`
+    height: 200vh;
     padding: 30px 60px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: ${({change}) => change ? 'column' : 'row' };
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: ${({change}) => change ? 'flex-start' : 'space-between' };
 
 `
 
 
 
-const Card = styled.div`
+export const Card = styled.div<{ change:boolean, featured:string, superFeatured:boolean }>`
     display: flex;
     margin: 15px 0;
     flex-direction: column;
@@ -118,56 +169,6 @@ const Card = styled.div`
         &:hover { background-color:${ ({theme}) => theme.color.primary }; }
     }
 
-`
+    ${ ({ superFeatured }) => superFeatured ? cardFeatured : cardNormal }
 
-
-export const Card1 = styled(Card)`
-
-    .img {   
-        width: 370px;
-        height: 230px;
-    }
-
-    .none { margin-right: 220px; }
-
-    article { height: 90px; }
-    h4 { padding-top: 10px; }
-
-    .desc {
-        width: 370px;
-        height: 320px;
-    }
-`
-
-
-export const Card2 = styled(Card)<{ change:boolean, featured:boolean }>`
-    flex-direction: ${({change}) => change ? 'row' : 'column'};
-
-    .img {   
-        width: ${({change}) => change ? '420px' : '270px'};
-        height: ${({change}) => change ? '280px' : '170px'};
-    }
-
-    .featured { opacity: ${({featured}) => featured ? 1 : 0 }; }
-
-    .none { margin-right: ${({change}) => change ? '270px' : '130px'}; } 
-
-    .E { display: ${({change}) => change ? 'block' : 'none'}; } 
-
-    /* h4 { font-size: ${({change}) => change ? '1rem' : '.9rem'}; }  */
-    
-    h2 { font-size: ${({change}) => change ? '1.5rem' : '1.2rem'}; } 
-
-    .desc {
-        width: ${({change}) => change ? '450px' : '270px'};
-        height: ${({change}) => change ? '280px' : '200px'};
-
-    }
-
-    article {
-        color: ${ ({theme}) => theme.fontColor.bigTitle };
-        display: ${({change}) => change ? 'block' : 'none'};
-    }
-
-    .details p { font-size: ${({change}) => change ? '1rem' : '.9rem'}; }
 `
