@@ -46,7 +46,7 @@ function card(i:any, key:number, change:boolean, superFeatured:boolean) {
             <p>Garagem</p>
           </span>
         </div>
-        <Link href={"/imovel"}>
+        <Link href={`/imovel?cod=${i.cod}`}>
           <button><p>Mais Detalhes</p></button>
         </Link>
       </div>

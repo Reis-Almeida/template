@@ -51,7 +51,7 @@ article {
 
 
 export const Main = styled.div<{ change:boolean }>`
-    height: 200vh;
+    /* height: 200vh; */
     padding: 30px 60px;
     display: flex;
     flex-wrap: wrap;
@@ -86,6 +86,10 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
         padding: 5px 15px;
         border-bottom-left-radius: 20px;
         background-color: rgba(132, 132, 132, 0.66);
+
+        p {
+            text-align: center;
+        }
     }
 
     .featured {
@@ -123,6 +127,9 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
 
     h2 {
         color: ${ ({theme}) => theme.color.primary };
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         font-weight: 400;
     }
 
@@ -135,6 +142,9 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
 
     article {
         height: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* white-space: nowrap; */
         color: ${ ({theme}) => theme.fontColor.bigTitle };
     }
 

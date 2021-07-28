@@ -1,16 +1,23 @@
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-    display: flex;
+    height: 30vh;
+    width: 100vw;
 
-    .nav {
+    .img {
+        height: 50vh;
+        width: 100vw;
+        position: relative;
+    }
+    
+    .info {
+        top: 110px;
+        height: 30vh;
+        width: 100vw;
         display: flex;
+        position: absolute;
         flex-direction: column;
         justify-content: center;
-        height: 200px;
-        width: 1300px;
-        position: absolute;
-        align-items: center;
         background-color: rgba(70, 70, 70, 0.3);
     }
 

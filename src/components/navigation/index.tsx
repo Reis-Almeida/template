@@ -31,9 +31,11 @@ export default function Navigation({name}:{name:string}) {
   const [open, setOpen] = useState(false)
   return (
     <Nav>
-      <Image  src={"/images/teste/nav.jpg"} height={200} width={1300} />
-      <div className="nav">
-        <h1>{name}</h1>
+      <div className="img">
+        <Image src={"/images/teste/nav.jpg"} objectFit='cover' layout="fill" />
+      </div>
+      <div className="info">
+      <h1>{name}</h1>
         <span>
           <Link href={'/'}><a>Home</a></Link>
           <p className="stripe">/</p>

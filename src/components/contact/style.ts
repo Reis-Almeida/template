@@ -4,10 +4,10 @@ export const Main = styled.main`
     &>div {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        flex-wrap: wrap;
         justify-content: space-between;
         width: 100vw;
-        padding: 50px 60px 30px 60px;
+        padding: 30px 60px;
     }
 
     label,
@@ -15,14 +15,17 @@ export const Main = styled.main`
     h1, h2, p {  color: ${ ({theme}) => theme.fontColor.bigTitle }; }
 
     div:nth-child(1) {
-
-        &>span {
-            width: 350px;
+        /* border: solid 1px #000; */
+        padding-top: 60px;
+        .info {
+            width: 28vw;
+            min-width: 270px;
             height: 250px;
             display: flex;
             align-items: center;
             flex-direction: column;
-            padding: 45px 45px 0 45px;
+            padding-top: 45px;
+            margin-bottom: 30px;
             box-shadow: 0 0 40px rgb(0 0 0 / 10%);
         }
 
@@ -54,9 +57,12 @@ export const Main = styled.main`
     }
 
     div:nth-child(2) {
+        align-items: flex-start;
 
         form {
+            width: 40vw;
             padding: 30px;
+            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -69,7 +75,7 @@ export const Main = styled.main`
         }
 
         input, textarea {
-            width: 500px;
+            width: 100%;
             border: none;
             padding: 10px;
             font-size: 1rem;
@@ -86,11 +92,31 @@ export const Main = styled.main`
 
         span {
             margin-right: 60px;
-            width: 450px;
+            width: 35vw;
 
-            h1, article { margin: 30px 0 20px 0; }
+            h1, article { margin: 30px 0 30px 0; }
 
             h1 { font-weight: 800; }
+        }
+    }
+
+    @media(max-width: 930px) {
+        div:nth-child(1){
+            justify-content: space-around;
+            .info {
+                width: 40vw;
+                min-width: 300px;
+            }
+        }
+
+        div:nth-child(2) {
+            justify-content: space-around;
+
+            span, form {
+                width: 75vw;
+
+                margin-right: 0;
+            }
         }
     }
 `

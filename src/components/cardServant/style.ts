@@ -1,21 +1,10 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
-   padding: 60px;
+export const Card = styled.div`
+    margin-bottom: 30px;
+    box-shadow: 0 0 40px rgb(0 0 0 / 10%);
 
-   &, * {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-   &>div {
-        margin-bottom: 30px;
-        box-shadow: 0 0 40px rgb(0 0 0 / 10%);
-
-        &:hover { box-shadow: 0 0 40px rgb(0 0 0 / 20%); }
-    }
+    &:hover { box-shadow: 0 0 40px rgb(0 0 0 / 20%); }
 
     span:nth-child(1) {
         width: 250px;
@@ -67,6 +56,15 @@ export const Main = styled.div`
             }
         }
    }
+
+   @media(max-width: 1275px) {
+        flex-direction: column;
+
+        span:nth-child(1),
+        span:nth-child(2) {
+            width: 300px;
+        }
+    }
 
 `
 

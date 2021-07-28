@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <Main>
       <div>
-        <span>
+        <span className="info">
           <Icon.Pin/>
           <h3>Endereço</h3>
           <article>
@@ -14,7 +14,7 @@ export default function Contact() {
             <p>Águas Claras, Brasília - DF</p>
           </article>
         </span>
-        <span>
+        <span className="info">
           <Icon.Headset/>
           <h3>Telefone & Email</h3>
           <article>
@@ -22,7 +22,7 @@ export default function Contact() {
             <p>{empresa.email}</p>
           </article>
         </span>
-        <span>
+        <span className="info">
           <Icon.Share/>
           <h3>Manter contato</h3>
           <article>

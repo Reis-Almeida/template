@@ -13,4 +13,4 @@ function a(a, b) {
 
 d.sort(a)
 
-console.log(0 == true)
+console.log(undefined == undefined)

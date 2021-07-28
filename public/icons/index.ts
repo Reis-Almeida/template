@@ -1,7 +1,8 @@
-import { GiCrosshairArrow, GiHomeGarage, GiSofa } from "react-icons/gi";
+import { GiBarbecue, GiBed, GiCandlestickPhone, GiCrosshairArrow, GiFamilyHouse, GiGamepadCross, GiHomeGarage, GiHotSurface, GiPadlock, GiPartyPopper, GiPlantRoots, GiPoolDive, GiSlaveryWhip, GiSofa, GiSupersonicArrow, GiTreeSwing, GiVolleyballBall } from "react-icons/gi";
 import { MdEmail, MdMailOutline, MdMenu, MdHeadsetMic } from "react-icons/md";
+import { GoTools } from "react-icons/go";
 import { RiFacebookFill, RiLinkedinFill, RiPinterestFill, RiTwitterFill, RiInstagramFill, RiMapPinRangeFill, RiPhoneFill, RiPhoneLine, RiWhatsappFill, RiTelegramFill, RiBuilding4Fill, RiShareFill } from "react-icons/ri";
-import { FaBed, FaBath, FaMapMarkerAlt, FaVectorSquare, FaHome, FaMapMarkedAlt, FaRegCalendarAlt, FaMoneyBillAlt, FaDollarSign, FaAngleUp, FaAngleLeft, FaAngleRight, FaArrowRight, FaRegHandPointRight, FaCaretDown, FaList, FaTh, FaLock, FaTools } from "react-icons/fa";
+import { FaBed, FaBath, FaMapMarkerAlt, FaVectorSquare, FaHome, FaMapMarkedAlt, FaRegCalendarAlt, FaMoneyBillAlt, FaDollarSign, FaAngleUp, FaAngleLeft, FaAngleRight, FaArrowRight, FaRegHandPointRight, FaCaretDown, FaList, FaTh, FaLock, FaTools, FaCheck, FaHotTub } from "react-icons/fa";
 
 
 const Icon = {
@@ -13,7 +14,7 @@ const Icon = {
     Whatsapp: RiWhatsappFill,
     Telegram: RiTelegramFill,
 
-    Home: FaHome,
+    Home: GiFamilyHouse,
     Building: RiBuilding4Fill,
     Square: FaVectorSquare,
     Bathroom: FaBath,
@@ -44,14 +45,28 @@ const Icon = {
     Hand: FaRegHandPointRight,
     Share: RiShareFill,
 
-    Lock: FaLock,
-    Tool: FaTools,
-    Arrow: GiCrosshairArrow,
+    Lock: GiPadlock,
+    Tool: GoTools,
+    Arrow: GiSupersonicArrow,
 
     ListDefault: FaList,
     ListMain: FaTh,
 
+    Check: FaCheck,
+    Hot: FaHotTub,
+    Plant: GiPlantRoots,
+    Maid: GiBed,
+    Barbecue: GiBarbecue,
+    InterPhone: GiCandlestickPhone,
+    Pool: GiPoolDive,
+    Park: GiTreeSwing,
+    Party: GiPartyPopper,
+    Game: GiGamepadCross,
+    Sport: GiVolleyballBall,
+    Sauna: GiHotSurface,
+
 }
+
 
 export default Icon
 

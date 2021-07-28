@@ -39,21 +39,54 @@ export default function Listagem() {
 
   const { property, setProperty } = useProperty()
 
+
+  const router = useRouter()
+  const { cod } = router.query
+  let k:any
+  // console.log(router.query)
+  
+  useEffect(() => {
+    
+    for(let prop in router.query) {
+      if(router.query[prop] != 'undefined') {
+        setProperty(
+          property.filter((a:any) => {
+            for(let p in a) {
+              // console.log(p, prop)
+                if(p == prop) {
+                  // console.log(a[p], router.query[prop])
+                  if(a[p] == router.query[prop]) {
+                    return a
+                  }
+                }
+            }
+            // if(a[prop] == router.query[prop]) {
+            //   return a
+            // }
+          })
+        )
+        // console.log(k, cod)
+      }
+    }
+
+  }, [property])
+  
+  // setProperty(property)
+  
   let conteudo:Array<object[]>= []
   convertPage(property.length, 4, property, conteudo)
 
   const [change, setChange] = useState(true)
-  const router = useRouter()
   const { pathname } = useRouter()
   const [count, setCount] = useState(1)
   const itens: number = 9
 
   let first: number = pagination(conteudo.length, itens, count)
 
-  useEffect(() => {
-    router.push(`?page=${count}`, undefined, { shallow: true })
+  // useEffect(() => {
+  //   router.push(`?page=${count}`, undefined, { shallow: true })
 
-  }, [count])
+  // }, [count])
 
 function alterPages(valor:number) {
     if(valor > count) {

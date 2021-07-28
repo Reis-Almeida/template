@@ -124,17 +124,18 @@ export const Main = styled.div`
 
         .specification2 {
             width: 850px;
-            height: 140px;
+            height: 150px;
             display: flex;
-            flex-direction: column;
+            /* flex-direction: column; */
             flex-wrap: wrap;
+            align-items: flex-start;
             justify-content: space-between;
 
             span {
                 display: flex;
                 flex-direction: row;
                 border: solid 1px #ddd;
-                width: 400px;
+                width: 410px;
 
                 div:nth-child(1) {
                     background-color: ${ ({theme}) => theme.color.second};
@@ -144,6 +145,52 @@ export const Main = styled.div`
                     text-align: center;
                 }
             }
+        }
+
+        .specification3 {
+            height: 340px;
+            width: 850px;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding-top: 10px;
+
+            div {
+                width: 400px;
+                height: 50px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0 12px;
+                border-bottom: dotted 1px ${ ({theme}) => theme.fontColor.bigTitle };
+            }
+
+            svg {
+                padding: 5px;
+                font-size: 1.3rem;
+                background-color: ${ ({theme}) => theme.color.primary };
+                * { color: #fff; };
+            }
+
+            p {
+                display: flex;
+                align-items: center;
+                * { color: ${ ({theme}) => theme.fontColor.bigTitle }; }
+
+                svg {
+                padding: 0px;
+                font-size: 1.2rem;
+                background-color: #fff;
+                margin-right: 5px;
+                }
+            }
+
+
+            strong {
+                font-size: 2rem;
+                color: ${ ({theme}) => theme.color.primary };
+            }
+
+            
         }
     }
 
