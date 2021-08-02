@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Icon from 'public/icons'
 import { useEffect, useState } from 'react'
 import { useProperty } from 'shared/useProperty'
-import { Carrossel, Main } from './style'
+import { Carrossel } from './style'
 
 type Params = [
   {
@@ -12,27 +12,11 @@ type Params = [
   }
 ]
 
-// const array = [
-//   '/images/teste/teste1.jpg',
-//   '/images/teste/teste2.jpg',
-//   '/images/teste/teste3.jpg'
-// ]
-
-export default function Gallery() {
-
-  const { property, setProperty } = useProperty()
-  const router = useRouter()
-  const { cod } = router.query
-
-  let data:any
-  property.filter((a:any) => {
-    if(a.cod == cod) {
-      data = a
-    }
-  })
+export default function Gallery({src}:{src:any}) {
 
   const array:any = []
-   data.src.Foto.filter((a:any) => {
+
+  src.src.Foto.filter((a:any) => {
     array.push(a.Link[1].URLArquivo)
   })
 
@@ -145,39 +129,7 @@ export default function Gallery() {
   }
 
   return (
-    <Main>
-      <span>
-        <div className="type">
-        <h1>{data.name}</h1>
-        <article>
-          <p>{data.business}</p>
-          <p>{data.p_type}</p>
-          <p>Acessível</p>
-        </article>
-        </div>
-        <div className="details">
-            <span>
-              <p><Icon.Square />{data.square}</p>
-              <p>Pes Quadrado</p>
-            </span>
-            <span>
-              <p><Icon.Room />{data.room || 0}</p>
-              <p>Sala</p>
-            </span>
-            <span>
-              <p><Icon.Bedroom />{data.bedroom}</p>
-              <p>Quarto</p>
-            </span>
-            <span>
-              <p><Icon.Bathroom/>{data.bath}</p>
-              <p>Banheiro</p>
-            </span>
-            <span >
-              <p><Icon.Garage />0</p>
-              <p>Garagem</p>
-            </span>
-        </div>
-      </span>
+
       <Carrossel direction={direction}>
         <span style={style1(direction)}>
           {Array.from({ length: 3 }).map((_,i) => (
@@ -202,176 +154,5 @@ export default function Gallery() {
           </div>
         </span>
       </Carrossel>
-
-      <div className="general">
-        <h2>Visão Geral</h2>
-        <span>
-          <hr />
-          <hr />
-        </span>
-        <span className="specification">
-          <div>
-            <p>Preço</p>
-            <strong>${data.price}</strong>
-          </div>
-          <div>
-            <p>Nome de contato</p>
-            <strong>Julia Robets</strong>
-          </div>
-          <div>
-            <p>Ano de construção</p>
-            <strong>10 Anos</strong>
-          </div>
-          <div>
-            <p>Área residencial</p>
-            <strong>{data.square}</strong>
-          </div>
-          <div>
-            <p>Vagas</p>
-            <strong>{data.vacancy}</strong>
-          </div>
-          <div>
-            <p>Garagem</p>
-            <strong>1</strong>
-          </div>
-          <div>
-            <p>Codigo do Imovel</p>
-            <strong>{data.cod}</strong>
-          </div>
-          <div>
-            <p>Tipo</p>
-            <strong>{data.p_type}</strong>
-          </div>
-          <div>
-            <p>Contrato</p>
-            <strong>{data.business}</strong>
-          </div>
-          <div>
-            <p>Localização</p>
-            <strong>{data.city} / {data.district}</strong>
-          </div>
-          <div>
-            <p>Quarto</p>
-            <strong>{data.bedroom}</strong>
-          </div>
-          <div>
-            <p>Banheiro</p>
-            <strong>{data.bath}</strong>
-          </div>
-        </span>
-      </div>
-
-      <div className="general">
-        <h2>Descrição do Imovel</h2>
-        <span>
-          <hr />
-          <hr />
-        </span>
-        <article>{data.obs}</article>
-      </div>
-
-      <div className="general">
-        <h2>Locais Proximos</h2>
-        <span>
-          <hr />
-          <hr />
-        </span>
-        <span className="specification2">
-          <span>
-            <div>3 min</div>
-            <div>Hospital</div>
-          </span>
-          <span>
-            <div>1 min</div>
-            <div>Shopping</div>
-          </span>
-          <span>
-            <div>5 min</div>
-            <div>Escola</div>
-          </span>
-          <span>
-            <div>5 min</div>
-            <div>Clube</div>
-          </span>
-
-        </span>
-      </div>
-
-      <div className="general">
-        <h2>Comodidades do Imóvel</h2>
-        <span>
-          <hr />
-          <hr />
-        </span>
-        <span className="specification3">
-          <div>
-            <p><Icon.Room />Mobiliado</p>
-            <Icon.Check />
-          </div>
-          <div>
-            <p><Icon.Plant />Jardim</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Maid />QuartoWCEmpregada</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Sauna />Sauna</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Barbecue />Churrasqueira</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.InterPhone />Interfone</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Pool />Piscina</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Park />Playground</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Sport />Quadra PoliEsportiva</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Party />Salão Festas</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Game />Salão Jogos</p>
-            <strong>-</strong>
-          </div>
-          <div>
-            <p><Icon.Hot />Hidromassagem</p>
-            <strong>-</strong>
-          </div>
-        </span>
-      </div>
-
-      <form>
-        <h3>CALCULADORA</h3>
-        <span>
-          <input type="number" />
-          <Icon.Money/>
-        </span>
-        <span>
-          <input type="number" />
-          <Icon.Money/>
-        </span>
-        <span>
-          <input type="number" />
-          <Icon.Calendar/>
-        </span>
-        <button>Calcular</button>
-      </form>
-
-    </Main>
     )
 }
