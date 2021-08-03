@@ -2,17 +2,23 @@ import styled from 'styled-components'
 
 export const Main = styled.div`
     height: 110vh;
-    width: 98.7vw;
-    overflow-y: hidden;
+    
+    @media(max-width:700px) {
+        height: 50vh;
+    }
 
 `
 
 export const Carrossel = styled.div<{ i:number, current:number }>`
-    transition: all 1s linear;
+    width: 98.7vw;
+    height: 110vh;
     position: absolute;
+    transition: all 1s linear;
+    background-color: #fff;
+
      &:nth-child(${({i}) => i}) {
         opacity: ${({i, current}) => i == current ? 1 : 0};
-        z-index: ${({i, current}) => i == current ? 1 : -1};     
+        z-index: ${({i, current}) => i == current ? 0 : -1};     
     }
 
     .nav {
@@ -26,8 +32,7 @@ export const Carrossel = styled.div<{ i:number, current:number }>`
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            font-weight: 400;
-            div { background-color: #fff; } 
+            font-weight: 400; 
         }
 
         &>div {
@@ -35,6 +40,7 @@ export const Carrossel = styled.div<{ i:number, current:number }>`
             height: 280px;
             align-items: flex-start;
             padding: 20px 30px;
+            background-color: #fff;
         }
 
         .button {
@@ -116,6 +122,36 @@ export const Carrossel = styled.div<{ i:number, current:number }>`
                 font-family: ${ ({theme}) => theme.fontFamily.title };
 
             }
+        }
+    }
+
+    @media(max-width:700px) {
+        height: 50vh;
+
+        .nav {
+            top: 15px;
+            left: 0px;
+            width: 98vw;
+            opacity: 0;
+            align-items: center;
+            transition: all 1s linear;
+
+            &:hover { opacity: 1; }
+
+            .name { align-items: center; }
+
+            .button svg{
+                background-color: rgba(255, 255, 255, 0.65);
+            }
+
+             &>div {
+                align-items: center;
+                width: 430px;
+                height: 240px;
+                background-color: rgba(255, 255, 255, 0.65);
+            }
+
+
         }
     }
 `

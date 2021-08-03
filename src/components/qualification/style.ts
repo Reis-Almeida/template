@@ -29,22 +29,37 @@ export const Main = styled.div`
 
     & > div:nth-child(2) {
         flex-direction: row;
+        align-items: flex-start;
         justify-content: space-between;
-
+        
         span { padding: 30px; }
 
         h3, div { margin-bottom: 10px; }
-
+        
         div {
             width: 100px;
             height: 100px;
             border-radius: 100%;
             border: solid 8px #fff;
-
+            
             svg, svg * {
                 font-size: 40px;
                 color: ${ ({theme}) => theme.color.primary };
             }
+        }
+        
+        @media(max-width:920px) {
+            flex-wrap: wrap;
+            span { 
+                width: 40vw;
+            }
+            
+        }
+        @media(max-width:610px) {
+            span { 
+                width: 100%;
+            }
+            
         }
     }
 

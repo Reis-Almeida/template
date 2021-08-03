@@ -4,15 +4,14 @@ export const Main = styled.div<{ n:number }>`
     height: 30vh;
     width: 100vw;
     background-color: ${ ({theme}) => theme.color.second };
-    /* border: solid 1px #000; */
-
+    
     & > div {
-        z-index: 1;
         display: flex;
+        overflow: visible;
         position: absolute;
         flex-direction: column;
         align-items: flex-start;
-        margin: -130px 60px 0 60px;
+        margin: -100px 60px 0 60px;
         box-shadow: 0 0 50px rgb(0 0 0 / 20%);
     }
 
@@ -21,11 +20,12 @@ export const Main = styled.div<{ n:number }>`
         flex-direction: row;
 
         div {
+            position: absolute;
             width: 100px;
             color: #fff;
             font-size: 1.2rem;
             padding: 10px 0;
-            margin-right: 3px;
+            margin-top: -45px;
             text-align: center;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -37,10 +37,27 @@ export const Main = styled.div<{ n:number }>`
 
             }
 
+            &:nth-child(2) {
+                margin-left: 103px;
+            }
+
             &:hover {
                 padding: 8px 0;
                 border: solid 2px #fff;
             }
+        }
+    }
+
+    @media(max-width:930px) {
+        height: 60vh;
+    }
+
+    @media(max-width:700px) {
+        height: auto;
+        padding: 100px 0 60px 0;
+        & > div {
+            position: relative;
+            margin-top: 0;
         }
     }
 `
@@ -59,7 +76,7 @@ const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", tar
        
 
     select, input {
-        width: 240px;
+        width: 18vw;
         border: none;
         border-radius: 5px;
         outline: none;
@@ -93,19 +110,25 @@ export const Form1 = styled(Form)`
 
 export const Form2 = styled(Form)`
     flex-wrap: wrap;
-    padding: 30px 45px;
+    padding: 30px 30px;
     background-color: #fff;
-
+    justify-content: space-around;
     &, * { flex-direction: row; }
 
     .field {
         flex-direction: column;
-        margin: 10px 15px;
+        /* margin: 10px 15px; */
     }
+
+    select, input {
+        /* width: 60vw; */
+       
+    }
+
 
     .button {
         padding: 14px 0;
-        margin: 32px 0 0 15px;
+        margin-top: 32px;
         font-size: 1.2rem;
         justify-content: center;
     }
@@ -116,6 +139,18 @@ export const Form2 = styled(Form)`
     .field:nth-child(3),
     .field:nth-child(11) {
         display: none;
+    }
+
+    @media(max-width:930px) {
+        select, input {
+            width: 34vw;
+        }
+    }
+
+    @media(max-width:645px) {
+        select, input {
+            width: 60vw;
+        }
     }
        
 `

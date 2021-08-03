@@ -8,7 +8,7 @@ import empresa from 'shared/empresa'
 
 import { useProperty } from 'shared/useProperty'
 
-import { Main } from 'src/styles/listagem'
+import { Main, Main2 } from 'src/styles/listagem'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Icon from 'public/icons'
@@ -73,7 +73,8 @@ export default function Listagem() {
   
   // setProperty(property)
   
-  let conteudo:Array<object[]>= []
+  // let conteudo:Array<object[]>= []
+  let conteudo:any= []
   convertPage(property.length, 4, property, conteudo)
 
   const [change, setChange] = useState(true)
@@ -123,7 +124,13 @@ function alterPages(valor:number) {
               </select>
             </span>
           </div>
-          <CardProperty array={conteudo[count -1]} superFeatured={false} change={change}/>
+
+          <Main2 change={change}>
+          {conteudo[count -1].map((i:number, e:number) => (
+            <CardProperty key={e} obj={i} superFeatured={false} change={change}/>
+          ))}
+        </Main2>
+
           <ul>
             <li>
                 <button onClick={() => setCount(count  - 1)}  className="color" disabled={count === 1}>

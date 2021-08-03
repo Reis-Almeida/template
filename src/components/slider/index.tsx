@@ -80,7 +80,7 @@ export default function Slider() {
                             </div>
                         </div>
                     </span>
-                    <Image src={i.src} width={1300} height={730} quality={100} alt="imagem indisponivel"/>
+                    <Image src={i.src} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
                 </Carrossel>
             ))}
         </Main>

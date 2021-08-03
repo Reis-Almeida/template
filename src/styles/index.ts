@@ -15,3 +15,13 @@ export const Div = styled.div`
         font-family: ${ ({theme}) => theme.fontFamily.title };
     }
 `
+export const Main = styled.div`
+    /* height: 200vh; */
+    padding: 30px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+`

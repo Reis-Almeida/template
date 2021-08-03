@@ -6,7 +6,7 @@ import Filter from '@components/filter'
 import CardProperty from '@components/cardProperty'
 import Qualification from '@components/qualification'
 import CardLocation from '@components/cardLocation'
-import { Div } from 'src/styles'
+import { Div, Main } from 'src/styles'
 import empresa from 'shared/empresa'
 import { useProperty } from 'shared/useProperty'
 
@@ -47,14 +47,25 @@ export default function Home() {
           <h1>Últimos Imóveis</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
         </Div>
-       <CardProperty array={lastProperties} superFeatured={false} change={false}/>
+
+        <Main>
+          {lastProperties.map((i:number, e:number) => (
+            <CardProperty key={e} obj={i} superFeatured={false} change={false}/>
+          ))}
+        </Main>
+
   
       <CardLocation/>
         <Div>
           <h1>Imóveis Em Destaque</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
         </Div>
-       <CardProperty array={lastFeaturedProperties} superFeatured={true} change={false}/>
+
+        <Main>
+          {lastFeaturedProperties.map((i:number, e:number) => (
+            <CardProperty key={e} obj={i} superFeatured={true} change={false}/>
+          ))}
+        </Main>
         
 
       </>

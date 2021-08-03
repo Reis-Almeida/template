@@ -68,3 +68,14 @@ export const Main = styled.div<{ change:boolean }>`
         }
     }
 `
+
+export const Main2 = styled.div<{ change:boolean }>`
+    /* height: 200vh; */
+    padding: 30px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: ${({change}) => change ? 'column' : 'row' };
+    align-items: flex-start;
+    justify-content: ${({change}) => change ? 'flex-start' : 'space-between' };
+
+`
