@@ -50,7 +50,7 @@ export default function Home() {
 
         <Main>
           {lastProperties.map((i:number, e:number) => (
-            <CardProperty key={e} obj={i} superFeatured={false} change={false}/>
+            <CardProperty key={e} obj={i} card={1} change={false}/>
           ))}
         </Main>
 
@@ -63,7 +63,7 @@ export default function Home() {
 
         <Main>
           {lastFeaturedProperties.map((i:number, e:number) => (
-            <CardProperty key={e} obj={i} superFeatured={true} change={false}/>
+            <CardProperty key={e} obj={i} card={2} change={false}/>
           ))}
         </Main>
         

@@ -105,7 +105,18 @@ const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", tar
 `
 
 export const Form1 = styled(Form)`
-       
+    border: solid 1px green;
+    
+    @media(max-width: 992px) {
+        margin-right: 20px;
+
+        select, input {
+            width: 32vw;
+        }
+    }
+    @media(max-width: 600px) {
+        display: none;
+    }
 `
 
 export const Form2 = styled(Form)`

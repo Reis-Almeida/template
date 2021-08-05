@@ -9,8 +9,7 @@ export const Main = styled.div<{ change:boolean }>`
     justify-content: space-between;
 
     &>span {
-        height: 250vh;
-        width: 990px;
+        /* height: 250vh; */
         display: flex;
         flex-direction: column;
     }
@@ -67,15 +66,34 @@ export const Main = styled.div<{ change:boolean }>`
             margin: 0 5px;
         }
     }
+
+    @media(max-width: 992px) {
+        padding: 60px 0;
+    }
 `
 
 export const Main2 = styled.div<{ change:boolean }>`
-    /* height: 200vh; */
+border: solid 1px green;
+    width: 76vw;
     padding: 30px 60px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: ${({change}) => change ? 'column' : 'row' };
     align-items: flex-start;
     justify-content: ${({change}) => change ? 'flex-start' : 'space-between' };
+
+    @media(max-width: 1075px) {
+        padding-right: 20px;
+    }
+    @media(max-width: 600px) {
+        width: 150%;
+    }
+    @media(max-width: 992px)  and (min-width:600px) {
+        width: 60vw;
+    }
+    @media(max-width: 992px) {
+        padding: 0 20px;
+        justify-content: space-around;
+    }
 
 `

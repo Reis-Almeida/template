@@ -48,7 +48,7 @@ export default function CardLocation() {
         <span>
           {array.map((i, e) => (
             <div key={e}>
-              <Image src={i.src} width={370} height={230} alt="imagem indisponivel"/>
+              <Image src={i.src} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
               <div className="img">
                 <h1>{i.city}</h1>
                 <span>

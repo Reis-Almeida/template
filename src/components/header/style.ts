@@ -63,7 +63,7 @@ export const HeadInfo = styled.div`
 
 export const HeadNav = styled.div<{ open:boolean }>`
     height: 70px;
-    width: 100vw;
+    width: 98vw;
     padding: 0 60px;
 
     &, * {
@@ -99,7 +99,7 @@ export const HeadNav = styled.div<{ open:boolean }>`
         }
     }
 
-    @media(max-width: 1035px) {
+    @media(max-width: 992px) {
         padding: 0 20px;
     }
 

@@ -1,71 +1,181 @@
 import styled, { css } from 'styled-components'
 
-export const cardFeatured = css`
+
+const normal = css<{ featured:string }>`
+    flex-direction: column;
+
+    &>div:nth-child(1) {   
+        width: 270px;
+        height: 180px;
+    }
     .img {   
-        width: 370px;
-        height: 230px;
+        width: 270px;
+        height: 180px;
     }
 
-    .none { margin-right: 220px; }
+    .E { display: none; } 
+
+    h2 { font-size: 1.2rem; } 
+
+    .desc {
+        width: 270px;
+        height: 210px;
+
+    }
+
+    article { display: none; }
+
+    .details p { font-size: .9rem; }
+
+    @media (max-width: 880px) and (min-width:730px) {
+        &>div:nth-child(1) {   
+            width: 28vw;
+        }
+
+        .img {   
+            width: 28vw;
+        }
+        .desc {
+            width: 28vw;
+
+        }
+
+    }
+
+`
+
+
+const featured = css`
+
+    &>div:nth-child(1) {   
+        width: 370px;
+        height: 260px;
+    }
+    
+    .img {   
+        width: 370px;
+        height: 260px;
+    }
+
+    h2 {width: 100%;}
 
     article { height: 90px; }
-    h4 { padding-top: 10px; }
+
+    strong { 
+        padding-top: 10px;
+        font-size: 1.1rem;
+     }
 
     .desc {
         width: 370px;
         height: 320px;
     }
 
-`
+    @media(max-width:1270px) and (min-width: 860px) {
+        .img, .desc,
+        &>div:nth-child(1){ 
+            width: 28vw;
+            min-width: 265px;
+        }
 
-export const cardNormal = css<{ change:boolean, featured:string }>`
-flex-direction: ${({change}) => change ? 'row' : 'column'};
+        .E { display: none; }
+    }
 
-.img {   
-    width: ${({change}) => change ? '420px' : '270px'};
-    height: ${({change}) => change ? '280px' : '170px'};
-}
+    @media(max-width:810px) and (min-width: 730px) {
+        .img, .desc,
+        &>div:nth-child(1){ 
+            width: 330px;
+        }
 
-.featured { opacity: ${({featured}) => featured == '2' ? 1 : 0 }; }
+        .E { display: none; }
+    }
 
-.none { margin-right: ${({change}) => change ? '270px' : '130px'}; } 
-
-.E { display: ${({change}) => change ? 'block' : 'none'}; } 
-
-h2 { font-size: ${({change}) => change ? '1.5rem' : '1.2rem'}; } 
-
-.desc {
-    width: ${({change}) => change ? '450px' : '270px'};
-    height: ${({change}) => change ? '280px' : '200px'};
-
-}
-
-article {
-    color: ${ ({theme}) => theme.fontColor.bigTitle };
-    display: ${({change}) => change ? 'block' : 'none'};
-}
-
-.details p { font-size: ${({change}) => change ? '1rem' : '.9rem'}; }
-
+    
 `
 
 
+const list = css<{ change:boolean, featured:string }>`
 
-export const Card = styled.div<{ change:boolean, featured:string, superFeatured:boolean }>`
+    .img, &>div:nth-child(1) {   
+                width: 420px;
+                min-width: 300px;
+                height: 280px;
+            }
+             
+
+    ${({change}) => change ?
+
+        css`
+            flex-direction: row;
+
+            .desc {
+                width: 35vw;
+                height: 280px;
+
+            }
+
+            @media (max-width: 880px) and (min-width:730px) {
+
+            }
+        
+        ` : 
+        css`
+            flex-direction: column;
+
+            .desc {
+                width: 420px;
+                height: 320px;
+                min-width: 300px;
+
+            }
+
+            @media (max-width: 1300px) and (min-width:992px) {
+                .desc, .img, &>div:nth-child(1) {   
+                    width: 32vw;
+                }
+            }
+            @media (max-width: 992px) and (min-width:600px) {
+                .desc, .img, &>div:nth-child(1) {   
+                    width: 46vw;
+                }
+            }
+            @media (max-width: 600px) {
+                .desc, .img, &>div:nth-child(1) {   
+                    width: 70vw;
+                }
+            }
+    ` 
+    }
+`
+//420px
+
+export const Card = styled.div<{ change:boolean, featured:string, card:number }>`
     display: flex;
     margin: 15px 0;
     flex-direction: column;
     box-shadow: 0 0 40px rgb(0 0 0 / 10%);
 
-    &>div { display: flex; }
+    &>div { 
+        display: flex;
+        position: relative; 
+    }
+
+
     &:hover { box-shadow: 0 0 40px rgb(0 0 0 / 20%); }
+
+    h2 { width: 100%; }
 
     .img {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         position: absolute;
-        align-content: space-between;
         justify-content: space-between;   
+    }
+
+    .img span {
+        display: flex;
+        width: 100%;
+        justify-content: space-between; 
     }
 
     p { color: #fff; }
@@ -84,6 +194,8 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
         padding: 8px;
         background-color: ${ ({theme}) => theme.color.featured };
     }
+
+    .featured { opacity: ${({featured}) => featured == '2' ? 1 : 0 }; } 
 
     .type {
         display: flex;
@@ -121,7 +233,7 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
         font-weight: 400;
     }
 
-    h4 {
+    strong {
         width: 100%;
         padding-top: 5px;
         border-top: solid 1px #e5e5e5;
@@ -132,7 +244,6 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
         height: 70px;
         overflow: hidden;
         text-overflow: ellipsis;
-        /* white-space: nowrap; */
         color: ${ ({theme}) => theme.fontColor.bigTitle };
     }
 
@@ -167,6 +278,20 @@ export const Card = styled.div<{ change:boolean, featured:string, superFeatured:
         &:hover { background-color:${ ({theme}) => theme.color.primary }; }
     }
 
-    ${ ({ superFeatured }) => superFeatured ? cardFeatured : cardNormal }
+    ${ ({ card }) => typeCard(card) }
 
 `
+
+
+const typeCard = (card:number) => {
+    switch(card) {
+        case 1:
+            return normal
+
+        case 2:
+            return featured
+
+        case 3:
+            return list
+    }
+}

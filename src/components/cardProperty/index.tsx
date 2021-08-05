@@ -1,33 +1,35 @@
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { Card } from './style'
 import Icon from 'public/icons'
 import Link from 'next/link'
 
 
-export default function CardProperty({obj, superFeatured, change}:{obj: any, superFeatured:any, change:any}) {
+export default function CardProperty({obj, card, change}:{obj: any, card:any, change:any}) {
 
   return (
-    <Card change={change} featured={obj.offer} superFeatured={superFeatured}>
+    <Card change={change} featured={obj.offer} card={card}>
       <div>
-        <Image src={obj.src.Foto[0].Link[0].URLArquivo} width={superFeatured ? 370 : change? 420 : 270} height={superFeatured ? 230 : change? 280 : 170} alt="imagem indisponivel"/>
+      <Image src={obj.src.Foto[0].Link[0].URLArquivo} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
         <span className="img">
-          <div className="none"></div>
-          <div className="price">
-            <p>{obj.p_type}</p>
-            <p>${obj.price}</p>
-          </div>
-          <div className="featured"><p>Destaque</p></div>
-          <div className="type">
-            <p>{obj.business}</p>
-            <div></div>
-          </div>
+          <span>
+            <div className="none"></div>
+            <div className="price">
+              <p>{obj.p_type}</p>
+              <p>${obj.price}</p>
+            </div>
+          </span>
+          <span>
+            <div className="featured"><p>Destaque</p></div>
+            <div className="type">
+              <p>{obj.business}</p>
+              <div></div>
+            </div>
+          </span>
         </span>
       </div>
       <div className="desc">
           <h2>{obj.name}</h2>
-          <h4><Icon.Pin/>{obj.address}</h4>
+          <strong><Icon.Pin/>{obj.city} / {obj.district}</strong>
           <article>{obj.obs}</article>
         <div className="details">
           <span>

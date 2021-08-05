@@ -24,4 +24,12 @@ export const Main = styled.div`
     align-items: flex-start;
     justify-content: space-between;
 
+    @media(max-width: 992px) {
+        padding: 0 20px;
+    }
+
+    @media (max-width:730px) {
+        justify-content: space-around;
+    }
+
 `

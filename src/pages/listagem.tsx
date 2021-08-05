@@ -89,6 +89,15 @@ export default function Listagem() {
 
   // }, [count])
 
+  var x = window.matchMedia("(max-width: 500px)")
+  if(x.matches) {
+    // console.log(x.matches)
+  }
+  // useEffect(() => {
+
+
+  // }, [x])
+
 function alterPages(valor:number) {
     if(valor > count) {
       setCount(count  + (valor - count))
@@ -105,7 +114,7 @@ function alterPages(valor:number) {
       <Navigation name={'Listagem'} />
       <Main change={change}>
         <span>
-          <div className="order">
+          {/* <div className="order">
             <span>
               <Icon.ListMain  onClick={() => setChange(false)} />
               <Icon.ListDefault onClick={() => setChange(true)} />
@@ -123,13 +132,13 @@ function alterPages(valor:number) {
                 <option value="">DESC</option>
               </select>
             </span>
-          </div>
+          </div> */}
 
           <Main2 change={change}>
-          {conteudo[count -1].map((i:number, e:number) => (
-            <CardProperty key={e} obj={i} superFeatured={false} change={change}/>
-          ))}
-        </Main2>
+            {conteudo[count -1].map((i:number, e:number) => (
+              <CardProperty key={e} obj={i} card={3} change={change}/>
+            ))}
+          </Main2>
 
           <ul>
             <li>
