@@ -70,7 +70,10 @@ const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", tar
         align-items: flex-start;
     }
 
-    h2 { margin-left:35px; }
+    h2 {
+        align-items: center;
+        width: 100%;
+    }
 
     .field { margin: 10px 0; }
        
@@ -115,6 +118,16 @@ export const Form1 = styled(Form)`
         }
     }
     @media(max-width: 600px) {
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: #fff;
+        z-index: 1;
+
+        select, input {
+            width: 85vw;
+        }
         display: none;
     }
 `

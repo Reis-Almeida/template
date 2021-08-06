@@ -114,25 +114,30 @@ function alterPages(valor:number) {
       <Navigation name={'Listagem'} />
       <Main change={change}>
         <span>
-          {/* <div className="order">
+          <div className="order">
             <span>
               <Icon.ListMain  onClick={() => setChange(false)} />
               <Icon.ListDefault onClick={() => setChange(true)} />
+              <button>Filtrar Imóvel</button>
             </span>
             <span>
-              <label htmlFor="">Ordenar por:</label>
-              <select name="" id="">
-                <option value="">Nome</option>
-                <option value="">Preço</option>
-                <option value="">Publicação</option>
-              </select>
-              <label htmlFor="">Mostra:</label>
-              <select name="" id="">
-                <option value="">ASC</option>
-                <option value="">DESC</option>
-              </select>
+              <div>
+                <label htmlFor="">Ordenar por:</label>
+                <select name="" id="">
+                  <option value="">Nome</option>
+                  <option value="">Preço</option>
+                  <option value="">Publicação</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="">Mostra:</label>
+                <select name="" id="">
+                  <option value="">ASC</option>
+                  <option value="">DESC</option>
+                </select>
+              </div>
             </span>
-          </div> */}
+          </div>
 
           <Main2 change={change}>
             {conteudo[count -1].map((i:number, e:number) => (

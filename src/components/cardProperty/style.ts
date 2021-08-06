@@ -96,56 +96,35 @@ const featured = css`
 
 const list = css<{ change:boolean, featured:string }>`
 
+    flex-direction: ${({change}) => change ? 'row' : 'column' };
+
     .img, &>div:nth-child(1) {   
-                width: 420px;
-                min-width: 300px;
-                height: 280px;
-            }
-             
-
-    ${({change}) => change ?
-
-        css`
-            flex-direction: row;
-
-            .desc {
-                width: 35vw;
-                height: 280px;
-
-            }
-
-            @media (max-width: 880px) and (min-width:730px) {
-
-            }
-        
-        ` : 
-        css`
-            flex-direction: column;
-
-            .desc {
-                width: 420px;
-                height: 320px;
-                min-width: 300px;
-
-            }
-
-            @media (max-width: 1300px) and (min-width:992px) {
-                .desc, .img, &>div:nth-child(1) {   
-                    width: 32vw;
-                }
-            }
-            @media (max-width: 992px) and (min-width:600px) {
-                .desc, .img, &>div:nth-child(1) {   
-                    width: 46vw;
-                }
-            }
-            @media (max-width: 600px) {
-                .desc, .img, &>div:nth-child(1) {   
-                    width: 70vw;
-                }
-            }
-    ` 
+        width: 32vw;
+        height: 280px;
+        min-width: 300px;
     }
+
+    .desc {
+        min-width: 300px;
+        width: ${({change}) => change ? '35vw' : '32vw' };
+        height: ${({change}) => change ? '280px' : '320px' };
+
+    }
+    
+    @media (max-width: 992px) and (min-width:600px) {
+        flex-direction: column;
+
+        .desc, .img, &>div:nth-child(1) {   
+            width: 46vw;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .desc, .img, &>div:nth-child(1) {   
+            width: 70vw;
+        }
+    }
+
 `
 //420px
 

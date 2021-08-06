@@ -9,18 +9,30 @@ export const Main = styled.div<{ change:boolean }>`
     justify-content: space-between;
 
     &>span {
-        /* height: 250vh; */
+        height: 250vh;
         display: flex;
         flex-direction: column;
     }
 
     .order {
+        border: solid 1px blue;
         padding: 0 60px;
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
+
+        button {
+            border: none;
+            font-size: 1rem;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #d82460;
+            margin: 0 0 10px 20px;
+            display: none;
+        }
 
         select {
             padding: 6px 4px;
@@ -47,6 +59,41 @@ export const Main = styled.div<{ change:boolean }>`
             &:nth-child(2) {
                 background-color: ${({change, theme}) => change ? theme.color.primary : '#fff'};
                 * { color: ${({change}) => change ? '#fff' : 'currentcolor'}; }
+            }
+        }
+
+        span:nth-child(2){ display: flex; }
+        
+        @media(max-width: 1075px) {
+            padding-right: 20px;
+        }
+        @media(max-width: 992px) {
+            label { margin: 0 5px 0 0; }
+            span:nth-child(2){ 
+                display: flex;
+                border: solid 1px red; 
+                width: 60vw;
+                justify-content: space-around;
+            }
+            /* width: auto; */
+            padding: 0;
+
+            svg { display: none; }
+        }
+        @media(max-width: 600px) {
+            button { display: block; }
+            /* align-items: flex-end; */
+            flex-direction: column;
+            span:nth-child(2){ 
+                padding: 0 20px;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        @media(max-width: 390px) {
+            span:nth-child(2){ 
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     }
@@ -93,6 +140,7 @@ border: solid 1px green;
     }
     @media(max-width: 992px) {
         padding: 0 20px;
+        flex-direction: row;
         justify-content: space-around;
     }
 
