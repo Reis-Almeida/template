@@ -10,7 +10,7 @@ export const Main = styled.div`
         justify-content: space-between;
     }
 
-    @media(max-width: 1275px) {
+    @media(max-width: 890px) {
         justify-content: space-around;
     }
 `

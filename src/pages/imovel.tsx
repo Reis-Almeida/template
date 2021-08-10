@@ -84,7 +84,7 @@ export default function Imovel() {
               </span>
           </div>
         </span>
-        {/* <Gallery src={data}/> */}
+        <Gallery src={data}/>
 
           { title("Visão Geral") }
           <ul className="specification fist">
@@ -216,8 +216,17 @@ export default function Imovel() {
         </div>
 
       <div className="mare">
-        <form>
-          <h3>CALCULADORA</h3>
+        <div>
+          <span>
+            <h3>CONTATO</h3>
+          </span>
+          <Contact/>
+        </div>
+
+        <form className="calculator">
+          <span>
+            <h3>CALCULADORA</h3>
+          </span>
           <span>
             <input type="number" />
             <Icon.Money/>

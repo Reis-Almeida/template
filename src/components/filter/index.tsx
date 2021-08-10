@@ -1,27 +1,28 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Icon from 'public/icons'
 import { useState } from 'react'
+import userFilter from 'shared/useFilter'
 import { useProperty } from 'shared/useProperty'
 import { Form1, Form2, Main } from './style'
 
 export default function Filter() {
 
-  const [field, setField]= useState<any>({})
+  const { toUpdate, price, city, district, handleForm } = userFilter()
 
 
-
-
-function form(city:any, district:any) {
+function form() {
   return (
-    <>
+    <div>
+    <Icon.Close />
     <h2>Filtrar Imovel</h2>
     <span className="field">
       <label htmlFor="">Código do Imovel</label>
-      <input type="text" onChange={(ev) => setField({cod: ev.target.value})} />
+      <input name="cod" type="text" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} />
     </span>
     <span className="field">
       <label htmlFor="">Tipo</label>
-      <select onChange={(ev) => setField({type: ev.target.value})}>
+      <select name="business" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
         <option value="0">Todos</option>
         <option value="1">Venda</option>
         <option value="2">Aluguel</option>
@@ -29,9 +30,9 @@ function form(city:any, district:any) {
     </span>
     <span className="field">
       <label htmlFor="">Cidade</label>
-      <select onChange={(ev) => setField({city: ev.target.value})} >
+      <select name="city" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         <option value="0">Todos</option>
-        {city.map((e:any, i:any) =>(
+        {city().map((e:any, i:any) =>(
           <option value={e}>{e}</option>
 
         ))}
@@ -39,25 +40,25 @@ function form(city:any, district:any) {
     </span>
     <span className="field">
       <label htmlFor="">Bairro</label>
-      <select onChange={(ev) => setField({district: ev.target.value})} >
+      <select name="district" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         <option value="0">Todos</option>
-        {district.map((e:any, i:any) =>(
-          <option value={i}>{e}</option>
+        {district().map((e:any, i:any) =>(
+          <option value={e}>{e}</option>
 
         ))}
       </select>
     </span>
     <span className="field">
       <label htmlFor="">Valor Minimo</label>
-      <input type="number" onChange={(ev) => setField({minPrice: ev.target.value})} />
+      <input name="minValue" type="number" defaultValue={price(0)} min={price(0)}  max={price(1)} onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} />
     </span>
     <span className="field">
       <label htmlFor="">Valor Maximo</label>
-      <input type="number" onChange={(ev) => setField({maxPrice: ev.target.value})} />
+      <input name="maxValue" type="number" defaultValue={price(1)} min={price(0)} max={price(1)} onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} />
     </span>
     <span className="field">
       <label htmlFor="">Quartos</label>
-      <select onChange={(ev) => setField({bedroom: ev.target.value})}>
+      <select name="bedroom" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         {Array.from({ length:11 }).map((_, i) =>(
           <option value={i}>{i}+</option>
 
@@ -66,7 +67,7 @@ function form(city:any, district:any) {
     </span>
     <span className="field">
       <label htmlFor="">Banheiro</label>
-      <select onChange={(ev) => setField({beth: ev.target.value})}>
+      <select name="bathroom" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         {Array.from({ length:11 }).map((_, i) =>(
           <option value={i}>{i}+</option>
 
@@ -75,7 +76,7 @@ function form(city:any, district:any) {
     </span>
     <span className="field">
       <label htmlFor="">Vagas</label>
-      <select onChange={(ev) => setField({vacancy: ev.target.value})}>
+      <select name="vacancy" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         {Array.from({ length:11 }).map((_, i) =>(
           <option value={i}>{i}+</option>
 
@@ -84,46 +85,28 @@ function form(city:any, district:any) {
     </span>
     <span className="field">
       <span className="check">
-        <input type="checkbox" />
-        <label htmlFor="">Arcodicionado</label>
+        <input name="furnished" type="checkbox" onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)} />
+        <label htmlFor="">Mobilhado</label>
       </span>
       <span className="check">
-        <input type="checkbox" />
+        <input name="pool" type="checkbox" onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)} />
         <label htmlFor="">Piscina</label>
       </span>
       <span className="check">
-        <input type="checkbox" />
-        <label htmlFor="">Segurança</label>
+        <input name="suite" type="checkbox" onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)} />
+        <label htmlFor="">Suite</label>
       </span>
     </span>
 
-    <Link href={`/listagem?cod=${field.cod}&type=${field.type}&city=${field.city}&district=${field.district}&minPrice=${field.minPrice}&maxPrice=${field.maxPrice}&bedroom=${field.bedroom}&beth=${field.beth}&vacancy=${field.vacancy}`}>
+    {/* <Link href={`/listagem`}> */}
       <input className="button" type="submit" value="Buscar"/>
-    </Link>
-    </>
+    {/* </Link> */}
+    </div>
   )
 }
 
 
-
-
   const { property, setProperty } = useProperty()
-
-  const setCity:any = new Set()
-  const setDistrict:any = new Set()
-
-  property.map((e:any) => {
-    setCity.add(e.city)
-  })
-  
-  property.map((e:any) => {
-    setDistrict.add(e.district)
-  })
-  
-  const city = [...setCity]
-  const district = [...setDistrict]
-
-  // console.log('district', district)
 
   const [current, setCurrent] = useState(1)
   const { pathname } = useRouter()
@@ -138,7 +121,7 @@ function form(city:any, district:any) {
               <div onClick={() => setCurrent(2)}>Aluguel</div>
             </span>
             <Form2>
-              {form(city, district)}
+              {form()}
             </Form2>
           </div>
         </Main>
@@ -147,8 +130,8 @@ function form(city:any, district:any) {
  } else{
    
     return (
-      <Form1>
-        {form(city, district)} 
+      <Form1 onSubmit={handleForm}>
+        {form()} 
       </Form1>
     )
 

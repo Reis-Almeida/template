@@ -9,13 +9,12 @@ export const Main = styled.div<{ change:boolean }>`
     justify-content: space-between;
 
     &>span {
-        height: 250vh;
+        min-height: 250vh;
         display: flex;
         flex-direction: column;
     }
 
     .order {
-        border: solid 1px blue;
         padding: 0 60px;
         width: 100%;
         display: flex;
@@ -70,8 +69,7 @@ export const Main = styled.div<{ change:boolean }>`
         @media(max-width: 992px) {
             label { margin: 0 5px 0 0; }
             span:nth-child(2){ 
-                display: flex;
-                border: solid 1px red; 
+                display: flex; 
                 width: 60vw;
                 justify-content: space-around;
             }
@@ -120,7 +118,6 @@ export const Main = styled.div<{ change:boolean }>`
 `
 
 export const Main2 = styled.div<{ change:boolean }>`
-border: solid 1px green;
     width: 76vw;
     padding: 30px 60px;
     display: flex;

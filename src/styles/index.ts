@@ -16,8 +16,27 @@ export const Div = styled.div`
     }
 `
 export const Main = styled.div`
-    /* height: 200vh; */
     padding: 30px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media(max-width: 992px) {
+        padding: 0 20px;
+    }
+
+    @media (max-width:730px) {
+        justify-content: space-around;
+    }
+
+`
+
+export const Main2 = styled.div`
+    /* background-color: #f2f2f2; */
+    padding: 0 60px;
+    padding-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

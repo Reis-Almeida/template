@@ -12,6 +12,7 @@ import { Main, Main2 } from 'src/styles/listagem'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Icon from 'public/icons'
+import userFilter from 'shared/useFilter'
 
 
 function convertPage(size: number, limit:number, content: object[], save: Array<object[]>) {
@@ -37,41 +38,10 @@ function pagination(pages: number, itens: number, current:number) {
 
 export default function Listagem() {
 
+  const { orderUpdate } = userFilter()
+
   const { property, setProperty } = useProperty()
 
-
-  const router = useRouter()
-  const { cod } = router.query
-  let k:any
-  // console.log(router.query)
-  
-  useEffect(() => {
-    
-    for(let prop in router.query) {
-      if(router.query[prop] != 'undefined') {
-        setProperty(
-          property.filter((a:any) => {
-            for(let p in a) {
-              // console.log(p, prop)
-                if(p == prop) {
-                  // console.log(a[p], router.query[prop])
-                  if(a[p] == router.query[prop]) {
-                    return a
-                  }
-                }
-            }
-            // if(a[prop] == router.query[prop]) {
-            //   return a
-            // }
-          })
-        )
-        // console.log(k, cod)
-      }
-    }
-
-  }, [property])
-  
-  // setProperty(property)
   
   // let conteudo:Array<object[]>= []
   let conteudo:any= []
@@ -89,15 +59,6 @@ export default function Listagem() {
 
   // }, [count])
 
-  var x = window.matchMedia("(max-width: 500px)")
-  if(x.matches) {
-    // console.log(x.matches)
-  }
-  // useEffect(() => {
-
-
-  // }, [x])
-
 function alterPages(valor:number) {
     if(valor > count) {
       setCount(count  + (valor - count))
@@ -105,8 +66,6 @@ function alterPages(valor:number) {
       setCount(count  - (count - valor))
     }
 }
-
-
 
   return (
     <>
@@ -123,17 +82,17 @@ function alterPages(valor:number) {
             <span>
               <div>
                 <label htmlFor="">Ordenar por:</label>
-                <select name="" id="">
-                  <option value="">Nome</option>
-                  <option value="">Preço</option>
-                  <option value="">Publicação</option>
+                <select name="class" onChange={(ev) => orderUpdate(ev.target.name, ev.target.value)} >
+                  <option value="0">Nome</option>
+                  <option value="1">Preço</option>
+                  <option value="2">Publicação</option>
                 </select>
               </div>
               <div>
                 <label htmlFor="">Mostra:</label>
-                <select name="" id="">
-                  <option value="">ASC</option>
-                  <option value="">DESC</option>
+                <select name="sec" onChange={(ev) => orderUpdate(ev.target.name, ev.target.value)} >
+                  <option value="0">ASC</option>
+                  <option value="1">DESC</option>
                 </select>
               </div>
             </span>

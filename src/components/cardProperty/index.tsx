@@ -6,10 +6,16 @@ import Link from 'next/link'
 
 export default function CardProperty({obj, card, change}:{obj: any, card:any, change:any}) {
 
+  let src = '/images/teste/carregando.jpg'
+  try {
+    src = obj.src.Foto[0].Link[0].URLArquivo
+
+  } catch(error) {}
+
   return (
     <Card change={change} featured={obj.offer} card={card}>
       <div>
-      <Image src={obj.src.Foto[0].Link[0].URLArquivo} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
+      <Image src={src} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
         <span className="img">
           <span>
             <div className="none"></div>

@@ -62,13 +62,15 @@ export const Main = styled.div<{ n:number }>`
     }
 `
 
-const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", target:'_top' }))`
+const Form = styled.form`
 
     &, * {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
+
+    svg { display: none; }
 
     h2 {
         align-items: center;
@@ -108,8 +110,6 @@ const Form = styled.form.attrs(props => ({ action:"/listagem", method:"get", tar
 `
 
 export const Form1 = styled(Form)`
-    border: solid 1px green;
-    
     @media(max-width: 992px) {
         margin-right: 20px;
 
@@ -118,12 +118,24 @@ export const Form1 = styled(Form)`
         }
     }
     @media(max-width: 600px) {
+        padding: 80px 0 30px 0;
         align-items: center;
-        position: fixed;
+        position: absolute;
         width: 100%;
         top: 0;
         background-color: #fff;
         z-index: 1;
+
+        svg {
+            display: block;
+            font-size: 2rem;
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            cursor: pointer;
+
+            &:hover { * { color: ${ ({theme}) => theme.color.primary }; } }
+        }
 
         select, input {
             width: 85vw;
@@ -133,10 +145,12 @@ export const Form1 = styled(Form)`
 `
 
 export const Form2 = styled(Form)`
-    flex-wrap: wrap;
-    padding: 30px 30px;
-    background-color: #fff;
-    justify-content: space-around;
+    &>div {
+        flex-wrap: wrap;
+        padding: 30px 30px;
+        background-color: #fff;
+        justify-content: space-around;
+    }
     &, * { flex-direction: row; }
 
     .field {
@@ -159,9 +173,9 @@ export const Form2 = styled(Form)`
 
 
     h2,
-    .field:nth-child(2),
     .field:nth-child(3),
-    .field:nth-child(11) {
+    .field:nth-child(4),
+    .field:nth-child(12) {
         display: none;
     }
 

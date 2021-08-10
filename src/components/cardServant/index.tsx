@@ -4,12 +4,12 @@ import Icon from 'public/icons'
 import empresa from 'shared/empresa'
 
 
-export default function CardServant({key, obj}:{key: any, obj:any }) {
+export default function CardServant({obj}:{ obj:any }) {
   
     return (
-          <Card key={key}>
+          <Card>
             <span>
-              <Image src={obj.foto} width={300} height={300} alt="imagem indisponivel"/>
+              <Image src={obj.foto} objectFit='cover' layout="fill" alt="imagem indisponivel" />
             </span>
             <span>
               <h2>{obj.nome}</h2>
@@ -17,7 +17,7 @@ export default function CardServant({key, obj}:{key: any, obj:any }) {
               <h3>{obj.cargo}</h3>
               <article>
                 <p><Icon.Phone/>{obj.telefone}</p>
-                <p><Icon.Email/>reisalmeidalopesrsal@gmail.com</p>
+                <p><Icon.Email/>{obj.email}</p>
               </article>
               <div>
                 <a href={empresa.twitter}><Icon.Twitter className="icon"/></a>

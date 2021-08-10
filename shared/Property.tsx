@@ -61,7 +61,7 @@ function array(obj:[object]) {
             w.bath = exists1(element.QtdBanheiros)
             w.bedroom = exists1(element.QtdDormitorios)
             w.room = exists1(element.QtdSalas)
-            w.suites = exists1(element.QtdSuites)
+            w.suite = exists1(element.QtdSuites)
             w.vacancy = exists1(element.QtdVagas)
             w.garden = exists2(element.Jardim)
             w.furnished = exists2(element.Mobiliado)

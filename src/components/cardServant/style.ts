@@ -8,7 +8,8 @@ export const Card = styled.div`
 
     span:nth-child(1) {
         width: 250px;
-        flex-direction: column;
+        height: 250px;
+        position: relative;
     }
 
    span:nth-child(2) {
@@ -60,9 +61,14 @@ export const Card = styled.div`
    @media(max-width: 1275px) {
         flex-direction: column;
 
+        span:nth-child(2) p {
+            font-size: .9rem;
+
+        }
         span:nth-child(1),
         span:nth-child(2) {
-            width: 300px;
+            width: 250px;
+            &>svg { font-size: 1rem; }
         }
     }
 

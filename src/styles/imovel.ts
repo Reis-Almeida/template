@@ -9,8 +9,21 @@ export const Main = styled.div`
     justify-content: space-between;
 
     .mare {
-        /* border: solid 1px red; */
         margin-left: 20px;
+        & > div {
+            width: 20vw;
+            margin-bottom: 30px;
+
+            h3 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            form { 
+                padding: 0;
+                h2 { display: none;}
+            }
+        }
     }
 
     .main { 
@@ -157,13 +170,15 @@ export const Main = styled.div`
         
     }
 
-    form {
+    .calculator {
         display: flex;
         flex-direction: column;
-        
+        align-items: flex-start;
+
         span {
             display: flex;
             justify-content: center;
+            width: 100%;
         }
         
         svg, input {

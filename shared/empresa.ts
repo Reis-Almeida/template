@@ -68,6 +68,32 @@ const empresa = {
 
         }
     ],
+    client: [
+        {
+            name: 'Andrew Man',
+            src: '/images/equipe/person1.jpg',
+            title: 'Muito Bom',
+            star: 5,
+            description: 'amo o serviço de vocês, não sei, mas é isso ai top.'
+
+        },
+        {
+            name: 'Peter Ruck',
+            src: '/images/equipe/person2.jpg',
+            title: 'Muito Bom',
+            star: 3,
+            description: 'amo o serviço de vocês, não sei, mas é isso ai top. bola pra frente é nós queiros a´te segunda.'
+
+        },
+        {
+            name: 'Nancy Collins',
+            src: '/images/equipe/person3.jpg',
+            title: 'Muito Bom',
+            star: 2,
+            description: 'amo o serviço de vocês, não sei, mas é isso ai top.'
+
+        }
+    ],
     teste: [
         { 
             src:'/images/teste/teste1.jpg',
