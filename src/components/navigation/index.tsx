@@ -32,7 +32,7 @@ export default function Navigation({name}:{name:string}) {
   return (
     <Nav>
       <div className="img">
-        {/* <Image src={"/images/teste/nav.jpg"} objectFit='cover' layout="fill" /> */}
+        <Image src={"/images/teste/nav.jpg"} objectFit='cover' layout="fill" />
       </div>
       <div className="info">
       <h1>{name}</h1>
