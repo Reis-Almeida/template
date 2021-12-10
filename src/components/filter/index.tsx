@@ -98,9 +98,9 @@ function form() {
       </span>
     </span>
 
-    {/* <Link href={`/listagem`}> */}
-      <input className="button" type="submit" value="Buscar"/>
-    {/* </Link> */}
+    <Link href={`/listagem`}>
+      <input className="button" type="button" value="Buscar"/>
+    </Link>
     </div>
   )
 }
