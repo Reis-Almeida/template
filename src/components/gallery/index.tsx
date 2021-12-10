@@ -16,7 +16,7 @@ export default function Gallery({src}:{src:any}) {
 
   const array:any = []
 
-  src.src.Foto.filter((a:any) => {
+  src?.src?.Foto.filter((a:any) => {
     array.push(a.Link[1].URLArquivo)
   })
 
@@ -134,7 +134,7 @@ export default function Gallery({src}:{src:any}) {
         <span style={style1(direction)}>
           {Array.from({ length: 3 }).map((_,i) => (
             <div key={i} style={style2(i)}>
-              <Image src={count[i].name} width={850} height={600} alt="imagem indisponivel"/>
+              <Image src={count[i]?.name} width={850} height={600} alt="imagem indisponivel"/>
             </div>
           ))}
         </span>

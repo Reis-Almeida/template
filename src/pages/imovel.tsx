@@ -26,11 +26,11 @@ const title = (title:string) => {
 export default function Imovel() {
   const { property, setProperty } = useProperty()
   const router = useRouter()
-  const { cod } = router.query
+  const cod  = router.query?.cod
 
 
   let data:any
-  property.filter((a:any) => {
+  property?.filter((a:any) => {
     if(a.cod == cod) {
       data = a
     }
@@ -54,32 +54,32 @@ export default function Imovel() {
       <div className="main">
         <span className="details">
           <div>
-            <h1>{data.name}</h1>
+            <h1>{data?.name}</h1>
             <article>
-              <p>{data.business}</p>
-              <p>{data.p_type}</p>
+              <p>{data?.business}</p>
+              <p>{data?.p_type}</p>
               <p>Acessível</p>
             </article>
           </div>
           <div>
               <span>
-                <p><Icon.Square />{data.square || "?"}</p>
+                <p><Icon.Square />{data?.square || "?"}</p>
                 <p>Area</p>
               </span>
               <span>
-                <p><Icon.Room />{data.room || 0}</p>
+                <p><Icon.Room />{data?.room || 0}</p>
                 <p>Sala</p>
               </span>
               <span>
-                <p><Icon.Bedroom />{data.bedroom || 0}</p>
+                <p><Icon.Bedroom />{data?.bedroom || 0}</p>
                 <p>Quarto</p>
               </span>
               <span>
-                <p><Icon.Bathroom/>{data.bath || 0}</p>
+                <p><Icon.Bathroom/>{data?.bath || 0}</p>
                 <p>Banheiro</p>
               </span>
               <span >
-                <p><Icon.Garage />{data.garage || 0}</p>
+                <p><Icon.Garage />{data?.garage || 0}</p>
                 <p>Garagem</p>
               </span>
           </div>
@@ -90,7 +90,7 @@ export default function Imovel() {
           <ul className="specification fist">
             <li>
               <p>Preço</p>
-              <strong>${data.price}</strong>
+              <strong>${data?.price}</strong>
             </li>
             <li>
               <p>Nome de contato</p>
@@ -102,11 +102,11 @@ export default function Imovel() {
             </li>
             <li>
               <p>Área residencial</p>
-              <strong>{data.square}</strong>
+              <strong>{data?.square}</strong>
             </li>
             <li>
               <p>Vagas</p>
-              <strong>{data.vacancy}</strong>
+              <strong>{data?.vacancy}</strong>
             </li>
             <li>
               <p>Garagem</p>
@@ -114,32 +114,32 @@ export default function Imovel() {
             </li>
             <li>
               <p>Codigo do Imovel</p>
-              <strong>{data.cod}</strong>
+              <strong>{data?.cod}</strong>
             </li>
             <li>
               <p>Tipo</p>
-              <strong>{data.p_type}</strong>
+              <strong>{data?.p_type}</strong>
             </li>
             <li>
               <p>Contrato</p>
-              <strong>{data.business}</strong>
+              <strong>{data?.business}</strong>
             </li>
             <li>
               <p>Localização</p>
-              <strong>{data.city} / {data.district}</strong>
+              <strong>{data?.city} / {data?.district}</strong>
             </li>
             <li>
               <p>Quarto</p>
-              <strong>{data.bedroom || 0}</strong>
+              <strong>{data?.bedroom || 0}</strong>
             </li>
             <li>
               <p>Banheiro</p>
-              <strong>{data.bath || 0}</strong>
+              <strong>{data?.bath || 0}</strong>
             </li>
           </ul>
 
         { title("Descrição do Imovel") }
-          <article>{data.obs}</article>
+          <article>{data?.obs}</article>
        
         { title("Locais Proximos") }
           <span className="location">
@@ -166,51 +166,51 @@ export default function Imovel() {
           <ul className="specification">
             <li>
               <p><Icon.Room />Mobiliado</p>
-              {data.furnished ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.furnished ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Plant />Jardim</p>
-              {data.garden ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.garden ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Maid />QuartoWCEmpregada</p>
-              {data.br_maid ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.br_maid ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Sauna />Sauna</p>
-              {data.sauna ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.sauna ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Barbecue />Churrasqueira</p>
-              {data.barbecue ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.barbecue ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.InterPhone />Interfone</p>
-              {data.intercom ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.intercom ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Pool />Piscina</p>
-              {data.poll ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.poll ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Park />Playground</p>
-              {data.playground ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.playground ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Sport />Quadra PoliEsportiva</p>
-              {data.esport ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.esport ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Party />Salão Festas</p>
-              {data.party ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.party ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Game />Salão Jogos</p>
-              {data.games ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.games ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
             <li>
               <p><Icon.Hot />Hidromassagem</p>
-              {data.whirlpool ? <Icon.Check /> :  <strong className="empty">-</strong>}
+              {data?.whirlpool ? <Icon.Check /> :  <strong className="empty">-</strong>}
             </li>
           </ul>
         </div>

@@ -26,13 +26,13 @@ function lastFeatured(a:any) {
 export default function Home() {
   const { property, setProperty } = useProperty()
 
-  property.sort(sortDate)
+  property?.sort(sortDate)
 
-  const lastProperties = property.slice(0, 4)
+  const lastProperties = property?.slice(0, 4)
 
-  property.filter(lastFeatured)
+  property?.filter(lastFeatured)
 
-  const lastFeaturedProperties = property.slice(0, 3)
+  const lastFeaturedProperties = property?.slice(0, 3)
   // console.log(lastFeaturedProperties)
   return (
     <>
@@ -50,7 +50,7 @@ export default function Home() {
         </Div>
 
         <Main>
-          {lastProperties.map((i:number, e:number) => (
+          {lastProperties?.map((i:number, e:number) => (
             <CardProperty key={e} obj={i} card={1} change={false}/>
           ))}
         </Main>
@@ -63,7 +63,7 @@ export default function Home() {
         </Div>
 
         <Main>
-          {lastFeaturedProperties.map((i:number, e:number) => (
+          {lastFeaturedProperties?.map((i:number, e:number) => (
             <CardProperty key={e} obj={i} card={2} change={false}/>
           ))}
         </Main>

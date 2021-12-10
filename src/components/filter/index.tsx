@@ -120,7 +120,7 @@ function form() {
               <div onClick={() => setCurrent(1)}>Venda</div>
               <div onClick={() => setCurrent(2)}>Aluguel</div>
             </span>
-            <Form2>
+            <Form2 onSubmit={handleForm}>
               {form()}
             </Form2>
           </div>

@@ -39,7 +39,7 @@ function array(obj:[object]) {
         const w:any = {}
 
             w.cod = element.CodigoImovel
-            w.name = element.TituloImovel
+            w.name = element.TituloImovel || element.TipoImovel
             w.city = convertString(element.Cidade)
             w.district = convertString(element.Bairro)
             w.address = element.Endereco

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useProperty } from "shared/useProperty";
 
@@ -18,22 +19,22 @@ const initial = {
 
 export default function userFilter() {
 
-    const { property } = useProperty()
+    const { property, filter, setFilter } = useProperty()
+    const router = useRouter()
     const [values, setValues] = useState(initial)
     const [order, setOrder] = useState({class: 0, sec: 0})
-    const [content, setContent] = useState(property)
 
 
     const toUpdate = (name:any, value:any) => {
-        setValues({ ...values, [name] : value })
-        console.log(values)
+        setValues(Object.assign(values, { [name] : typeof(value)== 'boolean' || isNaN(value) ? value : parseInt(value) }))
+        console.log(values, name,value)
     } 
 
     const price = (value:number) => {
 
         const setPrice:any = new Set()
 
-        property.map((e:any) => {
+        property?.map((e:any) => {
         setPrice.add(e.price)
         })
 
@@ -52,7 +53,7 @@ export default function userFilter() {
     const city = () => {
         const setCity:any = new Set()
 
-        property.map((e:any) => {
+        property?.map((e:any) => {
             setCity.add(e.city)
         })
         
@@ -63,7 +64,7 @@ export default function userFilter() {
     const district = () => {
         const setDistrict:any = new Set()
 
-        property.map((e:any) => {
+        property?.map((e:any) => {
             if(e.city == values.city) {
                 setDistrict.add(e.district)
             }
@@ -73,48 +74,46 @@ export default function userFilter() {
 
     }
 
-    const orderUpdate = (name:any, value:any) => {
-        setOrder({ ...order, [name] : parseInt(value) })
-        
+    const orderUpdate = (content:any, name:any, value:any) => {
+        setOrder(Object.assign(order, { [name] : parseInt(value) }))
+        console.log(name, value, order)
         switch(order.class) {
             case 0:
-                content.sort((a:any, b:any) => {
-                    if(order.sec == 0) {
-                        return a.name - b.name
-                    }else {
-                        return b.name - a.name
-                    }
+                return content.sort((a:any, b:any) => {
+                       if(order.sec == 0) {
+                            return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+                       }else {
+                            return b.name.toLowerCase().localeCompare(a.name.toLowerCase())
+                       }
                 })
 
 
             case 1:
-                content.sort((a:any, b:any) => {
-                    if(order.sec == 0) {
-                        return a.price - b.price
-                    }else {
-                        return b.price - a.price
-                    }
+                return content.sort((a:any, b:any) => {
+                       if(order.sec == 0) {
+                           return a.price - b.price
+                        }else {
+                           return b.price - a.price
+                        }
                 })
 
             case 2:
-                content.sort((a:any, b:any) => {
-                    if(order.sec == 0) {
-                        return a.c_date - b.c_date
-                    }else {
-                        return b.c_date - a.c_date
-                    }
+                return content.sort((a:any, b:any) => {
+                       if(order.sec == 0) {
+                           return a.c_date - b.c_date
+                       }else {
+                           return b.c_date - a.c_date
+                       }
                 })
 
         }
-
-        setContent(content)
     }
 
-    const convertPage = ( limit:number) => {
+    const convertPage = ( limit:number, content: object[]) => {
         
         const convert:any = []
         
-        for (let i = 0; i < content.length; i+= limit) {
+        for (let i = 0; i < content?.length; i+= limit) {
             
             convert.push(content.slice(i, i + limit))
             
@@ -126,16 +125,18 @@ export default function userFilter() {
 
     const handleForm = (e : React.FormEvent) => {
         e.preventDefault();
+        
+        // router.push('/listagem')
+        const content = property
 
-        const filter = content.filter((a:any) => {
+        const search = content.filter((a:any) => {
             if(a.city == 'Aguas Claras') {
                 return a
             }
         })
 
-        setContent(filter)
+         setFilter(search)
 
-        console.log(filter)
     }
 
     return { toUpdate, price, city, district, orderUpdate, convertPage, handleForm }

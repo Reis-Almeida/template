@@ -15,17 +15,6 @@ import Icon from 'public/icons'
 import userFilter from 'shared/useFilter'
 
 
-function convertPage(size: number, limit:number, content: object[], save: Array<object[]>) {
-
-  for (let i = 0; i < size; i+= limit) {
-    
-    save.push(content.slice(i, i + limit))
-    
-  }
-
-  
-}
-
 function pagination(pages: number, itens: number, current:number) {
   if(pages > itens) {
     const left = (itens -1) / 2
@@ -38,26 +27,25 @@ function pagination(pages: number, itens: number, current:number) {
 
 export default function Listagem() {
 
-  const { orderUpdate } = userFilter()
+  const { orderUpdate, convertPage } = userFilter()
 
-  const { property, setProperty } = useProperty()
-
+  const { filter, setFilter } = useProperty()
   
   // let conteudo:Array<object[]>= []
-  let conteudo:any= []
-  convertPage(property.length, 4, property, conteudo)
+  // let conteudo:any= []
+  // convertPage(property.length, 4, property, conteudo)
 
   const [change, setChange] = useState(true)
   const { pathname } = useRouter()
   const [count, setCount] = useState(1)
   const itens: number = 9
 
-  let first: number = pagination(conteudo.length, itens, count)
+  let first: number = pagination(convertPage(4, filter).length, itens, count)
 
-  // useEffect(() => {
-  //   router.push(`?page=${count}`, undefined, { shallow: true })
-
-  // }, [count])
+  useEffect(() => {
+    
+    // console.log(filter)
+  }, [filter])
 
 function alterPages(valor:number) {
     if(valor > count) {
@@ -82,7 +70,7 @@ function alterPages(valor:number) {
             <span>
               <div>
                 <label htmlFor="">Ordenar por:</label>
-                <select name="class" onChange={(ev) => orderUpdate(ev.target.name, ev.target.value)} >
+                <select name="class" onChange={(ev) => setFilter(orderUpdate(filter, ev.target.name, ev.target.value))} >
                   <option value="0">Nome</option>
                   <option value="1">Preço</option>
                   <option value="2">Publicação</option>
@@ -90,7 +78,7 @@ function alterPages(valor:number) {
               </div>
               <div>
                 <label htmlFor="">Mostra:</label>
-                <select name="sec" onChange={(ev) => orderUpdate(ev.target.name, ev.target.value)} >
+                <select name="sec" onChange={(ev) => setFilter(orderUpdate(filter, ev.target.name, ev.target.value))} >
                   <option value="0">ASC</option>
                   <option value="1">DESC</option>
                 </select>
@@ -99,7 +87,7 @@ function alterPages(valor:number) {
           </div>
 
           <Main2 change={change}>
-            {conteudo[count -1].map((i:number, e:number) => (
+            {convertPage(4, filter)[count - 1]?.map((i:number, e:number) => (
               <CardProperty key={e} obj={i} card={3} change={change}/>
             ))}
           </Main2>
@@ -110,7 +98,7 @@ function alterPages(valor:number) {
                     Anterior
                 </button>
             </li>
-            { Array.from({ length: Math.min(itens, conteudo.length) })
+            { Array.from({ length: Math.min(itens, convertPage(4, filter).length) })
                 .map((_, index)=> index + first)
                 .map((page) => (
                     <li key={page}>
@@ -120,7 +108,7 @@ function alterPages(valor:number) {
                     </li>
             ))}
             <li>
-                <button onClick={() => setCount(count  + 1)} className="color" disabled={count === conteudo.length}>
+                <button onClick={() => setCount(count  + 1)} className="color" disabled={count === convertPage(4, filter).length}>
                     Proximo
                 </button>
             </li>

@@ -76,7 +76,7 @@ export default function Slider() {
                             </div>
                             <div className="type">
                                 <p>{i.type}</p>
-                                <p>${i.price}</p>
+                                <p>{`$${i.price}`}</p>
                             </div>
                         </div>
                     </span>
