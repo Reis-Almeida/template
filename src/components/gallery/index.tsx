@@ -14,11 +14,11 @@ type Params = [
 
 export default function Gallery({src}:{src:any}) {
 
-  const array:any = []
-
-  src?.src?.Foto.filter((a:any) => {
-    array.push(a.Link[1].URLArquivo)
-  })
+  const array:any = [
+    "/images/teste/teste1.jpg",
+    "/images/teste/teste2.jpg",
+    "/images/teste/teste3.jpg"
+  ]
 
   // console.log(k)
   

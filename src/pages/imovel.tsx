@@ -22,19 +22,50 @@ const title = (title:string) => {
   )
 }
 
+const data:any = {
+  address: "Quadra CA 6",
+  barbecue: false,
+  bath: "2",
+  bedroom: "2",
+  br_maid: false,
+  business: "Venda",
+  c_date: 1542048393000,
+  cep: "71503506",
+  city: "Brasília",
+  cod: "VILLA112383V01",
+  condominium: "350",
+  district: "Lago Norte",
+  esport: false,
+  floor: false,
+  furnished: false,
+  games: true,
+  garage: false,
+  garden: false,
+  intercom: true,
+  iptu: false,
+  lat: "-15.80884",
+  lon: "-48.03128",
+  name: "Wave - Rua 18 norte - Águas Claras ",
+  obs: "Codigo anúncio: VILLA112383 - 202104151513\nWave Residence \n- 67m2 de área útil \n- 2 Quartos \n- Armários na cozinha e banheiros \n- 01 vaga no subsolo \n- Varanda grande \n- Lazer completo: \n- Piscina coberta aquecida \n- Sala de jogos \n- Academia \n- Spa \n- Espaço Gourmet \n- Portaria 24 horas \n- Sistema de câmeras \n- Próximo à estação Central do metrô \n- Próximo ao Parque \n\n\n*****\nEsse anuncio não é real. \nSomente um teste para o site de demonstração da Allmatech",
+  offer: "1",
+  p_type: "Apartamento",
+  party: true,
+  playground: true,
+  poll: false,
+  price: "50000",
+  room: false,
+  sauna: false,
+  square: "67",
+  src: "",
+  suite: false,
+  uf: "DF",
+  vacancy: "1",
+  whirlpool: true
+}
+
 
 export default function Imovel() {
-  const { property, setProperty } = useProperty()
-  const router = useRouter()
-  const cod  = router.query?.cod
-
-
-  let data:any
-  property?.filter((a:any) => {
-    if(a.cod == cod) {
-      data = a
-    }
-  })
+ 
 
   return (
     <>
