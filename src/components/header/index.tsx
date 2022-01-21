@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ReactNode } from 'react'
-import { HeadInfo, HeadNav } from './style'
-import Icon from 'public/icons'
-import empresa from 'shared/empresa'
+import { StyledHeadInfo, StyledHeadNav } from './style'
+import Icon from '../../shared/icons'
+import company from '../../shared/json/company'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import SocialNetwork from '../SocialNetwork'
 
 const LINKS = [
   {
@@ -42,21 +43,17 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   return (
     <nav>
-      <HeadInfo>
+      <StyledHeadInfo>
         <div> 
-          <a href={"mailto:" + empresa.email}><Icon.Email className="icon"/>{empresa.email}</a>
-          <a><Icon.Phone className="icon"/>{empresa.telefone}</a>
+          <a href={"mailto:" + company.email}><Icon.email />{company.email}</a>
+          <a><Icon.phone />{company.telefone}</a>
         </div>
-        <div>
-          <a href={empresa.twitter}><Icon.Twitter className="icon"/></a>
-          <a href={empresa.facebook}><Icon.Facebook className="icon"/></a>
-          <a href={empresa.instagram}><Icon.Instagram className="icon"/></a>
-          <a href={empresa.pinterest}><Icon.Pinterest className="icon"/></a>
-          <a href={empresa.linkedin}><Icon.Linkedin className="icon"/></a>
-        </div>
-      </HeadInfo>
-      <HeadNav open={open}>
-        <Link href={'/'}><a><Image src={empresa.logo.default} height={50} width={220} alt="logo" /></a></Link>
+        <SocialNetwork/>
+      </StyledHeadInfo>
+      <StyledHeadNav open={open}>
+        <Link href={'/'}>
+          <a><LazyLoadImage src={company.logo.default} height={50} width={220} alt="logo" /></a>
+        </Link>
         <ul>
           {LINKS.map(({name, path}) => (
             <li key={path}>
@@ -64,8 +61,8 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <Icon.Menu className="icon" onClick={() => setOpen(!open)}/>
-      </HeadNav>
+        <Icon.menu  onClick={() => setOpen(!open)}/>
+      </StyledHeadNav>
     </nav>
   )
 }

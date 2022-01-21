@@ -24,7 +24,11 @@ const empresa = {
             telefone: '(61) 90000-0000',
             cargo: 'Corretor',
             propiedade: [],
-            descricao: 'descrição do funcionario'
+            descricao: 'descrição do funcionario',
+            instagram: 'https://www.instagram.com/allmatech_ti/',
+            facebook: 'https://www.facebook.com/allmatech',
+            twitter: 'https://twitter.com/twitter',
+            linkedin: 'https://br.linkedin.com/'
 
         },
         {
@@ -34,7 +38,11 @@ const empresa = {
             telefone: '(61) 90000-0000',
             cargo: 'Consultor',
             propiedade: [],
-            descricao: 'descrição do funcionario'
+            descricao: 'descrição do funcionario',
+            instagram: 'https://www.instagram.com/allmatech_ti/',
+            facebook: 'https://www.facebook.com/allmatech',
+            twitter: 'https://twitter.com/twitter',
+            linkedin: 'https://br.linkedin.com/'
 
         },
         {
@@ -44,7 +52,11 @@ const empresa = {
             telefone: '(61) 90000-0000',
             cargo: 'Corretor',
             propiedade: [],
-            descricao: 'descrição do funcionario'
+            descricao: 'descrição do funcionario',
+            instagram: 'https://www.instagram.com/allmatech_ti/',
+            facebook: 'https://www.facebook.com/allmatech',
+            twitter: 'https://twitter.com/twitter',
+            linkedin: 'https://br.linkedin.com/'
 
         },
         {
@@ -54,7 +66,11 @@ const empresa = {
             telefone: '(61) 90000-0000',
             cargo: 'Telemarketing',
             propiedade: [],
-            descricao: 'descrição do funcionario'
+            descricao: 'descrição do funcionario',
+            instagram: 'https://www.instagram.com/allmatech_ti/',
+            facebook: 'https://www.facebook.com/allmatech',
+            twitter: 'https://twitter.com/twitter',
+            linkedin: 'https://br.linkedin.com/'
 
         },
         {
@@ -64,7 +80,11 @@ const empresa = {
             telefone: '(61) 90000-0000',
             cargo: 'cargo',
             propiedade: [],
-            descricao: 'descrição do funcionario'
+            descricao: 'descrição do funcionario',
+            instagram: 'https://www.instagram.com/allmatech_ti/',
+            facebook: 'https://www.facebook.com/allmatech',
+            twitter: 'https://twitter.com/twitter',
+            linkedin: 'https://br.linkedin.com/'
 
         }
     ],

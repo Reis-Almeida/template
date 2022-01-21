@@ -17,16 +17,15 @@ export const Main = styled.div<{ n:number }>`
 
     .type {
         display: flex;
-        flex-direction: row;
 
         div {
-            position: absolute;
             width: 100px;
             color: #fff;
-            font-size: 1.2rem;
             padding: 10px 0;
             margin-top: -45px;
+            font-size: 1.2rem;
             text-align: center;
+            position: absolute;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             background-color: ${ ({theme}) => theme.color.primary };
@@ -134,7 +133,7 @@ export const Form1 = styled(Form)`
             right: 40px;
             cursor: pointer;
 
-            &:hover { * { color: ${ ({theme}) => theme.color.primary }; } }
+            &:hover { color: ${ ({theme}) => theme.color.primary } }
         }
 
         select, input {

@@ -1,8 +1,8 @@
-import { Form } from './style'
+import { StyledForm } from './style'
 
 export default function Contact() {
   return (
-    <Form>
+    <StyledForm>
       <h2>SOBRE O QUE É SUA DUVIDA?</h2>
       <label htmlFor="">Nome</label>
         <input type="text" placeholder="Obrigatório" />
@@ -13,6 +13,6 @@ export default function Contact() {
       <label htmlFor="">Sua Mensagem</label>
         <textarea name="" rows={10}></textarea>
       <input type="submit" className="button" value="Enviar" />
-    </Form>
+    </StyledForm>
   )
 }

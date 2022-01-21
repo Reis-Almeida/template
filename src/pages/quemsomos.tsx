@@ -1,24 +1,15 @@
-import Head from 'next/head'
-import Header from '@components/header'
-import Footer from '@components/footer'
-import Text from '@components/text'
-import Gallery from '@components/gallery'
-import Navigation from '@components/navigation'
+import Layout from '../components/Layout'
+import { StyledMain } from '../styles/quemsomos'
+import company from '../shared/json/company'
 
 export default function QuemSomos() {
-  return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
-      <Header/>
-      <Navigation 
-        name={'Quem Somos'}
-      />
-      <Text/>
-      <main>
-      </main>
-      <Footer/>
-    </>
+  return(
+    <Layout>
+       <StyledMain>
+          <h1>Quem é {company.nome}?</h1>
+          <hr />
+          <article>{company.quemsomos}</article>
+        </StyledMain>
+    </Layout>
   )
 }

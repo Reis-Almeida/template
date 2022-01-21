@@ -1,26 +1,17 @@
 import styled from 'styled-components'
 
-export const BaseBoard = styled.footer`
+export const StyledFooter = styled.footer`
     bottom: 0;
     width: 100vw;
-    height: 60vh;
     padding: 0 60px;
     background-color: ${ ({theme}) => theme.color.second };
 
-    .item0 { grid-area: item0; }
-    .item1 { grid-area: item1; }
-    .item2 { grid-area: item2; }
-    .item3 { grid-area: item3; }
-    .item4 { grid-area: item4; }
+    input, h3, p, a { color: ${ ({theme}) => theme.fontColor.default } }
 
-    display: grid;
-    grid-template-areas:
-    'item0 item0 item0 item0 item0'
-    'item1 item2 item3 item3 item3'
-    'item1 item2 item3 item3 item3'
-    'item4 item4 item4 item4 item4';
-    grid-template-columns: 3fr 2fr 3fr;
-    grid-template-rows: auto 3fr auto;
+    & > span {
+        display: flex;
+        justify-content: space-between;
+    }
 
    .item1,.item2, .item3 {
        height: 215px;
@@ -30,22 +21,25 @@ export const BaseBoard = styled.footer`
        justify-content: space-between;
    }
 
-   .item0 {
-       margin: 50px 0 15px 0;
-       font-size: 2.5rem;
+   h1 {
        font-weight: 800;
+       font-size: 2.5rem;
+       margin: 50px 0 15px 0;
        color: ${ ({theme}) => theme.color.primary };
    }
 
    .item1 {
-       padding-right: 30px;
+       width: 30vw;
+       padding-right: 15px;
    }
 
    .item2 {
-       padding: 0 25px;
-       a {font-size: .9rem;}
+       width: 25vw;
+       min-width: 230px;
 
-       a>* {
+       a { font-size: .9rem }
+
+       svg {
             font-size: 1.1rem;
             margin-bottom: -3px;
        }
@@ -53,26 +47,30 @@ export const BaseBoard = styled.footer`
   
 
    .item3 {
+        min-width: 320px;
         padding-left: 30px;
-        a>* {
-            border: solid 1px ${ ({theme}) => theme.color.primary };
-            border-radius: 25px 25px;
+
+        svg {
             padding: 8px;
-            font-size: 2.3rem;
+            font-size: 2.4rem;
             margin-right: 20px;
+            border-radius: 25px 25px;
+            color: ${ ({theme}) => theme.color.primary };
+            border: solid 2px ${ ({theme}) => theme.color.primary };
 
             &:hover {
+                color:#fff;
                 background-color: ${ ({theme}) => theme.color.primary };
-                *{color:#fff;}
             }
+        }
+
+        span {
+            width: 95%;
+            display: flex;
         }
    }
 
-   input {
-        border: none;
-        height: 50px;
-        outline: none;
-    }
+   input { height: 50px }
 
     [type=email] {
         width: 22vw;
@@ -82,67 +80,45 @@ export const BaseBoard = styled.footer`
     }
 
     [type=submit] {
+        color: #fff;
         width: 100px;
         font-size: 1.2rem;
-        cursor: pointer;
-        color: #fff;
         border-radius: 0 20px 20px 0;
         background-color: ${ ({theme}) => theme.color.primary };
     }
 
-   .item4 {
+   .allma {
        display: flex;
-       flex-direction: row;
-       padding: 10px 0;
        margin-top: 20px;
+       padding: 10px 30px 10px 0;
        border-top: solid 1px #DCDCDC;
 
-       p {
-           margin-right: 10px;
-       }
+       p { margin-right: 10px }
    }
 
-    @media(max-width:1160px) and (min-width:811px) {
+    @media(max-width:1160px) {
         padding: 0 10px;
-
-        .item2 {
-            padding-left: 0;
-        }
-        .item3 {
-            padding: 0;
-
-            a>* {
-                margin-right: 1vw;
-            }
-        }
     }
 
-    @media(max-width:810px) {
-        padding: 0 25px 0 10px;
-        height: auto;
-        position: relative;
-        grid-template-areas:
-        'item0 item0 item0 item0 item0'
-        'item1 item1 item1 item1 item1'
-        'item2 item2 item2 item2 item2'
-        'item3 item3 item3 item3 item3'
-        'item4 item4 item4 item4 item4';
+    @media(max-width:770px) {
+        & > span {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-        .item1, .item2 {
-            height: auto;
-            margin: 0 0 60px 0;
+        .item1,.item2, .item3, [type=email] {
+           width: 90%;
         }
-        .item1, .item2, .item3 {
+
+        .item3 {
             padding: 0;
-                input[type=email] {
-                    width: 220px;
-                }
+            margin-top:45px;
         }
-       .item4 {
-            p {
-                font-size: 11px;
+
+       .allma p {
+                font-size: 14px;
                 margin-right: 0px;
+                width: 75vw;
             }
-       }
     }
 `

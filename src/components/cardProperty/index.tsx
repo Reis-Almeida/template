@@ -1,27 +1,24 @@
-import Image from 'next/image'
-import { Card } from './style'
-import Icon from 'public/icons'
+import { StyledCard } from './style'
+import Icon from '../../shared/icons'
 import Link from 'next/link'
+import SuspenseImage from '../SuspenseImage'
 
 
 export default function CardProperty({obj, card, change}:{obj: any, card:any, change:any}) {
 
-  let src = '/images/teste/carregando.jpg'
-  try {
-    src = obj.src.Foto[0].Link[0].URLArquivo
-
-  } catch(error) {}
+  const src = obj?.src?.Foto[0]?.Link[0]?.URLArquivo
+  // const src = '/dd'
 
   return (
-    <Card change={change} featured={obj.offer} card={card}>
+    <StyledCard change={change} featured={obj.offer} card={card}>
       <div>
-      <Image src={src} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
-        <span className="img">
+      <SuspenseImage src={src} />
+        <span className="image">
           <span>
             <div className="none"></div>
             <div className="price">
               <p>{obj.p_type}</p>
-              <p>${obj.price}</p>
+              <p>{'$' + obj.price}</p>
             </div>
           </span>
           <span>
@@ -35,31 +32,31 @@ export default function CardProperty({obj, card, change}:{obj: any, card:any, ch
       </div>
       <div className="desc">
           <h2>{obj.name}</h2>
-          <strong><Icon.Pin/>{obj.city} / {obj.district}</strong>
+          <strong><Icon.pin/>{obj.city} / {obj.district}</strong>
           <article>{obj.obs}</article>
         <div className="details">
           <span>
-            <p><Icon.Room className="I"/>{obj.room}</p>
+            <p><Icon.room className="I"/>{obj.room}</p>
             <p>Sala</p>
           </span>
           <span>
-            <p><Icon.Bedroom className="I"/>{obj.bedroom}</p>
+            <p><Icon.bedroom className="I"/>{obj.bedroom}</p>
             <p>Quarto</p>
           </span>
           <span>
-            <p><Icon.Bathroom/>{obj.bath}</p>
+            <p><Icon.bathroom/>{obj.bath}</p>
             <p>Banheiro</p>
           </span>
           <span className="E">
-            <p><Icon.Garage />1</p>
+            <p><Icon.garage />1</p>
             <p>Garagem</p>
           </span>
         </div>
-        <Link href={`/imovel?cod=${obj.cod}`}>
+        <Link href={`/imovel/${obj.cod}`}>
           <button><p>Mais Detalhes</p></button>
         </Link>
       </div>
-    </Card>
+    </StyledCard>
   )
 
 }

@@ -1,144 +1,134 @@
 import styled from 'styled-components'
 
-export const Main = styled.div<{ change:boolean }>`
+export const StyledList = styled.div<{ change:boolean }>`
+    display: flex;
     padding: 60px;
     padding-left: 0;
-    display: flex;
-    flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
 
     &>span {
-        min-height: 250vh;
         display: flex;
+        min-height: 250vh;
         flex-direction: column;
     }
 
     .order {
-        padding: 0 60px;
         width: 100%;
-        display: flex;
-        flex-direction: row;
+        padding: 0 60px;
         align-items: flex-start;
         justify-content: space-between;
 
+        &, span:nth-child(2){ display: flex; }
+
         button {
-            border: none;
-            font-size: 1rem;
             color: #fff;
+            border: none;
+            display: none;
             padding: 10px;
             cursor: pointer;
-            background-color: #d82460;
+            font-size: 1rem;
             margin: 0 0 10px 20px;
-            display: none;
+            background-color: #d82460;
         }
 
         select {
+            border: none;
+            outline: none;
             padding: 6px 4px;
             font-size: 1.0rem;
-            outline: none;
-            border: none;
             background-color: ${ ({theme}) => theme.color.second };
         }
 
         label { margin: 0 5px 0 15px; }
 
         svg {
-            font-size: 2.4rem;
             padding: 10px;
-            border: solid 1px #cccccc;
+            font-size: 2.4rem;
             border-radius: 5px;
+            border: solid 1px #cccccc;
 
 
             &:nth-child(1) {
                 margin-right: 5px;
+                color: ${({change}) => change ? 'currentcolor' : '#fff' };
                 background-color: ${({change, theme}) => change ? '#fff' : theme.color.primary};
-                * { color: ${({change}) => change ? 'currentcolor' : '#fff' }; }
             }
+            
             &:nth-child(2) {
+                color: ${({change}) => change ? '#fff' : 'currentcolor'};
                 background-color: ${({change, theme}) => change ? theme.color.primary : '#fff'};
-                * { color: ${({change}) => change ? '#fff' : 'currentcolor'}; }
             }
         }
-
-        span:nth-child(2){ display: flex; }
         
-        @media(max-width: 1075px) {
-            padding-right: 20px;
-        }
-        @media(max-width: 992px) {
-            label { margin: 0 5px 0 0; }
-            span:nth-child(2){ 
-                display: flex; 
-                width: 60vw;
-                justify-content: space-around;
-            }
-            /* width: auto; */
-            padding: 0;
-
-            svg { display: none; }
-        }
-        @media(max-width: 600px) {
-            button { display: block; }
-            /* align-items: flex-end; */
-            flex-direction: column;
-            span:nth-child(2){ 
-                padding: 0 20px;
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-        @media(max-width: 390px) {
-            span:nth-child(2){ 
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
     }
 
-    ul {
+    .groupCard {
+        width: 76vw;
         display: flex;
-        flex-direction: row;
-
-        .color {
-            border-color: ${({ theme }) => theme.color.primary};
-            background-color: ${({ theme }) => theme.color.primary};
-            color: #fff;
-        }
-
-        button {
-            padding: 5px;
-            margin: 0 5px;
-        }
+        flex-wrap: wrap;
+        padding: 30px 60px;
+        align-items: flex-start;
+        flex-direction: ${({change}) => change ? 'column' : 'row' };
+        justify-content: ${({change}) => change ? 'flex-start' : 'space-between' };      
     }
+
+
 
     @media(max-width: 992px) {
         padding: 60px 0;
-    }
-`
 
-export const Main2 = styled.div<{ change:boolean }>`
-    width: 76vw;
-    padding: 30px 60px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: ${({change}) => change ? 'column' : 'row' };
-    align-items: flex-start;
-    justify-content: ${({change}) => change ? 'flex-start' : 'space-between' };
+        .order {
+            padding: 0;
+
+            svg { display: none; }
+
+            label { margin: 0 5px 0 0; }
+
+            span:nth-child(2){ 
+                width: 60vw;
+                justify-content: space-around;
+            }
+
+        }
+
+        .groupCard {
+            padding: 0 20px;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
 
     @media(max-width: 1075px) {
-        padding-right: 20px;
-    }
-    @media(max-width: 600px) {
-        width: 150%;
-    }
-    @media(max-width: 992px)  and (min-width:600px) {
-        width: 60vw;
-    }
-    @media(max-width: 992px) {
-        padding: 0 20px;
-        flex-direction: row;
-        justify-content: space-around;
+        .order, .groupCard {
+            padding-right: 20px;
+        }
     }
 
+    @media(max-width: 992px)  and (min-width:600px) {
+        .groupCard { width: 60vw; }
+    }
+
+    @media(max-width: 600px) {
+        .order {
+            flex-direction: column;
+
+            button { display: block; }
+            
+            span:nth-child(2){ 
+                width: 100%;
+                padding: 0 20px;
+                justify-content: space-between;
+            }
+        }
+
+        .groupCard { width: 150% }
+    }
+
+    @media(max-width: 390px) {
+        .order span:nth-child(2) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
 `

@@ -1,9 +1,7 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Icon from 'public/icons'
+import Icon from '../../shared/icons'
 import { useState } from 'react'
-import userFilter from 'shared/useFilter'
-import { useProperty } from 'shared/useProperty'
+import userFilter from '../../hook/useFilter'
 import { Form1, Form2, Main } from './style'
 
 export default function Filter() {
@@ -14,7 +12,7 @@ export default function Filter() {
 function form() {
   return (
     <div>
-    <Icon.Close />
+    <Icon.close />
     <h2>Filtrar Imovel</h2>
     <span className="field">
       <label htmlFor="">Código do Imovel</label>
@@ -24,8 +22,8 @@ function form() {
       <label htmlFor="">Tipo</label>
       <select name="business" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
         <option value="0">Todos</option>
-        <option value="1">Venda</option>
-        <option value="2">Aluguel</option>
+        <option value="Venda">Venda</option>
+        <option value="Aluguel">Aluguel</option>
       </select>
     </span>
     <span className="field">
@@ -33,7 +31,7 @@ function form() {
       <select name="city" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         <option value="0">Todos</option>
         {city().map((e:any, i:any) =>(
-          <option value={e}>{e}</option>
+          <option key={`city${i}`} value={e}>{e}</option>
 
         ))}
       </select>
@@ -43,7 +41,7 @@ function form() {
       <select name="district" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         <option value="0">Todos</option>
         {district().map((e:any, i:any) =>(
-          <option value={e}>{e}</option>
+          <option key={`district${i}`}  value={e}>{e}</option>
 
         ))}
       </select>
@@ -60,16 +58,16 @@ function form() {
       <label htmlFor="">Quartos</label>
       <select name="bedroom" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         {Array.from({ length:11 }).map((_, i) =>(
-          <option value={i}>{i}+</option>
+          <option key={`bedroom${i}`} value={i}>{i}+</option>
 
         ))}
       </select>
     </span>
     <span className="field">
       <label htmlFor="">Banheiro</label>
-      <select name="bathroom" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
+      <select name="bath" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         {Array.from({ length:11 }).map((_, i) =>(
-          <option value={i}>{i}+</option>
+          <option key={`bathroom${i}`} value={i}>{i}+</option>
 
         ))}
       </select>
@@ -78,7 +76,7 @@ function form() {
       <label htmlFor="">Vagas</label>
       <select name="vacancy" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
         {Array.from({ length:11 }).map((_, i) =>(
-          <option value={i}>{i}+</option>
+          <option key={`vacancy${i}`} value={i}>{i}+</option>
 
         ))}
       </select>
@@ -98,15 +96,10 @@ function form() {
       </span>
     </span>
 
-    <Link href={`/listagem`}>
-      <input className="button" type="button" value="Buscar"/>
-    </Link>
+      <input className="button" type="submit" value="Buscar"/>
     </div>
   )
 }
-
-
-  const { property, setProperty } = useProperty()
 
   const [current, setCurrent] = useState(1)
   const { pathname } = useRouter()

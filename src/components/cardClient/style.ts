@@ -1,63 +1,51 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-export const Card = styled.div`
+export const StyledCard = styled.div`
+    width: 370px;
+    height: 280px;                                                                                                                                              
+    padding: 30px;
+    padding-top: 0;
+    overflow: visible;  
     margin-top: 100px;
     margin-bottom: 30px;
-    background-color: #fff;
-    width: 370px;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    overflow: visible;
-    padding: 0 30px 30px 30px;
+    background-color: #fff;
     box-shadow: 0 0 40px rgb(0 0 0 / 10%);
 
+    &, * {
+        display: flex;
+        flex-direction: column;
+    }
+    
     &:hover { box-shadow: 0 0 40px rgb(0 0 0 / 20%); }
 
-    h3 {
-        margin: 10px 0; 
-        color: ${ ({theme}) => theme.fontColor.title };
+    div > span { flex-direction: row; }
+
+    h3 { color: ${ ({theme}) => theme.fontColor.title }; }
+
+    &> span {
+        margin-top: -90px;
+        border-radius: 100%;
+        border: solid 2px rgb(0 0 0 / 5%);
     }
 
-    h4 {
+    .img {
+        width: 100px;
+        height: 100px;
+    }
+
+    h4, svg {
         font-weight: bold; 
-        margin-bottom: 10px;
         color: ${ ({theme}) => theme.color.primary }; 
     }
 
-    svg *{
-        color: ${ ({theme}) => theme.color.primary };
-    }
 
-    &> span {
-            position: relative;
-            margin-top: -60px;
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-        }
-
-
-    &> article {
-        overflow: hidden;
-        color: ${ ({theme}) => theme.fontColor.bigTitle };
-        text-align: center;
+    article {
         height: 130px;
+        text-align: center;
+        color: ${ ({theme}) => theme.fontColor.bigTitle };
     }
     
-    &> div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-
-        &> span {
-            display: flex;
-            flex-direction: row;
-        }
-
-    }
 
     @media(max-width:1270px) and (min-width: 860px) {
             width: 28vw;

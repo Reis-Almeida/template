@@ -1,8 +1,9 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
-    images: {
-      domains: [
-        'storage.allmatech.com.br',
-        'dev.storage.allmatech.com.br'
-      ],
-    },
-  }
+  images: {
+    domains: [
+      'storage.allmatech.com.br',
+      'dev.storage.allmatech.com.br'
+    ],
+  },
+}

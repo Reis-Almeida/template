@@ -8,7 +8,7 @@ const normal = css<{ featured:string }>`
         width: 270px;
         height: 180px;
     }
-    .img {   
+    .image {   
         width: 270px;
         height: 180px;
     }
@@ -32,7 +32,7 @@ const normal = css<{ featured:string }>`
             width: 28vw;
         }
 
-        .img {   
+        .image {   
             width: 28vw;
         }
         .desc {
@@ -52,7 +52,7 @@ const featured = css`
         height: 260px;
     }
     
-    .img {   
+    .image {   
         width: 370px;
         height: 260px;
     }
@@ -72,7 +72,7 @@ const featured = css`
     }
 
     @media(max-width:1270px) and (min-width: 860px) {
-        .img, .desc,
+        .image, .desc,
         &>div:nth-child(1){ 
             width: 28vw;
             min-width: 265px;
@@ -82,7 +82,7 @@ const featured = css`
     }
 
     @media(max-width:810px) and (min-width: 730px) {
-        .img, .desc,
+        .image, .desc,
         &>div:nth-child(1){ 
             width: 330px;
         }
@@ -98,7 +98,7 @@ const list = css<{ change:boolean, featured:string }>`
 
     flex-direction: ${({change}) => change ? 'row' : 'column' };
 
-    .img, &>div:nth-child(1) {   
+    .image, &>div:nth-child(1) {   
         width: 32vw;
         height: 280px;
         min-width: 300px;
@@ -114,13 +114,15 @@ const list = css<{ change:boolean, featured:string }>`
     @media (max-width: 992px) and (min-width:600px) {
         flex-direction: column;
 
-        .desc, .img, &>div:nth-child(1) {   
+        .desc, .image, &>div:nth-child(1) {   
             width: 46vw;
         }
     }
 
     @media (max-width: 600px) {
-        .desc, .img, &>div:nth-child(1) {   
+        flex-direction: column;
+        
+        .desc, .image, &>div:nth-child(1) {   
             width: 70vw;
         }
     }
@@ -128,7 +130,7 @@ const list = css<{ change:boolean, featured:string }>`
 `
 //420px
 
-export const Card = styled.div<{ change:boolean, featured:string, card:number }>`
+export const StyledCard = styled.div<{ change:boolean, featured:string, card:number }>`
     display: flex;
     margin: 15px 0;
     flex-direction: column;
@@ -139,19 +141,24 @@ export const Card = styled.div<{ change:boolean, featured:string, card:number }>
         position: relative; 
     }
 
+    img {
+        width: 100%;
+        height:100%;
+    }
+
 
     &:hover { box-shadow: 0 0 40px rgb(0 0 0 / 20%); }
 
     h2 { width: 100%; }
 
-    .img {
+    .image {
         display: flex;
         flex-direction: column;
         position: absolute;
         justify-content: space-between;   
     }
 
-    .img span {
+    .image span {
         display: flex;
         width: 100%;
         justify-content: space-between; 

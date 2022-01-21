@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from 'react'
-import Arr from './Property'
+// import Arr from '../hook/useJson'
 
 const listProperty = createContext({})
 
 
 export default function ListProvider({ children }:any) {
-    const [ property, setProperty ] = useState<any>(Arr)
-    const [ filter, setFilter ] = useState<any>(Arr)
+    const [ property, setProperty ] = useState<any>(null)
+    const [ filter, setFilter ] = useState<any>(null)
 
     return (
         <listProperty.Provider value={{ property, setProperty, filter, setFilter }}>

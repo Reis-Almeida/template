@@ -1,33 +1,31 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
+export const StyledMain = styled.main`
     width: 100vw;
     display: flex;
     padding: 60px;
     align-items: flex-start;
-    /* flex-wrap: wrap; */
     justify-content: space-between;
 
-    .mare {
-        margin-left: 20px;
-        & > div {
-            width: 20vw;
-            margin-bottom: 30px;
+    .mare > div {
+        width: 250px;
+        margin-bottom: 30px;
 
-            h3 {
-                text-align: center;
-                margin-bottom: 10px;
-            }
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: ${ ({theme}) => theme.fontColor.title };
+        }
 
-            form { 
-                padding: 0;
-                h2 { display: none;}
-            }
+        form { 
+            padding: 0;
+            h2 { display: none;}
         }
     }
 
     .main { 
-        width: 65vw;
+        position: relative;
+        width: 850px;
         display: flex;
         flex-direction: column;
         /* border: solid 1px red;  */
@@ -35,7 +33,7 @@ export const Main = styled.div`
 
 
     p, h1, 
-    svg *,
+    svg ,
     article {
             display: flex;
             color: ${ ({theme}) => theme.fontColor.bigTitle };
@@ -86,18 +84,24 @@ export const Main = styled.div`
 
     .title {
         margin-top: 50px;
+        width: 100%;
+        color: ${ ({theme}) => theme.fontColor.title };
 
         span { display: flex; }
 
         hr {
             height: 2px;
-            width: 15vw;
             border: none;
             margin: 20px 0;
-            background-color: ${ ({theme}) => theme.color.primary};
+    
+            &:first-child {
+                position: absolute;
+                width: 200px;
+                background-color: ${ ({theme}) => theme.color.primary};
 
+            }
             &:last-child {
-                width: 50vw;
+                width: 100%;
                 background-color: ${ ({theme}) => theme.color.second};
 
             }
@@ -105,17 +109,16 @@ export const Main = styled.div`
     }
 
     .location {
-        height: 140px;
         display: flex;
         flex-wrap: wrap;
-        overflow: hidden;
-        align-content: space-between;
         justify-content: space-between;
+        width: 100%;
 
         span {
-            width: 32vw;
+            width: 420px;
             display: flex;
             border: solid 1px #ddd;
+            margin-bottom: 10px;
 
             div:nth-child(1) {
                 width: 100px;
@@ -140,7 +143,7 @@ export const Main = styled.div`
         padding-bottom: 15px;
 
         li {
-            width: 30vw;
+            width: 400px;
             height: 50px;
             display: flex;
             margin: 0 12px;
@@ -155,9 +158,9 @@ export const Main = styled.div`
         }
 
         svg:nth-child(2) {
+            color: #fff;
             padding: 5px;
             font-size: 1.3rem;
-            * { color: #fff; };
             background-color: ${ ({theme}) => theme.color.primary };
         }
 
@@ -170,50 +173,47 @@ export const Main = styled.div`
         
     }
 
-    .calculator {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        span {
-            display: flex;
-            justify-content: center;
+    @media(max-width: 1230px) {
+        .specification li,
+        .location span {
             width: 100%;
         }
-        
-        svg, input {
-            margin: 10px 0;
-            outline: none;
-            padding: 12px 5px;
-            font-size: 1rem;
-            border: solid 1px #ddd;
-            background-color: ${ ({theme}) => theme.color.second};
+        .main {
+            width: 750px;
         }
-        
-        input { width: 100%; }
+    }
 
-        svg {
-            padding: 14px 5px;
-            font-size: 3rem;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
+    @media(max-width: 1130px) {
+        .main {
+            width: 600px;
         }
+    }
 
-        
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+    @media(max-width: 992px) {
+        padding: 60px 20px;
+        width: 98vw;
+    }
+
+    @media(max-width: 920px) {
+        flex-wrap: wrap;
+        .main {
+            width: 100%;
         }
 
-        button {
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            padding: 10px 15px;
-            background-color: ${ ({theme}) => theme.color.primary};
-        }
+        .mare {
+            width: 100%;
+            margin-top: 60px;
 
+            div {
+                width: 100%;
+            }
+        }
+    }
+
+    @media(max-width: 920px) and (min-width: 680px) {
+        /* .specification li, */
+        .location span {
+            width: 46vw;
+        }
     }
 `

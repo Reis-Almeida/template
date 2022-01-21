@@ -1,26 +1,17 @@
-import CardServant from '@components/cardServant'
-import Footer from '@components/footer'
-import Header from '@components/header'
-import Navigation from '@components/navigation'
-import empresa from 'shared/empresa'
-import { Main } from 'src/styles/equipe'
+import CardServant from '../components/CardServant'
+import Layout from '../components/Layout'
+import { StyledMain } from '../styles/equipe'
+import company from '../shared/json/company'
 
 export default function Equipe() {
-  return (
-    <>
-      <Header/>
-      <Navigation 
-        name={'Equipe'}
-        />
-      <Main>
-        {empresa.equipe.map((i, e) => (
-          <CardServant  key={e} obj={i} />
-         
-        ))}    
-      </Main>
-      <main>
-      </main>
-      <Footer/>
-    </>
-    )
+  return(
+    <Layout>
+        <StyledMain>
+          {company.equipe.map((i, e) => (
+            <CardServant  key={`servant${e}`} obj={i} />
+          
+          ))}    
+        </StyledMain>
+    </Layout>
+  )
 }

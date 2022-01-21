@@ -1,43 +1,40 @@
-import { BaseBoard } from './style'
-import empresa from 'shared/empresa'
-import Image from 'next/image'
-import Icon from 'public/icons'
+import { StyledFooter } from './style'
+import company from '../../shared/json/company'
+import Icon from '../../shared/icons'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import SocialNetwork from '../SocialNetwork'
 
 export default function Footer() {
   return (
-    <BaseBoard>
-        <h1 className="item0">{empresa.nome}</h1>
-        <div className="item1">
-          <p>{empresa.descricao}</p>
-        </div>
-        <div className="item2">
-          <a><Icon.Building/>{empresa.endereco}</a>
-          <a><Icon.Phone/>{empresa.telefone}</a>
-          <a><Icon.Telegram/>{empresa.telegram}</a>
-          <a href={'https://api.whatsapp.com/send?1=pt_BR&phone=55' + empresa.whatsapp}><Icon.Whatsapp/>{empresa.whatsapp}</a>
-          <a href={"mailto:" + empresa.email}><Icon.Email/>{empresa.email}</a>
-        </div>
-        <div className="item3">
-          <h3>Inscreva-se em nossa Newsletter</h3>
-          <form action="" method="post">
-            <input type="email" placeholder="E-mail"/>
-            <input type="submit" value="Enviar" />
+    <StyledFooter>
+        <h1>{company.nome}</h1>
+        <span>
+          <div className="item1">
+            <p>{company.descricao}</p>
+          </div>
+          <div className="item2">
+            <a><Icon.building/>{company.endereco}</a>
+            <a><Icon.phone/>{company.telefone}</a>
+            <a><Icon.telegram/>{company.telegram}</a>
+            <a href={'https://api.whatsapp.com/send?1=pt_BR&phone=55' + company.whatsapp} target="_blank" rel="noreferrer" ><Icon.whatsapp/>{company.whatsapp}</a>
+            <a href={"mailto:" + company.email}><Icon.email/>{company.email}</a>
+          </div>
+          <form className="item3" action="" method="post">
+              <h3>Inscreva-se em nossa Newsletter</h3>
+              <span>
+                <input type="email" placeholder="E-mail"/>
+                <input type="submit" value="Enviar" />
+              </span>
+              <h3>Siga-nos</h3>
+              <SocialNetwork />
           </form>
-          <h3>Siga-nos</h3>
-          <span>
-            <a href={empresa.twitter}><Icon.Twitter /></a>
-            <a href={empresa.facebook}><Icon.Facebook /></a>
-            <a href={empresa.instagram}><Icon.Instagram /></a>
-            <a href={empresa.pinterest}><Icon.Pinterest /></a>
-            <a href={empresa.linkedin}><Icon.Linkedin /></a>
-          </span>
-        </div>
-        <div className="item4">
+        </span>
+        <div className="allma">
           <p>
-            © 2021 {empresa.nome} – Todos os direitos reservados – Desenvolvido por Allmatech TI
+            © 2021 {company.nome} – Todos os direitos reservados – Desenvolvido por Allmatech TI
           </p>
-            <Image className="img" src={empresa.logo.footer} height={30} width={30} alt="logo" />
+            <LazyLoadImage className="img" src={company.logo.footer} height={30} width={30} alt="logo" />
         </div>
-    </BaseBoard>
+    </StyledFooter>
   )
 }

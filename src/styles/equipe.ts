@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
+export const StyledMain = styled.main`
     padding: 60px;
-    flex-direction: row;
 
     &, * {
         display: flex;

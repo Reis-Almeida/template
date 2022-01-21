@@ -1,54 +1,36 @@
-import Head from 'next/head'
-import Header from '@components/header'
-import Footer from '@components/footer'
-import Contact from '@components/contact'
-import Navigation from '@components/navigation'
-import empresa from 'shared/empresa'
-import Icon from 'public/icons'
-import { Main } from 'src/styles/contato'
-
+import Layout from '../components/Layout'
+import Icon from '../shared/icons'
+import { StyledMain } from '../styles/contato'
+import company from '../shared/json/company'
+import Contact from '../components/Contact'
+import SocialNetwork from '../components/SocialNetwork'
 
 export default function Contato() {
-  return (
-    <>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
-      <Header/>
-      <Navigation 
-        name={'Contato'}
-      />
-
-      <Main>
+  return(
+    <Layout>
+     <StyledMain>
         <div>
           <span className="info">
-            <Icon.Pin/>
+            <Icon.pin/>
             <h3>Endereço</h3>
             <article>
-              <p>Rua 09 Norte, Lote 01</p>
-              <p>Águas Claras, Brasília - DF</p>
+              <p>{company.endereco}</p>
             </article>
           </span>
           <span className="info">
-            <Icon.Headset/>
+            <Icon.headset/>
             <h3>Telefone & Email</h3>
             <article>
-              <p>{empresa.telefone}</p>
-              <p>{empresa.email}</p>
+              <p>{company.telefone}</p>
+              <p>{company.email}</p>
             </article>
           </span>
           <span className="info">
-            <Icon.Share/>
+            <Icon.share/>
             <h3>Manter contato</h3>
             <article>
               <p>Siga-nos nas redes sociais</p>
-              <span>
-                <a href={empresa.twitter}><Icon.Twitter /></a>
-                <a href={empresa.facebook}><Icon.Facebook /></a>
-                <a href={empresa.instagram}><Icon.Instagram /></a>
-                <a href={empresa.pinterest}><Icon.Pinterest /></a>
-                <a href={empresa.linkedin}><Icon.Linkedin /></a>
-              </span>
+              <SocialNetwork />
             </article>
           </span>
           
@@ -70,11 +52,7 @@ export default function Contato() {
               </article>
             </span>
         </div>
-      </Main>
-
-      <main>
-      </main>
-      <Footer/>
-    </>
+      </StyledMain>
+    </Layout>
   )
 }

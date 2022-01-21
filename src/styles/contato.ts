@@ -1,38 +1,36 @@
 import styled from 'styled-components'
 
-export const Main = styled.main`    
+export const StyledMain = styled.main`    
     &>div {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        width: 100vw;
         padding: 30px 60px 60px 60px;
     }
 
     label,
     article,
-    h1, h2, p {  color: ${ ({theme}) => theme.fontColor.bigTitle }; }
+    h1, h2, p {  color: ${ ({theme}) => theme.fontColor.bigTitle } }
 
     div:nth-child(1) {
-        /* border: solid 1px #000; */
         padding-top: 60px;
         padding-bottom: 0;
+
         .info {
+            height: 250px;
             width: 28vw;
             min-width: 270px;
-            height: 250px;
             display: flex;
-            align-items: center;
-            flex-direction: column;
             padding-top: 45px;
+            align-items: center;
             margin-bottom: 30px;
+            flex-direction: column;
             box-shadow: 0 0 40px rgb(0 0 0 / 10%);
         }
 
         svg {
             font-size: 42px;
-            * {color: ${ ({theme}) => theme.fontColor.bigTitle };}
+            color: ${ ({theme}) => theme.fontColor.bigTitle };
         }
         
         h3 {
@@ -48,12 +46,12 @@ export const Main = styled.main`
         }
 
         a svg{
+            color: pink;
             padding: 6px;
             margin: 0 5px;
             font-size: 35px;
             border-radius: 20px;
             border: solid 2px pink;
-            * {color: pink}
         }
     }
 

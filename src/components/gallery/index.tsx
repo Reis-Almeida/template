@@ -1,9 +1,8 @@
 import Image from 'next/image'
-import { useRouter } from 'next/router'
-import Icon from 'public/icons'
-import { useEffect, useState } from 'react'
-import { useProperty } from 'shared/useProperty'
-import { Carrossel } from './style'
+import Icon from '../../shared/icons'
+import { useState } from 'react'
+import { StyledCarousel } from './style'
+import SuspenseImage from '../SuspenseImage'
 
 type Params = [
   {
@@ -12,7 +11,7 @@ type Params = [
   }
 ]
 
-export default function Gallery({src}:{src:any}) {
+export default function Gallery() {
 
   const array:any = [
     "/images/teste/teste1.jpg",
@@ -20,14 +19,18 @@ export default function Gallery({src}:{src:any}) {
     "/images/teste/teste3.jpg"
   ]
 
+  // src.src.Foto.filter((a:any) => {
+  //   array.push(a.Link[1].URLArquivo)
+  // })
+
   // console.log(k)
   
+  const [direction, SetDirection] = useState<boolean>(true) // true = left = flex-start -> , false = right = flex-end <-
+  const [side, setSide] = useState<number>(0)
+  const [count, setCount] = useState<Params>(updateArray(0))
+
   const itens: number = 5
-  let [direction, SetDirection] = useState(true) // true = left <- , false = right ->
-  let [left, SetLeft] = useState(850)
-  let [right, SetRight] = useState(850)
-  let [count, setCount] = useState<Params>(updateArray(0))
-  let first: number = list(array.length, itens, count[0 + 1].id)
+  const first: number = list(array.length, itens, count[0 + 1].id)
 
 
   function list(pages: number, itens: number, current:number): number {
@@ -54,40 +57,28 @@ export default function Gallery({src}:{src:any}) {
     return params
   }
 
-  function side() {
-
-    if(direction) {
-        const l: number = count[0 + 2].id -1 
-        setCount(count = updateArray(l))
-        SetLeft(left = 850)
-    }else {
-        const r: number = count[0].id - 1
-        setCount(count = updateArray(r))
-        SetRight(right = 850)
-
-    }
-  }
-
   function whichDirection(which: boolean) {
-
-    SetDirection(direction = which)
-
-    var effect = setInterval(
-      function() {
-        which == true ? SetLeft(left = (left - 30)) :  SetRight(right = (right - 30))
-    }, 1)
+    SetDirection(which)
+    setSide(which ? 1 : -1)
 
     setTimeout(()=> {
-      clearInterval(effect)
-      side()
-    }, 300)
+      
+      if(which) {
+          const l: number = count[0 + 2].id -1 
+          setCount(updateArray(l))
+      }else {
+          const r: number = count[0].id - 1
+          setCount(updateArray(r))
+      }
 
+      setSide(0)
+    }, 500)
   }
 
   function onlyOne(side: boolean, id:number): Params {
     const params: Params = count
     if(side) {
-      params[ 0 + 2] = { id:id, name:array[id] }
+      params[0 + 2] = { id:id, name:array[id] }
     }else {
       params[0] = { id:id, name:array[id] }
     }
@@ -98,61 +89,41 @@ export default function Gallery({src}:{src:any}) {
   function imgList(id: number) {
       const current:boolean = id > count[0 + 1].id
       if(current) {
-        setCount(count = onlyOne(current, id))
+        setCount(onlyOne(current, id))
         whichDirection(current)
         
       }else {
-        setCount(count = onlyOne(current, id))
+        setCount(onlyOne(current, id))
         whichDirection(current)
        
       }
   }
 
-  function style1(direction: boolean): object {
-    if(direction){
-      return { justifyContent: 'flex-start' }
-    }else {
-      return { justifyContent: 'flex-end' }
-    }
-  }
-
-  function style2(id: number) {
-    switch(id) {
-      case 0:
-        return { width: `${left}px` }
-      case 1:
-        return { width: `850px` }
-      case 2:
-        return { width: `${right}px` }
-      
-    }
-  }
-
   return (
 
-      <Carrossel direction={direction}>
-        <span style={style1(direction)}>
+      <StyledCarousel direction={direction} side={side}>
+        <span>
           {Array.from({ length: 3 }).map((_,i) => (
-            <div key={i} style={style2(i)}>
-              <Image src={count[i]?.name} width={850} height={600} alt="imagem indisponivel"/>
+            <div key={i} >
+              <SuspenseImage src={count[i].name} className='img' />
             </div>
           ))}
         </span>
         <span>
           <div>
-            <Icon.Left onClick={() =>whichDirection(false)}/>
-            <Icon.Left onClick={() =>whichDirection(true)}/>
+            <Icon.left onClick={() => side === 0 ? whichDirection(false) : null}/>
+            <Icon.left onClick={() => side === 0 ? whichDirection(true) : null}/>
           </div>
           <div>
           {Array.from({ length: Math.min(itens, array.length) })
             .map((_, index)=> index + first)
             .map((id) => (
               <button key={id} onClick={() =>imgList(id)} className={count[0 + 1].id === id ? 'selected' : ''} disabled={count[0 + 1].id === id}>
-                <img src={array[id]}  width={110} height={80} alt="imagem indisponivel"/>
+                <SuspenseImage src={array[id]} />
               </button>
           ))}
           </div>
         </span>
-      </Carrossel>
+      </StyledCarousel>
     )
 }

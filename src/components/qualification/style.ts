@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-export const Main = styled.div`
+export const StyledQualification = styled.div`
     width: 100vw;
     padding: 0 60px 50px 60px;
     background-color: ${ ({theme}) => theme.color.second };
-    /* border: solid 1px #000; */
 
     * {
         display: flex;
@@ -16,6 +15,8 @@ export const Main = styled.div`
     h1, h5, article {
         color: ${ ({theme}) => theme.fontColor.bigTitle };
     }
+
+    h3 { color: ${ ({theme}) => theme.fontColor.title } }
 
     h1 {
         font-size: 40px;
@@ -42,7 +43,7 @@ export const Main = styled.div`
             border-radius: 100%;
             border: solid 8px #fff;
             
-            svg, svg * {
+            svg {
                 font-size: 40px;
                 color: ${ ({theme}) => theme.color.primary };
             }

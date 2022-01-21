@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
+export const StyledCard = styled.div`
     margin-bottom: 30px;
     box-shadow: 0 0 40px rgb(0 0 0 / 10%);
 
@@ -9,7 +9,6 @@ export const Card = styled.div`
     span:nth-child(1) {
         width: 250px;
         height: 250px;
-        position: relative;
     }
 
    span:nth-child(2) {
@@ -23,7 +22,7 @@ export const Card = styled.div`
 
         svg { font-size: 1.2rem; }
 
-        p, hr, svg *{
+        p, hr, svg {
             align-items: center;
             color: ${ ({theme}) => theme.fontColor.bigTitle };
         }
@@ -47,11 +46,11 @@ export const Card = styled.div`
                 cursor: pointer;
                 font-size: 2.5rem;
                 border-radius: 100%;
-                * { color: ${ ({theme}) => theme.color.primary }; }
+                color: ${ ({theme}) => theme.color.primary };
                 border: solid 2px ${ ({theme}) => theme.color.primary };
 
                 &:hover {
-                    * { color: #fff; }
+                    color: #fff;
                     background-color: ${ ({theme}) => theme.color.primary };
                 }
             }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HeadInfo = styled.div`
+export const StyledHeadInfo = styled.div`
     height: auto;
     width: 100vw;
     padding: 0 60px;
@@ -9,31 +9,24 @@ export const HeadInfo = styled.div`
 
     &, * {
         display: flex;
-        flex-direction: row;
         font-size: 14px;
-        color: ${ ({theme}) => theme.fontColor.default };
+        color: #fff;
     }
 
-    div {
+    div a {
+        padding-right: 30px;
+    }
 
-        &:nth-child(1) a {
-            padding-right: 30px;
+    span a {
+    height: 40px;
+    padding: 0 10px;
 
-        }
-
-        &:nth-child(2) a {
-        height: 40px;
-        padding: 0 10px;
-
-            &:hover {
-                background-color: ${ ({theme}) => theme.color.third };
-            }
+        &:hover {
+            background-color: ${ ({theme}) => theme.color.third };
         }
     }
 
-    .icon {
-        font-size: 16px;
-    }
+    svg { font-size: 16px }
 
     @media(max-width: 800px) {
         padding: 0;
@@ -43,16 +36,16 @@ export const HeadInfo = styled.div`
     @media(max-width: 640px) {
         height: 40px;
 
-        div:nth-child(2) a {
-            display: none;
-        }
+        span { display: none; }
+
         div:nth-child(1) a {
             padding: 0;
             margin: 0 5px;
         }
         div:nth-child(1) {
             width: 100vw;
-            justify-content: space-around;
+            padding: 0 30px 0 10px;
+            justify-content: space-between;
         }
                 
     }
@@ -61,16 +54,15 @@ export const HeadInfo = styled.div`
 `
 
 
-export const HeadNav = styled.div<{ open:boolean }>`
+export const StyledHeadNav = styled.div<{ open:boolean }>`
     height: 70px;
     width: 100vw;
     padding: 0 60px;
 
     &, * {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         font-size: 20px;
+        justify-content: space-between;
     }
 
     span, li > a {
@@ -78,14 +70,15 @@ export const HeadNav = styled.div<{ open:boolean }>`
         padding: 0 40px;
         user-select: none;
         cursor: pointer;
+        color: ${ ({theme}) => theme.fontColor.default };
 
         &:hover {
-            color: ${ ({theme}) => theme.fontColor.default };
+            color: #fff;
             background-color: ${ ({theme}) => theme.color.third };
         }
     }
 
-    .icon {
+    svg {
         z-index: 1;
         font-size: 40px;
         display: none;
@@ -93,9 +86,9 @@ export const HeadNav = styled.div<{ open:boolean }>`
         cursor: pointer;
            
         &:hover {
+               color: #fff;
                border-radius: 25%;
                background-color: ${ ({theme}) => theme.color.third };
-               * {color: ${ ({theme}) => theme.fontColor.default };}
         }
     }
 
@@ -106,7 +99,7 @@ export const HeadNav = styled.div<{ open:boolean }>`
 
     @media(max-width: 890px) {
 
-        .icon {display: block;}
+        svg {display: block;}
 
         ul {
             position: absolute;
@@ -124,7 +117,7 @@ export const HeadNav = styled.div<{ open:boolean }>`
                 height: 50px;
                 width: 100vw;
                 justify-content: center;
-                color: ${ ({theme}) => theme.fontColor.default };
+                color: #fff;
                 background-color: ${ ({theme}) => theme.color.third };
 
                 &:hover {

@@ -1,15 +1,25 @@
-import Image from 'next/image'
-import { Card } from './style'
-import Icon from 'public/icons'
-import Link from 'next/link'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { StyledCard } from './style'
+import Icon from '../../shared/icons'
 
 
-export default function CardClient({obj}:{obj: any}) {
+type PropsClient = {
+  obj: {
+    src: string
+    title: string
+    description: string
+    name: string
+    star: number
+  }
+
+}
+
+export default function CardClient({obj}:PropsClient) {
 
   return (
-    <Card>
+    <StyledCard>
         <span>
-        <Image src={obj.src} objectFit='cover' layout="fill" alt="imagem indisponivel"/>
+        <LazyLoadImage src={obj.src} className="img" alt="imagem indisponivel"/>
         </span>
         <article>
           <h3>{obj.title}</h3>
@@ -17,12 +27,13 @@ export default function CardClient({obj}:{obj: any}) {
         </article>
         <div>
           <h4>{obj.name}</h4>
-          <span>{ Array.from({ length: 5 }).map((_, e:any) => {
-              return e < obj.star ? <Icon.StarColor /> : <Icon.Star />
-          }) }
+          <span>
+            { Array.from({ length: 5 }).map((_, e:number) => {
+                return (e < obj.star) ? <Icon.starColor key={`star${e}`} /> : <Icon.star key={`star${e}`} />
+            }) }
           </span>
         </div>
-    </Card>
+    </StyledCard>
   )
 
 }
