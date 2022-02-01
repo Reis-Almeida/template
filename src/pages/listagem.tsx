@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import CardProperty from '../components/CardProperty'
+import { Select } from '../components/Fields'
 import Filter from '../components/Filter'
 import Layout from '../components/Layout'
+import Navigation from '../components/Navigation'
 import Pagination from '../components/Pagination'
 import { useProperty } from '../context/useProperty'
 import userFilter from '../hook/useFilter'
@@ -14,15 +16,16 @@ export default function Listagem() {
 
   const { filter, setFilter } = useProperty()
 
-  const [change, setChange] = useState(true)
-  const [count, setCount] = useState(1)
+  const [change, setChange] = useState<boolean>(true)
+  const [count, setCount] = useState<number>(1)
 
-  const itens: number = 9
+  const items: number = 9
 
-  const first: number = pagination(convertPage(4, filter).length, itens, count)
+  const first: number = pagination(convertPage(4, filter).length, items, count)
 
   return(
     <Layout>
+      <Navigation name={"Listagem"} />
       <StyledList change={change}>
         <span>
           <div className="order">
@@ -32,22 +35,21 @@ export default function Listagem() {
               <button>Filtrar Imóvel</button>
             </span>
             <span>
-              <div>
-                <label htmlFor="">Ordenar por:</label>
-                <select name="class" onChange={(ev) => setFilter([...orderUpdate(filter, ev.target.name, ev.target.value)])} >
+              <Select label="Ordenar por:" name="class" onChange={(ev) => setFilter([...orderUpdate(filter, ev.target.name, ev.target.value)])}>
                   <option value="0">Nome</option>
                   <option value="1">Preço</option>
                   <option value="2">Publicação</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="">Mostra:</label>
-                <select name="sec" onChange={(ev) => setFilter([...orderUpdate(filter, ev.target.name, ev.target.value)])} >
+              </Select>
+              <Select label="Mostra:" name="sec" onChange={(ev) => setFilter([...orderUpdate(filter, ev.target.name, ev.target.value)])}>
                   <option value="0">ASC</option>
                   <option value="1">DESC</option>
-                </select>
-              </div>
+              </Select>
             </span>
+          </div>
+
+          <div className="results">
+            <h3>{filter?.length > 0 ? `${filter.length} Resultado(s)`: "Nenhum resultado encontrado"}</h3>
+            <hr />
           </div>
 
           <div className="groupCard">
@@ -56,13 +58,15 @@ export default function Listagem() {
             ))}
           </div>
 
-          <Pagination
+         {filter?.length > 0 ? (
+            <Pagination
               first={first}
-              itens={itens}
+              items={items}
               count={count}
               setCount={setCount}
-              convertPage={convertPage}
-          />
+              page={convertPage(4, filter).length}
+            />
+         ): false}
           
         </span>
         <Filter />

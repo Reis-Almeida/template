@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { Nav } from './style'
-import Icon from 'public/icons'
-import empresa from 'shared/empresa'
+import { StyledNav } from './style'
 
 const LINKS = [
   {
@@ -29,10 +26,13 @@ const LINKS = [
 export default function Navigation({name}:{name:string}) {
   const { pathname } = useRouter()
   const [open, setOpen] = useState(false)
+
+  // console.log(window.location.href)
+  
   return (
-    <Nav>
+    <StyledNav>
       <div className="img">
-        <Image src={"/images/teste/nav.jpg"} objectFit='cover' layout="fill" />
+        <img src={"/images/teste/nav.jpg"} />
       </div>
       <div className="info">
       <h1>{name}</h1>
@@ -42,6 +42,6 @@ export default function Navigation({name}:{name:string}) {
           <p>{name}</p>
         </span>
       </div>
-    </Nav>
+    </StyledNav>
   )
 }

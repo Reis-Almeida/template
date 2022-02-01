@@ -1,17 +1,17 @@
+import { Input } from '../Fields'
 import { StyledForm } from './style'
 
 export default function Contact() {
   return (
     <StyledForm>
       <h2>SOBRE O QUE É SUA DUVIDA?</h2>
-      <label htmlFor="">Nome</label>
-        <input type="text" placeholder="Obrigatório" />
-      <label htmlFor="">Email</label>
-        <input type="email" placeholder="Obrigatório" />
-      <label htmlFor="">Assunto</label>
-        <input type="text" />
+      <Input label="Nome" name="name" placeholder="Obrigatório" required />
+      <Input label="Nome" name="email" type="email" placeholder="Obrigatório" required />
+      <Input label="Nome" name="subject" placeholder="Obrigatório" required />
+      <span>
       <label htmlFor="">Sua Mensagem</label>
-        <textarea name="" rows={10}></textarea>
+        <textarea name="" rows={10} />
+      </span>
       <input type="submit" className="button" value="Enviar" />
     </StyledForm>
   )

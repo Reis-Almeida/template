@@ -42,7 +42,6 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
-          <title>Allmatech - Imobiliaria</title>
           <link rel="shortcut icon" href="/head.png"/>
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat+Brush&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"/>

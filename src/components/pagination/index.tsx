@@ -1,7 +1,14 @@
-import { useProperty } from "../../context/useProperty"
 import { StyledUl } from "./style"
 
-export default function Pagination(props:any) {
+type PaginationProps = {
+    first: number
+    items: number
+    count: number
+    page: number
+    setCount: (number: number) => void
+}
+
+export default function Pagination(props: PaginationProps) {
 
     function alterPages(valor:number) {
         if(valor > props.count) {
@@ -11,8 +18,6 @@ export default function Pagination(props:any) {
         }
     }
 
-    const { filter } = useProperty()
-
     return (
         <StyledUl>
             <li>
@@ -20,7 +25,7 @@ export default function Pagination(props:any) {
                     Anterior
                 </button>
             </li>
-            { Array.from({ length: Math.min(props.itens, props.convertPage(4, filter).length) })
+            { Array.from({ length: Math.min(props.items, props.page)})
                 .map((_, index)=> index + props.first)
                 .map((page) => (
                     <li key={page}>
@@ -30,7 +35,7 @@ export default function Pagination(props:any) {
                     </li>
             ))}
             <li>
-                <button onClick={() => props.setCount(props.count  + 1)} className="color" disabled={props.count === props.convertPage(4, filter).length}>
+                <button onClick={() => props.setCount(props.count  + 1)} className="color" disabled={props.count === props.page}>
                     Proximo
                 </button>
             </li>

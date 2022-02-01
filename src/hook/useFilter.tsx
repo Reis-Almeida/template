@@ -1,10 +1,30 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useProperty } from "../context/useProperty";
 
-const initial:any = {
+interface InitialProps {
+    cod: string
+    business: string
+    city: number
+    district: number
+    minValue: number
+    maxValue: number
+    bedroom: number
+    bath: number
+    vacancy: number
+    furnished: boolean
+    pool: boolean
+    suite: boolean
+}
+
+type OrderProps = {
+    class: number
+    sec: number
+}
+
+const initial: any = {
     cod: '',
-    business: '',
+    business: 0,
     city: 0,
     district: 0,
     minValue: 0,
@@ -22,14 +42,12 @@ export default function userFilter() {
     const router = useRouter()
     const { property, setFilter } = useProperty()
     const [values, setValues] = useState<any>({...initial})
-    const [order, setOrder] = useState({class: 0, sec: 0})
-
-    useEffect(() => {console.log("merda")}, [values])
+    const [order, setOrder] = useState<OrderProps>({class: 0, sec: 0})
 
 
-    const toUpdate = (name:any, value:any) => {
+    const toUpdate = (name:string, value:any) => {
         const vl = typeof(value) == 'boolean' || isNaN(value) || value == '' ? value : parseInt(value)
-        setValues(Object.assign(values, { [name] : vl }))
+        setValues({...Object.assign(values, { [name] : vl })})
         // console.log(values, name,value)
     } 
 
@@ -76,7 +94,7 @@ export default function userFilter() {
 
     }
 
-    const orderUpdate = (content:any, name:any, value:any) => {
+    const orderUpdate = (content:any, name:string, value:any) => {
         setOrder(Object.assign(order, { [name] : parseInt(value) }))
 
         switch(order.class) {
@@ -141,22 +159,17 @@ export default function userFilter() {
 
         let search = property
 
+       if(!(values.maxValue == initial.maxValue) || !(values.minValue == initial.minValue)) {
+            search = search.filter((a:any) => {
+                if((a.price <= values.maxValue) && (a.price >= values.minValue)) {
+                    return a
+                }
+            })
+       }
+
         for(let x in initial) {
 
-            if(!(initial[x] == values[x])) {
-
-                if(x == 'minValue' || x == 'maxValue') {
-                    search = search.filter((a:any) => {
-                        if(x == 'minValue' && parseInt(a.price) >= values[x]) {
-                            return a
-                        }else if(x == 'maxValue' && parseInt(a.price) <= values[x]) {
-                            return a
-                        }
-                    })
-    
-                    continue
-                }
-
+            if(!(initial[x] == values[x]) && !(x == 'minValue' || x == 'maxValue')) {
                 search = search.filter((a:any) => {
 
                     if(a[x] == values[x]) {
@@ -171,6 +184,6 @@ export default function userFilter() {
 
     }
 
-    return { toUpdate, price, city, district, orderUpdate, convertPage, pagination, handleForm }
+    return { values, toUpdate, price, city, district, orderUpdate, convertPage, pagination, handleForm }
 
 }

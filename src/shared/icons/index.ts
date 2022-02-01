@@ -2,7 +2,7 @@ import { GiBarbecue, GiBed, GiCandlestickPhone, GiCrosshairArrow, GiFamilyHouse,
 import { MdEmail, MdMailOutline, MdMenu, MdHeadsetMic, MdStar, MdStarBorder } from "react-icons/md";
 import { GoTools } from "react-icons/go";
 import { RiFacebookFill, RiLinkedinFill, RiPinterestFill, RiTwitterFill, RiInstagramFill, RiMapPinRangeFill, RiPhoneFill, RiPhoneLine, RiWhatsappFill, RiTelegramFill, RiBuilding4Fill, RiShareFill } from "react-icons/ri";
-import { FaBed, FaBath, FaMapMarkerAlt, FaVectorSquare, FaHome, FaMapMarkedAlt, FaRegCalendarAlt, FaMoneyBillAlt, FaDollarSign, FaAngleUp, FaAngleLeft, FaAngleRight, FaArrowRight, FaRegHandPointRight, FaCaretDown, FaList, FaTh, FaLock, FaTools, FaCheck, FaHotTub, FaWindowClose } from "react-icons/fa";
+import { FaBed, FaBath, FaMapMarkerAlt, FaVectorSquare, FaHome, FaMapMarkedAlt, FaRegCalendarAlt, FaMoneyBillAlt, FaDollarSign, FaAngleUp, FaAngleLeft, FaAngleRight, FaArrowRight, FaRegHandPointRight, FaCaretDown, FaList, FaTh, FaCheck, FaHotTub, FaWindowClose } from "react-icons/fa";
 
 
 const Icon = {

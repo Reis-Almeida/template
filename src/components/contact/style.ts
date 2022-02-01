@@ -14,6 +14,7 @@ export const StyledForm = styled.form`
     }
 
     label { color: ${ ({theme}) => theme.fontColor.default }; }
+    span { width: 100% }
 
     input, textarea, .button {
         width: 100%;

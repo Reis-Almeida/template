@@ -13,10 +13,16 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 600;
     }
 
-    input {
+    input, select, textArea {
         border: none;
         outline: none;
     }
+
+    input:focus, select:focus, textArea:focus {
+        color: #82b440;
+    }
+
+    
 
     [type=submit], button {
         cursor: pointer;

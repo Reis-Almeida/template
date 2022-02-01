@@ -173,6 +173,10 @@ export const StyledMain = styled.main`
         
     }
 
+    video {
+        width: 100%;
+    }
+
     @media(max-width: 1230px) {
         .specification li,
         .location span {

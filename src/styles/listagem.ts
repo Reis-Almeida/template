@@ -7,9 +7,10 @@ export const StyledList = styled.div<{ change:boolean }>`
     align-items: flex-start;
     justify-content: space-between;
 
+    .noResults { width: 10%; border: solid 1px #000 }
+
     &>span {
         display: flex;
-        min-height: 250vh;
         flex-direction: column;
     }
 
@@ -19,7 +20,7 @@ export const StyledList = styled.div<{ change:boolean }>`
         align-items: flex-start;
         justify-content: space-between;
 
-        &, span:nth-child(2){ display: flex; }
+        &, &>span:nth-child(2){ display: flex; }
 
         button {
             color: #fff;
@@ -72,11 +73,32 @@ export const StyledList = styled.div<{ change:boolean }>`
         flex-direction: ${({change}) => change ? 'column' : 'row' };
         justify-content: ${({change}) => change ? 'flex-start' : 'space-between' };      
     }
+    
+    .results {
+        width: 100%;
+        padding: 0 60px;
+        margin-top: 15px;
 
+        h3 {
+            text-align: left;
+            color: ${ ({theme}) => theme.color.primary };
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background-color: ${ ({theme}) => theme.color.primary };
+        }
+
+    }
 
 
     @media(max-width: 992px) {
         padding: 60px 0;
+
+        .results {
+            padding: 0 20px;
+        }
 
         .order {
             padding: 0;
@@ -85,15 +107,16 @@ export const StyledList = styled.div<{ change:boolean }>`
 
             label { margin: 0 5px 0 0; }
 
-            span:nth-child(2){ 
+            &>span:nth-child(2){
                 width: 60vw;
-                justify-content: space-around;
+                padding-left: 20px;
+                justify-content: space-between;
             }
 
         }
 
         .groupCard {
-            padding: 0 20px;
+            padding: 20px;
             flex-direction: row;
             justify-content: space-around;
         }
@@ -115,9 +138,9 @@ export const StyledList = styled.div<{ change:boolean }>`
 
             button { display: block; }
             
-            span:nth-child(2){ 
+            &>span:nth-child(2){ 
                 width: 100%;
-                padding: 0 20px;
+                padding-left: 20px;
                 justify-content: space-between;
             }
         }

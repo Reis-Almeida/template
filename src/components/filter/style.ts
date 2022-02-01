@@ -54,9 +54,11 @@ export const Main = styled.div<{ n:number }>`
     @media(max-width:700px) {
         height: auto;
         padding: 100px 0 60px 0;
+
         & > div {
             position: relative;
             margin-top: 0;
+            margin-left: 45px;
         }
     }
 `
@@ -91,7 +93,7 @@ const Form = styled.form`
 
 
     .check {
-        flex-direction: row;
+        flex-direction: row-reverse;
         input {
             width: 17px;
             height: 17px;

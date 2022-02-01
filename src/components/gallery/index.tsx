@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Icon from '../../shared/icons'
 import { useState } from 'react'
 import { StyledCarousel } from './style'
@@ -11,32 +10,29 @@ type Params = [
   }
 ]
 
-export default function Gallery() {
+export default function Gallery({src}:any) {
 
-  const array:any = [
-    "/images/teste/teste1.jpg",
-    "/images/teste/teste2.jpg",
-    "/images/teste/teste3.jpg"
-  ]
+  const array:string[] = []
 
-  // src.src.Foto.filter((a:any) => {
-  //   array.push(a.Link[1].URLArquivo)
-  // })
-
-  // console.log(k)
+  try {
+    src.Foto.filter((a:any) => {
+      array.push(a.Link[1].URLArquivo)
+    })
+  } catch (e) {
+    array.push("/noImg.jpg")
+  }
   
   const [direction, SetDirection] = useState<boolean>(true) // true = left = flex-start -> , false = right = flex-end <-
   const [side, setSide] = useState<number>(0)
   const [count, setCount] = useState<Params>(updateArray(0))
 
-  const itens: number = 5
-  const first: number = list(array.length, itens, count[0 + 1].id)
+  const items: number = 5
+  const first: number = list(array.length, items, count[0 + 1].id)
 
-
-  function list(pages: number, itens: number, current:number): number {
-    if(pages > itens) {
-      const left = (itens -1) / 2
-      return current >= pages - left ? pages - (itens - 1) : Math.max(current -  left, 0)
+  function list(images: number, items: number, current:number): number {
+    if(images > items) {
+      const left = (items -1) / 2
+      return current >= (images - left) ? (images - items) : Math.max(current -  left, 0)
     } else {
       return 0
     }
@@ -72,7 +68,7 @@ export default function Gallery() {
       }
 
       setSide(0)
-    }, 500)
+    }, 495)
   }
 
   function onlyOne(side: boolean, id:number): Params {
@@ -103,8 +99,8 @@ export default function Gallery() {
 
       <StyledCarousel direction={direction} side={side}>
         <span>
-          {Array.from({ length: 3 }).map((_,i) => (
-            <div key={i} >
+          {Array.from({ length: 3 }).map((_,i:number) => (
+            <div key={`gallery${i}`} >
               <SuspenseImage src={count[i].name} className='img' />
             </div>
           ))}
@@ -115,10 +111,10 @@ export default function Gallery() {
             <Icon.left onClick={() => side === 0 ? whichDirection(true) : null}/>
           </div>
           <div>
-          {Array.from({ length: Math.min(itens, array.length) })
-            .map((_, index)=> index + first)
-            .map((id) => (
-              <button key={id} onClick={() =>imgList(id)} className={count[0 + 1].id === id ? 'selected' : ''} disabled={count[0 + 1].id === id}>
+          {Array.from({ length: Math.min(items, array.length) })
+            .map((_, index:number)=> index + first)
+            .map((id:number) => (
+              <button key={`imgList${id}`} onClick={() =>imgList(id)} className={count[0 + 1].id === id ? 'selected' : ''} disabled={count[0 + 1].id === id}>
                 <SuspenseImage src={array[id]} />
               </button>
           ))}

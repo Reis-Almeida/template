@@ -7,8 +7,9 @@ import Icon from '../../shared/icons'
 import company from '../../shared/json/company'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import SocialNetwork from '../SocialNetwork'
+import Head from 'next/head'
 
-const LINKS = [
+const Links = [
   {
     name: 'Home',
     path: '/',
@@ -43,6 +44,14 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   return (
     <nav>
+       <Head>
+        {Links.map(({name, path}) => {
+          if(pathname === path) {
+            return <title key={`title${name}`}>{name} - {company.name}</title>
+          }
+        })}
+      </Head>
+
       <StyledHeadInfo>
         <div> 
           <a href={"mailto:" + company.email}><Icon.email />{company.email}</a>
@@ -50,12 +59,13 @@ export default function Header() {
         </div>
         <SocialNetwork/>
       </StyledHeadInfo>
+
       <StyledHeadNav open={open}>
         <Link href={'/'}>
           <a><LazyLoadImage src={company.logo.default} height={50} width={220} alt="logo" /></a>
         </Link>
         <ul>
-          {LINKS.map(({name, path}) => (
+          {Links.map(({name, path}) => (
             <li key={path}>
               {path === pathname ? <span>{name}</span> : <NavAnchor path={path}>{name}</NavAnchor>}
             </li>

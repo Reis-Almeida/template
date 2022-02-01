@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
-export const Nav = styled.nav`
+export const StyledNav = styled.nav`
     height: 30vh;
     width: 100vw;
 
-    .img {
-        height: 50vh;
-        width: 100vw;
-        position: relative;
+    img {
+        height: 100%;
+        width: 100%;
     }
     
     .info {

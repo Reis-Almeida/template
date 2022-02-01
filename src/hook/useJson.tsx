@@ -25,7 +25,7 @@ const nego = (e:any) => {
     return p
 }
 
-const exists1 = (e:any) => e ? e : false
+const exists1 = (e:any) => parseInt(e) ? e : false
 const exists2 = (e:any) => e ? true : false
 
 

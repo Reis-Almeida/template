@@ -7,7 +7,6 @@ import SuspenseImage from '../SuspenseImage'
 export default function CardProperty({obj, card, change}:{obj: any, card:any, change:any}) {
 
   const src = obj?.src?.Foto[0]?.Link[0]?.URLArquivo
-  // const src = '/dd'
 
   return (
     <StyledCard change={change} featured={obj.offer} card={card}>
@@ -36,19 +35,19 @@ export default function CardProperty({obj, card, change}:{obj: any, card:any, ch
           <article>{obj.obs}</article>
         <div className="details">
           <span>
-            <p><Icon.room className="I"/>{obj.room}</p>
+            <p><Icon.room className="I"/>{obj.room || 0}</p>
             <p>Sala</p>
           </span>
           <span>
-            <p><Icon.bedroom className="I"/>{obj.bedroom}</p>
+            <p><Icon.bedroom className="I"/>{obj.bedroom || 0}</p>
             <p>Quarto</p>
           </span>
           <span>
-            <p><Icon.bathroom/>{obj.bath}</p>
+            <p><Icon.bathroom/>{obj.bath || 0}</p>
             <p>Banheiro</p>
           </span>
           <span className="E">
-            <p><Icon.garage />1</p>
+            <p><Icon.garage />{obj.garage || 0}</p>
             <p>Garagem</p>
           </span>
         </div>

@@ -20,9 +20,19 @@ export const StyledCarousel = styled.div<{ direction:boolean, side:number }>`
         display: flex;
         justify-content: ${ ({direction}) => direction ? 'flex-start' : 'flex-end' };
 
-        &>div, img {
+        img {
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        &>div {
             width: 100%;
             height:100%;
+            display: flex;
+            justify-content: center;
+            background-color: ${ ({theme}) => theme.color.third };
         }
 
         &>div:nth-child(1) {
@@ -54,7 +64,7 @@ export const StyledCarousel = styled.div<{ direction:boolean, side:number }>`
             justify-content: space-between;
 
             svg {
-                color:#82b440;
+                color: #82b440;
                 font-size: 3rem;
                 cursor: pointer;
                 border-radius: 100%;

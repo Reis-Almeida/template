@@ -7,7 +7,7 @@ import SocialNetwork from '../SocialNetwork'
 export default function Footer() {
   return (
     <StyledFooter>
-        <h1>{company.nome}</h1>
+        <h1>{company.name}</h1>
         <span>
           <div className="item1">
             <p>{company.descricao}</p>
@@ -31,7 +31,7 @@ export default function Footer() {
         </span>
         <div className="allma">
           <p>
-            © 2021 {company.nome} – Todos os direitos reservados – Desenvolvido por Allmatech TI
+            © 2021 {company.name} – Todos os direitos reservados – Desenvolvido por Allmatech TI
           </p>
             <LazyLoadImage className="img" src={company.logo.footer} height={30} width={30} alt="logo" />
         </div>

@@ -4,11 +4,13 @@ import { StyledMain } from '../styles/contato'
 import company from '../shared/json/company'
 import Contact from '../components/Contact'
 import SocialNetwork from '../components/SocialNetwork'
+import Navigation from '../components/Navigation'
 
 export default function Contato() {
   return(
     <Layout>
-     <StyledMain>
+      <Navigation name={"Contatos"} />
+      <StyledMain>
         <div>
           <span className="info">
             <Icon.pin/>

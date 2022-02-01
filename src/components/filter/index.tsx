@@ -1,99 +1,114 @@
 import { useRouter } from 'next/router'
 import Icon from '../../shared/icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import userFilter from '../../hook/useFilter'
 import { Form1, Form2, Main } from './style'
+import { Input, Select } from '../Fields'
 
 export default function Filter() {
 
-  const { toUpdate, price, city, district, handleForm } = userFilter()
+  const { values, toUpdate, price, city, district, handleForm } = userFilter()
 
+  console.log(values)
 
 function form() {
   return (
     <div>
     <Icon.close />
     <h2>Filtrar Imovel</h2>
-    <span className="field">
-      <label htmlFor="">Código do Imovel</label>
-      <input name="cod" type="text" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} />
-    </span>
-    <span className="field">
-      <label htmlFor="">Tipo</label>
-      <select name="business" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
+
+    <Input
+        label="Código do Imovel"
+        name="cod"
+        className="field"
+        placeholder="VILLA00000"
+        onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}
+    />
+
+    <Select label="Tipo" name="business" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
         <option value="0">Todos</option>
         <option value="Venda">Venda</option>
         <option value="Aluguel">Aluguel</option>
-      </select>
-    </span>
-    <span className="field">
-      <label htmlFor="">Cidade</label>
-      <select name="city" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
+    </Select>
+
+    <Select label="Cidade" name="city" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
         <option value="0">Todos</option>
-        {city().map((e:any, i:any) =>(
+        {city().map((e:string, i:number) =>(
           <option key={`city${i}`} value={e}>{e}</option>
-
         ))}
-      </select>
-    </span>
-    <span className="field">
-      <label htmlFor="">Bairro</label>
-      <select name="district" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
+    </Select>
+
+    <Select label="Bairro" name="district" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
         <option value="0">Todos</option>
-        {district().map((e:any, i:any) =>(
+        {district().map((e:string, i:number) =>(
           <option key={`district${i}`}  value={e}>{e}</option>
-
         ))}
-      </select>
-    </span>
-    <span className="field">
-      <label htmlFor="">Valor Minimo</label>
-      <input name="minValue" type="number" defaultValue={price(0)} min={price(0)}  max={price(1)} onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} />
-    </span>
-    <span className="field">
-      <label htmlFor="">Valor Maximo</label>
-      <input name="maxValue" type="number" defaultValue={price(1)} min={price(0)} max={price(1)} onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} />
-    </span>
-    <span className="field">
-      <label htmlFor="">Quartos</label>
-      <select name="bedroom" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
-        {Array.from({ length:11 }).map((_, i) =>(
+    </Select>
+
+    <Input
+        label="Valor Minimo"
+        name="minValue"
+        type="number"
+        className="field"
+        defaultValue={price(0)}
+        min={price(0)}
+        max={price(1)}
+        onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}
+    />
+
+    <Input
+        label="Valor Maximo"
+        name="maxValue"
+        type="number"
+        className="field"
+        defaultValue={price(1)}
+        min={price(0)}
+        max={price(1)}
+        onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}
+    />
+
+    <Select label="Quartos" name="bedroom" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
+        {Array.from({ length:11 }).map((_, i:number) =>(
           <option key={`bedroom${i}`} value={i}>{i}+</option>
-
         ))}
-      </select>
-    </span>
-    <span className="field">
-      <label htmlFor="">Banheiro</label>
-      <select name="bath" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
-        {Array.from({ length:11 }).map((_, i) =>(
+    </Select>
+
+    <Select label="Banheiro" name="bath" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
+        {Array.from({ length:11 }).map((_, i:number) =>(
           <option key={`bathroom${i}`} value={i}>{i}+</option>
-
         ))}
-      </select>
-    </span>
-    <span className="field">
-      <label htmlFor="">Vagas</label>
-      <select name="vacancy" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)} >
-        {Array.from({ length:11 }).map((_, i) =>(
+    </Select>
+
+    <Select label="Vagas" name="vacancy" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
+        {Array.from({ length:11 }).map((_, i:number) =>(
           <option key={`vacancy${i}`} value={i}>{i}+</option>
-
         ))}
-      </select>
-    </span>
+    </Select>
+
     <span className="field">
-      <span className="check">
-        <input name="furnished" type="checkbox" onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)} />
-        <label htmlFor="">Mobilhado</label>
-      </span>
-      <span className="check">
-        <input name="pool" type="checkbox" onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)} />
-        <label htmlFor="">Piscina</label>
-      </span>
-      <span className="check">
-        <input name="suite" type="checkbox" onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)} />
-        <label htmlFor="">Suite</label>
-      </span>
+        <Input
+            label="Mobilhado"
+            name="furnished"
+            type="checkbox"
+            className="check"
+            onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)}
+        />
+
+        <Input
+            label="Piscina"
+            name="pool"
+            type="checkbox"
+            className="check"
+            onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)}
+        />
+
+        <Input
+            label="Suite"
+            name="suite"
+            type="checkbox"
+            className="check"
+            onChange={(ev) => toUpdate(ev.target.name, ev.target.checked)}
+        />
     </span>
 
       <input className="button" type="submit" value="Buscar"/>
@@ -101,24 +116,30 @@ function form() {
   )
 }
 
-  const [current, setCurrent] = useState(1)
+  const [current, setCurrent] = useState<number>(1)
+  
+  
   const { pathname } = useRouter()
+  
+  if(pathname == '/') {
 
- if(pathname == '/') {
+    useEffect(() => {
+      toUpdate("business", current === 1 ? "Venda" : "Aluguel")
+    }, [current])
 
-      return (
-        <Main n={current}>
-          <div>
-            <span className="type">
-              <div onClick={() => setCurrent(1)}>Venda</div>
-              <div onClick={() => setCurrent(2)}>Aluguel</div>
-            </span>
-            <Form2 onSubmit={handleForm}>
-              {form()}
-            </Form2>
-          </div>
-        </Main>
-      )
+    return (
+      <Main n={current}>
+        <div>
+          <span className="type">
+            <div onClick={() => setCurrent(1)}>Venda</div>
+            <div onClick={() => setCurrent(2)}>Aluguel</div>
+          </span>
+          <Form2 onSubmit={handleForm}>
+            {form()}
+          </Form2>
+        </div>
+      </Main>
+    )
 
  } else{
    

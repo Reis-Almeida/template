@@ -45,3 +45,12 @@ export const StyledCalculator = styled.form`
             background-color: ${ ({theme}) => theme.color.primary};
         }
 `
+
+export const StyledResult = styled.div<{show: boolean}>`
+    margin-top: 30px;
+    display: ${({show}) => show ? 'flex' : 'none'};
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    background-color: ${ ({theme}) => theme.color.second};
+`
