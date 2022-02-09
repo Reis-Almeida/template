@@ -177,6 +177,12 @@ export const StyledMain = styled.main`
         width: 100%;
     }
 
+    @media(min-width: 1318px) {
+        width: 1295px;
+        
+        li { max-width: 399px; }
+    }
+
     @media(max-width: 1230px) {
         .specification li,
         .location span {

@@ -7,13 +7,15 @@ import Navigation from '../components/Navigation'
 export default function Equipe() {
   return(
     <Layout>
-        <Navigation name={"Equipe"} />
-        <StyledMain>
-          {company.equipe.map((i, e) => (
-            <CardServant  key={`servant${e}`} obj={i} />
-          
-          ))}    
-        </StyledMain>
+        <Navigation router={"Equipe"} />
+        <div className="media">
+          <StyledMain>
+            {company.equipe.map((i, e) => (
+              <CardServant  key={`servant${e}`} obj={i} />
+            
+            ))}    
+          </StyledMain>
+        </div>
     </Layout>
   )
 }

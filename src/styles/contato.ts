@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const StyledMain = styled.main`    
+export const StyledMain = styled.main`   
+    width: 100vw;
+
     &>div {
         display: flex;
         flex-wrap: wrap;
@@ -63,13 +65,33 @@ export const StyledMain = styled.main`
             box-shadow: 0 0 40px rgb(0 0 0 / 10%);
         }
 
-        span:nth-child(2) {
+        & > span:nth-child(2) {
             margin-right: 60px;
             width: 35vw;
 
             h1, article { margin: 30px 0 30px 0; }
 
             h1 { font-weight: 800; }
+        }
+    }
+
+    @media(min-width: 1318px) {
+        width: 1292px;
+
+        .info {
+            max-width: 365px;
+        }
+
+        
+        div:nth-child(2) {
+            
+            span:nth-child(1) {
+                max-width: 525px;
+            }
+
+            span:nth-child(2) {
+                margin-right: 0;
+            }
         }
     }
 

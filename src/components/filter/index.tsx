@@ -26,9 +26,9 @@ function form() {
     />
 
     <Select label="Tipo" name="business" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
-        <option value="0">Todos</option>
-        <option value="Venda">Venda</option>
-        <option value="Aluguel">Aluguel</option>
+        <option selected={values.business === 0} value="0">Todos</option>
+        <option selected={values.business === "Venda"} value="Venda">Venda</option>
+        <option selected={values.business === "Aluguel"} value="Aluguel">Aluguel</option>
     </Select>
 
     <Select label="Cidade" name="city" className="field" onChange={(ev) => toUpdate(ev.target.name, ev.target.value)}>
@@ -118,14 +118,13 @@ function form() {
 
   const [current, setCurrent] = useState<number>(1)
   
-  
   const { pathname } = useRouter()
   
+  useEffect(() => {
+    if(pathname == '/') toUpdate("business", current === 1 ? "Venda" : "Aluguel")
+  }, [current])
+  
   if(pathname == '/') {
-
-    useEffect(() => {
-      toUpdate("business", current === 1 ? "Venda" : "Aluguel")
-    }, [current])
 
     return (
       <Main n={current}>

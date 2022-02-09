@@ -4,8 +4,9 @@ export const Main = styled.div<{ n:number }>`
     height: 30vh;
     width: 100vw;
     background-color: ${ ({theme}) => theme.color.second };
-    
+
     & > div {
+        max-width: 1192px;
         display: flex;
         overflow: visible;
         position: absolute;
@@ -31,7 +32,7 @@ export const Main = styled.div<{ n:number }>`
             background-color: ${ ({theme}) => theme.color.primary };
 
             &:nth-child(${({n}) => n}) {
-                color: currentcolor;
+                color: currentColor;
                 background-color: #fff;
 
             }
@@ -45,6 +46,11 @@ export const Main = styled.div<{ n:number }>`
                 border: solid 2px #fff;
             }
         }
+    }
+
+    @media(min-width: 1318px) {
+        display: flex;
+        justify-content: center;
     }
 
     @media(max-width:930px) {

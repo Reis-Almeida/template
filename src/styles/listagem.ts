@@ -14,6 +14,7 @@ export const StyledList = styled.div<{ change:boolean }>`
         flex-direction: column;
     }
 
+    
     .order {
         width: 100%;
         padding: 0 60px;
@@ -52,12 +53,12 @@ export const StyledList = styled.div<{ change:boolean }>`
 
             &:nth-child(1) {
                 margin-right: 5px;
-                color: ${({change}) => change ? 'currentcolor' : '#fff' };
+                color: ${({change, theme}) => change ? theme.fontColor.default : '#fff' };
                 background-color: ${({change, theme}) => change ? '#fff' : theme.color.primary};
             }
             
             &:nth-child(2) {
-                color: ${({change}) => change ? '#fff' : 'currentcolor'};
+                color: ${({change, theme}) => change ? '#fff' : theme.fontColor.default};
                 background-color: ${({change, theme}) => change ? theme.color.primary : '#fff'};
             }
         }
@@ -92,6 +93,15 @@ export const StyledList = styled.div<{ change:boolean }>`
 
     }
 
+    @media(min-width: 1318px) {
+        width: 1295px;
+        
+        .groupCard {
+            width: auto;
+            max-width: 940px;
+        }
+    }
+
 
     @media(max-width: 992px) {
         padding: 60px 0;
@@ -123,7 +133,7 @@ export const StyledList = styled.div<{ change:boolean }>`
     }
 
     @media(max-width: 1075px) {
-        .order, .groupCard {
+        .results, .order, .groupCard {
             padding-right: 20px;
         }
     }

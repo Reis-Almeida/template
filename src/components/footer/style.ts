@@ -96,6 +96,16 @@ export const StyledFooter = styled.footer`
        p { margin-right: 10px }
    }
 
+    @media(min-width: 1318px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & > span, h1, .allma {
+            width: 1192px;
+        }
+    }
+
     @media(max-width:1160px) {
         padding: 0 10px;
     }

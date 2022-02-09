@@ -1,133 +1,154 @@
 import styled from 'styled-components'
 
-export const StyledHeadInfo = styled.div`
-    height: auto;
-    width: 100vw;
-    padding: 0 60px;
-    justify-content: space-between;
-    background-color: ${ ({theme}) => theme.color.main };
+export const StyledHeader = styled.header<{ open:boolean }>`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    &, * {
-        display: flex;
-        font-size: 14px;
-        color: #fff;
-    }
+    .headerInfo {
+        height: auto;
+        width: 100%;
+        padding: 0 60px;
+        background-color: ${ ({theme}) => theme.color.main };
 
-    div a {
-        padding-right: 30px;
-    }
-
-    span a {
-    height: 40px;
-    padding: 0 10px;
-
-        &:hover {
-            background-color: ${ ({theme}) => theme.color.third };
+        &, * {
+            display: flex;
+            font-size: 14px;
+            color: #fff;
         }
-    }
 
-    svg { font-size: 16px }
-
-    @media(max-width: 800px) {
-        padding: 0;
-        justify-content: space-around;
-    }
-
-    @media(max-width: 640px) {
-        height: 40px;
-
-        span { display: none; }
-
-        div:nth-child(1) a {
-            padding: 0;
-            margin: 0 5px;
-        }
-        div:nth-child(1) {
-            width: 100vw;
-            padding: 0 30px 0 10px;
+        & > span {
+            width: 100%;
             justify-content: space-between;
         }
-                
-    }
 
-
-`
-
-
-export const StyledHeadNav = styled.div<{ open:boolean }>`
-    height: 70px;
-    width: 100vw;
-    padding: 0 60px;
-
-    &, * {
-        display: flex;
-        font-size: 20px;
-        justify-content: space-between;
-    }
-
-    span, li > a {
-        height: 70px;
-        padding: 0 40px;
-        user-select: none;
-        cursor: pointer;
-        color: ${ ({theme}) => theme.fontColor.default };
-
-        &:hover {
-            color: #fff;
-            background-color: ${ ({theme}) => theme.color.third };
+        div a {
+            padding-right: 30px;
         }
-    }
 
-    svg {
-        z-index: 1;
-        font-size: 40px;
-        display: none;
-        padding: 2px;
-        cursor: pointer;
-           
-        &:hover {
-               color: #fff;
-               border-radius: 25%;
-               background-color: ${ ({theme}) => theme.color.third };
+        span span a {
+        height: 40px;
+        padding: 0 10px;
+
+            &:hover {
+                background-color: ${ ({theme}) => theme.color.third };
+            }
         }
-    }
 
-    @media(max-width: 992px) {
-        padding: 0 20px;
-        width: 98vw;
-    }
+        svg { font-size: 16px }
 
-    @media(max-width: 890px) {
+        @media(min-width: 1318px) {
+            padding: 0;
+            justify-content: center;
 
-        svg {display: block;}
+            & > span {
+                justify-content: space-between;
+                max-width: 1170px;
+            }
+        }
 
-        ul {
-            position: absolute;
-            margin-left: -20px;
-            transform-origin: 1px;
-            flex-direction: column;
-            border: solid 1px #f3f3f3;
-            transition: all .5s linear;
-            opacity: ${({open}) => open ? 1 : 0};
-            z-index: ${({open}) => open ? 1 : -1};
-            top: ${({open}) => open ? '110px' : '-90px'};
+        @media(max-width: 992px) {
+            padding: 0 30px;
+        }
 
-            span, li > a {
+        @media(max-width: 800px) {
+            padding: 0 20px;
+            justify-content: space-around;
+        }
+
+        @media(max-width: 640px) {
+            height: 40px;
+            padding: 0;
+
+            span span { display: none; }
+
+            div a {
                 padding: 0;
-                height: 50px;
+                margin: 0;
+            }
+            div {
                 width: 100vw;
-                justify-content: center;
+                padding: 0 20px;
+                justify-content: space-between;
+            }
+                    
+        }
+    }
+
+    .headerNav {
+        height: 70px;
+        width: 100%;
+        max-width: 1290px;
+        padding: 0 60px;
+
+        &, * {
+            display: flex;
+            font-size: 20px;
+            justify-content: space-between;
+        }
+
+        span, li > a {
+            height: 70px;
+            padding: 0 40px;
+            user-select: none;
+            cursor: pointer;
+            color: ${ ({theme}) => theme.fontColor.default };
+
+            &:hover {
                 color: #fff;
                 background-color: ${ ({theme}) => theme.color.third };
+            }
+        }
 
-                &:hover {
-                background-color: ${ ({theme}) => theme.color.default };
-                color: ${ ({theme}) => theme.color.third };
+        svg {
+            z-index: 1;
+            font-size: 40px;
+            display: none;
+            padding: 2px;
+            cursor: pointer;
+            
+            &:hover {
+                color: #fff;
+                border-radius: 25%;
+                background-color: ${ ({theme}) => theme.color.third };
+            }
+        }
+
+        @media(max-width: 992px) {
+            padding: 0 30px;
+        }
+
+        @media(max-width: 890px) {
+
+            svg {display: block;}
+
+            ul {
+                position: absolute;
+                margin-left: -20px;
+                transform-origin: 1px;
+                flex-direction: column;
+                border: solid 1px #f3f3f3;
+                transition: all .5s linear;
+                opacity: ${({open}) => open ? 1 : 0};
+                z-index: ${({open}) => open ? 1 : -1};
+                top: ${({open}) => open ? '110px' : '-90px'};
+
+                span, li > a {
+                    padding: 0;
+                    height: 50px;
+                    width: 100vw;
+                    justify-content: center;
+                    color: #fff;
+                    background-color: ${ ({theme}) => theme.color.third };
+
+                    &:hover {
+                    background-color: ${ ({theme}) => theme.color.default };
+                    color: ${ ({theme}) => theme.color.third };
+
+                    }
 
                 }
-
             }
         }
     }
-
 `

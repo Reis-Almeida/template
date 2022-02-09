@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import { StyledHeadInfo, StyledHeadNav } from './style'
+import { StyledHeader } from './style'
 import Icon from '../../shared/icons'
 import company from '../../shared/json/company'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -43,7 +43,7 @@ export default function Header() {
   const { pathname } = useRouter()
   const [open, setOpen] = useState(false)
   return (
-    <nav>
+    <StyledHeader open={open}>
        <Head>
         {Links.map(({name, path}) => {
           if(pathname === path) {
@@ -52,15 +52,17 @@ export default function Header() {
         })}
       </Head>
 
-      <StyledHeadInfo>
-        <div> 
-          <a href={"mailto:" + company.email}><Icon.email />{company.email}</a>
-          <a><Icon.phone />{company.telefone}</a>
-        </div>
-        <SocialNetwork/>
-      </StyledHeadInfo>
+      <div className="headerInfo">
+        <span>
+          <div> 
+            <a href={"mailto:" + company.email}><Icon.email />{company.email}</a>
+            <a><Icon.phone />{company.telefone}</a>
+          </div>
+          <SocialNetwork/>
+        </span>
+      </div>
 
-      <StyledHeadNav open={open}>
+      <div className="headerNav">
         <Link href={'/'}>
           <a><LazyLoadImage src={company.logo.default} height={50} width={220} alt="logo" /></a>
         </Link>
@@ -72,7 +74,7 @@ export default function Header() {
           ))}
         </ul>
         <Icon.menu  onClick={() => setOpen(!open)}/>
-      </StyledHeadNav>
-    </nav>
+      </div>
+    </StyledHeader>
   )
 }

@@ -6,8 +6,8 @@ export default function Contact() {
     <StyledForm>
       <h2>SOBRE O QUE É SUA DUVIDA?</h2>
       <Input label="Nome" name="name" placeholder="Obrigatório" required />
-      <Input label="Nome" name="email" type="email" placeholder="Obrigatório" required />
-      <Input label="Nome" name="subject" placeholder="Obrigatório" required />
+      <Input label="Email" name="email" type="email" placeholder="Obrigatório" required />
+      <Input label="Assunto" name="subject" placeholder="Obrigatório" required />
       <span>
       <label htmlFor="">Sua Mensagem</label>
         <textarea name="" rows={10} />

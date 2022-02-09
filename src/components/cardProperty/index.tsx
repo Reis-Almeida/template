@@ -51,7 +51,7 @@ export default function CardProperty({obj, card, change}:{obj: any, card:any, ch
             <p>Garagem</p>
           </span>
         </div>
-        <Link href={`/imovel/${obj.cod}`}>
+        <Link href={`/imovel/${obj.cod}`} passHref>
           <button><p>Mais Detalhes</p></button>
         </Link>
       </div>

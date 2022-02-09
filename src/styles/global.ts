@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -11,6 +11,11 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         overflow-x: hidden;
         font-weight: 600;
+    }
+
+    .media {
+        display: flex;
+        justify-content: center;
     }
 
     input, select, textArea {
@@ -40,32 +45,10 @@ export const theme: object = {
         describe: '#323232'
     },
     color : {
-        primary: '#d82460',//
-        second: '#f3f3f3',//
-        third: '#222',// |
-        main: '#484848',// |
-        featured: '#1b1d2a',//
-        default: '#fff',// |
+        primary: '#d82460',
+        second: '#f3f3f3',
+        third: '#222',
+        main: '#484848',
+        featured: '#1b1d2a'
     }
 }
-
-// export const theme: object = {
-//     fontFamily: {
-//         title: 'Abril Fatface', //cursive
-//         city: 'Caveat Brush'
-//     },
-//     fontColor: {
-//         title: '#333',//
-//         default: '#fff',// |
-//         bigTitle: '#656565',//
-//         describe: '#323232'//
-//     },
-//     color : {
-//         primary: '#d82460',//
-//         second: '#f3f3f3',//
-//         third: '#222',// |
-//         main: '#484848',// |
-//         featured: '#1b1d2a',//
-//         default: '#fff',// |
-//     }
-// }

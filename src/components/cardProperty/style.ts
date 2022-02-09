@@ -103,12 +103,22 @@ const list = css<{ change:boolean, featured:string }>`
         height: 280px;
         min-width: 300px;
     }
-
+    
     .desc {
         min-width: 300px;
         width: ${({change}) => change ? '35vw' : '32vw' };
         height: ${({change}) => change ? '280px' : '320px' };
 
+    }
+
+    @media(min-width: 1318px) {
+        .image, &>div:nth-child(1) {
+            max-width: 400px;
+        }
+
+        .desc {
+            width: ${({change}) => change ? '420px' : '400px' };
+        }
     }
     
     @media (max-width: 992px) and (min-width:600px) {
@@ -128,7 +138,6 @@ const list = css<{ change:boolean, featured:string }>`
     }
 
 `
-//420px
 
 export const StyledCard = styled.div<{ change:boolean, featured:string, card:number }>`
     display: flex;

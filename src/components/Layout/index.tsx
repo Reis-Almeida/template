@@ -11,8 +11,8 @@ import { StyledMain } from './style';
 export default function Layout({children}:any) {
     const { property, setProperty, filter, setFilter } = useProperty()
 
-    const init = async () => {
-        const P = await useJson()
+    const init = async (json:any) => {
+        const P = await json()
     
         setProperty(P)
         setFilter(P)
@@ -20,7 +20,7 @@ export default function Layout({children}:any) {
 
     useEffect(()=> {
         if(property === null && filter === null) {
-            init()
+            init(useJson)
         }
       }, [property, filter])
 
@@ -44,7 +44,7 @@ export default function Layout({children}:any) {
 
 
     if(property === null && filter === null) {
-        init()
+        init(useJson)
         return renderLoading()
     }else {
         // console.log(property, filter)

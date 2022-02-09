@@ -26,7 +26,7 @@ export const StyledSlider = styled.div<{ element:number, current:number }>`
 
     .nav {
         top: 200px;
-        left:60px;
+        left: 60px;
         z-index: 1;
         position: absolute;
         flex-direction: column;
@@ -128,6 +128,16 @@ export const StyledSlider = styled.div<{ element:number, current:number }>`
                 font-family: ${ ({theme}) => theme.fontFamily.title };
 
             }
+        }
+    }
+
+    @media(min-width: 1313px) {
+        display: flex;
+        justify-content: center;
+        .nav {
+            left: auto;
+            width: 100%;
+            max-width: 1192px;
         }
     }
 

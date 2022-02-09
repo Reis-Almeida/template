@@ -5,7 +5,7 @@ export const StyledQualification = styled.div`
     padding: 0 60px 50px 60px;
     background-color: ${ ({theme}) => theme.color.second };
 
-    * {
+    &, * {
         display: flex;
         text-align: center;
         flex-direction: column;
@@ -29,6 +29,7 @@ export const StyledQualification = styled.div`
     }
 
     & > div:nth-child(2) {
+        max-width: 1192px;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;

@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation'
 export default function QuemSomos() {
   return(
     <Layout>
-       <Navigation name={"Quem Somos"} />
+       <Navigation router={"Quem Somos"} />
        <StyledMain>
           <h1>Quem é {company.name}?</h1>
           <hr />

@@ -51,48 +51,52 @@ export default function Home() {
         <span className="title">
           <h1>Últimos Imóveis</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
+          <div className="groupCard">
+            {lastProperties?.map((i:any, e:number) => (
+              <CardProperty key={`lastProperties${e}`} obj={i} card={1} change={false}/>
+              ))}
+          </div>
         </span>
-        <div className="groupCard">
-          {lastProperties?.map((i:any, e:number) => (
-            <CardProperty key={`lastProperties${e}`} obj={i} card={1} change={false}/>
-          ))}
-        </div>
+
         <span className="title gray">
           <h1>Localizações de imóveis</h1>
           <h5>Encontre uma casa para vender ou alugar com base na localização. </h5>
-        </span>
-        <div className="groupCard gray">
-          {website.cityFeature.map((i:any, e:number) => (
+          <div className="groupCard gray">
+            {website.cityFeature.map((i:any, e:number) => (
               <CardLocation key={`city${e}`} obj={i} />
-          ))}
-        </div>
+              ))}
+          </div>
+        </span>
+
         <span className="title">
           <h1>Imóveis Em Destaque</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
+          <div className="groupCard">
+            {lastFeaturedProperties?.map((i:any, e:number) => (
+              <CardProperty key={`lastFeaturedProperties${e}`} obj={i} card={2} change={false}/>
+              ))}
+          </div>
         </span>
-        <div className="groupCard">
-          {lastFeaturedProperties?.map((i:any, e:number) => (
-            <CardProperty key={`lastFeaturedProperties${e}`} obj={i} card={2} change={false}/>
-          ))}
-        </div>
+
         <span className="title gray">
           <h1>O que nossos clientes dizem</h1>
           <h5>As citações a seguir são típicas da apreciação do cliente que Allmatech recebe</h5>
-        </span>
-        <div className="groupCard gray">
-          {company.client.map((i:PropsClient, e:number) => (
+          <div className="groupCard gray">
+            {company.client.map((i:PropsClient, e:number) => (
               <CardClient key={`client${e}`} obj={i} />
-          ))}
-        </div>
+              ))}
+          </div>
+        </span>
+
         <span className="title">
           <h1>Imóveis Com Melhor preço</h1>
           <h5>Encontre as últimas casas à venda, notícias sobre imóveis e dados do mercado imobiliário</h5>
+          <div className="groupCard">
+            {PriceProperties?.map((i:any, e:number) => (
+              <CardProperty key={`PriceProperties${e}`} obj={i} card={1} change={false}/>
+              ))}
+          </div>
         </span>
-        <div className="groupCard">
-          {PriceProperties?.map((i:any, e:number) => (
-            <CardProperty key={`PriceProperties${e}`} obj={i} card={1} change={false}/>
-          ))}
-        </div>
       </StyledMain>
     </Layout>
   )

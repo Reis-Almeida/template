@@ -1,45 +1,32 @@
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 import Link from 'next/link'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { StyledNav } from './style'
 
-const LINKS = [
-  {
-    name: 'Home',
-    path: '/',
-  },
-  {
-    name: 'Quem Somos',
-    path: '/quemsomos',
-  },
-  {
-    name: 'Equipe',
-    path: '/equipe',
-  },
-  {
-    name: 'Contato',
-    path: '/contato',
-  }
-]
+type NavigationProps = {
+  router: string
+  router2?: string
+}
 
+export default function Navigation(props:NavigationProps) {
+  const { router, router2 } = props
 
-export default function Navigation({name}:{name:string}) {
-  const { pathname } = useRouter()
-  const [open, setOpen] = useState(false)
-
-  // console.log(window.location.href)
-  
   return (
     <StyledNav>
       <div className="img">
-        <img src={"/images/teste/nav.jpg"} />
+        <LazyLoadImage src={"/images/teste/nav.jpg"} alt="navegação" />
       </div>
       <div className="info">
-      <h1>{name}</h1>
+      <h1>{router}</h1>
         <span>
           <Link href={'/'}><a>Home</a></Link>
+          {router2 ? (
+           <>
+              <p className="stripe">/</p>
+              <Link href={`/${router2}`}><a>{router2}</a></Link>
+           </>
+          ) : false}
           <p className="stripe">/</p>
-          <p>{name}</p>
+          <p>{router}</p>
         </span>
       </div>
     </StyledNav>
