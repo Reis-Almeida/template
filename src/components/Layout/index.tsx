@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useProperty } from '../../context/useProperty';
 import useJson from '../../hook/useJson';
-// import Footer from '../Footer';
+import Footer from '../Footer/index';
 import Header from '../Header';
 import { StyledMain } from './style';
 
