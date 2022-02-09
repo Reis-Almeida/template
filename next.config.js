@@ -6,4 +6,7 @@ module.exports = {
       'dev.storage.allmatech.com.br'
     ],
   },
+
+  assetPrefix: 'template-dev-1',
+  basePath: '/template-dev-1'
 }
