@@ -8,11 +8,23 @@ import Gallery from '../../components/Gallery'
 import { useProperty } from '../../context/useProperty'
 import { useRouter } from 'next/router'
 import Navigation from '../../components/Navigation'
+import Realtor from '../../components/CardRealtor'
 import Head from 'next/head'
 
 import dynamic from "next/dynamic"
+import Indication from '../../components/Indication'
+import { useEffect, useState } from 'react'
+import CardProperty from '../../components/CardProperty'
 
 const Map = dynamic(() => import("../../components/Map"), { ssr:false })
+
+const realtor = {
+    name: 'Andrew Man',
+    src: '/images/equipe/person1.jpg',
+    email: 'info@example.com',
+    telephone: '(61) 90000-0000'
+
+}
 
 const title = (title:string) => {
     return (
@@ -30,14 +42,57 @@ export default function Imovel() {
     const { property } = useProperty()
     const router = useRouter()
     const cod  = router.query?.id
-  
-  
+
     let data:any
     property?.filter((a:any) => {
       if(a.cod == cod) {
         data = a
       }
     })
+
+    let similar:object[] = []
+    property?.filter((a:any) => {
+        if(a.city == data?.city && a.business == data?.business && a.p_type == data?.p_type) {
+            similar.push(a)
+        }
+    })
+
+    // console.log(similar)
+
+    const [favorite, setFavorite] = useState<boolean>(false)
+
+    useEffect(() => {
+
+        if(localStorage.getItem("favorite")) {
+        const json = JSON.parse(`${localStorage.getItem("favorite")}`)
+        json?.favorite?.map((e:string) => { (e == data?.cod) ? setFavorite(true) : false })
+        console.log(favorite)
+        }
+
+    },[data])
+
+    function myFavorite(add:boolean) {
+        let json:any = {favorite: []}
+
+        if(!(localStorage.getItem("favorite"))) {
+        localStorage.setItem("favorite", JSON.stringify({favorite: []}))
+        } else {
+        json = JSON.parse(`${localStorage.getItem("favorite")}`)
+        }
+
+        if(add) {
+        json.favorite.push(data.cod)
+        console.log(json)
+        localStorage.setItem("favorite", JSON.stringify(json))
+
+        } else {
+        json.favorite.map((e:string, i:number) => { if(e == data.cod) json.favorite.splice(i, 1) })
+        localStorage.setItem("favorite", JSON.stringify(json))
+        }
+
+        setFavorite(add)
+
+    }
 
     return(
         <Layout>
@@ -49,7 +104,7 @@ export default function Imovel() {
             <div className="media">
                 <StyledMain>
                     <div className="main">
-                        <span className="details">
+                        <span className="detail">
                             <div>
                                 <h1>{data?.name}</h1>
                                 <article>
@@ -217,20 +272,37 @@ export default function Imovel() {
 
                         { title("Mapa") }
                         <Map lat={data?.lat} lng={data?.lon} />
+
+                        { title("Propiedades Semelhantes") }
+                        <div className="groupCard">
+                            {similar?.map((i:any, e:number) => (
+                                <CardProperty className="card" key={`similar${e}`} obj={i} card={1} change={false}/>
+                            ))}
+                        </div>
                         </div>
 
                     <div className="mare">
                         <div>
-                            <span>
-                                <h3>CONTATO</h3>
-                            </span>
+                            <h3>GOSTOU? ADICIONE AO FAVORITOS</h3>
+                            <button className="favorite"
+                                    onClick={() => myFavorite(!favorite)}
+                            >{favorite ? 'Remover' : 'Adicionar'}</button>
+                        </div>
+                        <div>
+                            <h3>CORRETOR</h3>
+                            <Realtor obj={realtor} />
+                        </div>
+                        <div>
+                            <h3>CONTATO</h3>
                             <Contact />
                         </div>
                         <div>
-                            <span>
-                                <h3>CALCULADORA</h3>
-                            </span>
+                            <h3>CALCULADORA</h3>
                             <Calculator price={`${data?.price}`} />
+                        </div>
+                        <div>
+                            <h3>INDIQUE A UM AMIGO</h3>
+                            <Indication/>
                         </div>
                     </div>
                 </StyledMain>

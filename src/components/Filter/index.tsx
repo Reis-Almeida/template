@@ -9,7 +9,7 @@ export default function Filter() {
 
   const { values, toUpdate, price, city, district, handleForm } = userFilter()
 
-  console.log(values)
+  // console.log(values)
 
 function form() {
   return (

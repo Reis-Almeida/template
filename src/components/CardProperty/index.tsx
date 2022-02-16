@@ -2,19 +2,64 @@ import { StyledCard } from './style'
 import Icon from '../../shared/icons'
 import Link from 'next/link'
 import SuspenseImage from '../SuspenseImage'
+import { useEffect, useState } from 'react'
+
+type cardProps = {
+  obj: any
+  card:number
+  change:boolean
+  className?:string
+}
 
 
-export default function CardProperty({obj, card, change}:{obj: any, card:any, change:any}) {
+export default function CardProperty({obj, card, change, className}:cardProps) {
+
+  const [favorite, setFavorite] = useState<boolean>(false)
+
+  useEffect(() => {
+
+    if(localStorage.getItem("favorite")) {
+      const json = JSON.parse(`${localStorage.getItem("favorite")}`)
+      json?.favorite.map((e:string) => { (e == obj.cod) ? setFavorite(true) : false })
+    }
+
+  },[])
+
+  function myFavorite(add:boolean) {
+    let json:any = {favorite: []}
+
+    if(!(localStorage.getItem("favorite"))) {
+      localStorage.setItem("favorite", JSON.stringify({favorite: []}))
+    } else {
+      json = JSON.parse(`${localStorage.getItem("favorite")}`)
+    }
+
+    if(add) {
+      json.favorite.push(obj.cod)
+      console.log(json)
+      localStorage.setItem("favorite", JSON.stringify(json))
+
+    } else {
+      json.favorite.map((e:string, i:number) => { if(e == obj.cod) json.favorite.splice(i, 1) })
+      localStorage.setItem("favorite", JSON.stringify(json))
+    }
+
+    setFavorite(add)
+
+  }
 
   const src = obj?.src?.Foto[0]?.Link[0]?.URLArquivo
 
   return (
-    <StyledCard change={change} featured={obj.offer} card={card}>
+    <StyledCard className={className} change={change} featured={obj.offer} card={card}>
       <div>
       <SuspenseImage src={src} />
         <span className="image">
           <span>
-            <div className="none"></div>
+            {favorite ?
+              <Icon.heart onClick={() => myFavorite(false)} />
+            : <Icon.heartLine  onClick={() => myFavorite(true)} />
+            }
             <div className="price">
               <p>{obj.p_type}</p>
               <p>{'$' + obj.price}</p>

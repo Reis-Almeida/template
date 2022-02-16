@@ -3,7 +3,7 @@ const website = {
         { 
             src:'/images/city/aguasclaras.png',
             state: 'Brasilia - DF',
-            city: "Águas Claras"
+            city: "Aguas Claras"
         },
         { 
             src:'/images/city/porto.jpg',

@@ -144,6 +144,7 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
     margin: 15px 0;
     flex-direction: column;
     box-shadow: 0 0 40px rgb(0 0 0 / 10%);
+    border: solid 1px rgb(0 0 0 / 5%);
 
     &>div { 
         display: flex;
@@ -170,10 +171,18 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
     .image span {
         display: flex;
         width: 100%;
-        justify-content: space-between; 
+        justify-content: space-between;
+        align-items: start;
     }
 
     p { color: #fff; }
+
+    .image svg {
+        color: ${ ({theme}) => theme.color.primary };
+        cursor: pointer;
+        margin: 5px;
+        font-size: 2rem;
+    }
 
     .price {
         padding: 5px 15px;
@@ -229,6 +238,8 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
     }
 
     strong {
+        display: flex;
+        align-items: flex-start;
         width: 100%;
         padding-top: 5px;
         border-top: solid 1px #e5e5e5;

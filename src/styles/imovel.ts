@@ -9,7 +9,7 @@ export const StyledMain = styled.main`
 
     .mare > div {
         width: 250px;
-        margin-bottom: 30px;
+        margin-bottom: 70px;
 
         h3 {
             text-align: center;
@@ -20,6 +20,16 @@ export const StyledMain = styled.main`
         form { 
             padding: 0;
             h2 { display: none;}
+        }
+
+        .favorite {
+            width: 100%;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 10px 15px;
+            background-color: ${ ({theme}) => theme.color.primary};
         }
     }
 
@@ -39,7 +49,7 @@ export const StyledMain = styled.main`
             color: ${ ({theme}) => theme.fontColor.bigTitle };
         }
 
-    .details {
+    .detail {
         width: 100%;
         display: block;
         background: linear-gradient(to top, #f1f1f1 0%, #ffffff);
@@ -54,8 +64,8 @@ export const StyledMain = styled.main`
 
             svg {
                 font-size: 2rem;
-                margin-right: 20px;
-                margin-bottom: 10px;
+                margin-right: 10px;
+                margin-bottom: 5px;
             }
 
             p {
@@ -63,6 +73,7 @@ export const StyledMain = styled.main`
                 justify-content: center;
             }
         }
+
 
         div:nth-child(1) {
             margin-bottom: 40px;
@@ -177,10 +188,31 @@ export const StyledMain = styled.main`
         width: 100%;
     }
 
+    .groupCard {
+        width: 100%;
+        padding: 20px 0;
+        margin-top: -30px;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: start;
+    }
+
+    .card {
+            margin-right: 17px;
+
+            &:nth-child(3) {
+                margin-right: 0px;
+            }
+        }
+
     @media(min-width: 1318px) {
         width: 1295px;
         
         li { max-width: 399px; }
+
+        .card {
+            margin-right: 16px;
+        }
     }
 
     @media(max-width: 1230px) {
@@ -224,6 +256,22 @@ export const StyledMain = styled.main`
         /* .specification li, */
         .location span {
             width: 46vw;
+        }
+    }
+
+    @media (max-width:680px) {
+        .groupCard {
+            justify-content: space-between;
+        }
+        
+        .card {
+            margin-right: 0;
+        }
+    }
+
+    @media (max-width:600px) {
+        .groupCard {
+            justify-content: center;
         }
     }
 `

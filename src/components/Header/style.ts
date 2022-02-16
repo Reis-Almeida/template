@@ -124,7 +124,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
 
             ul {
                 position: absolute;
-                margin-left: -20px;
+                margin-left: -30px;
                 transform-origin: 1px;
                 flex-direction: column;
                 border: solid 1px #f3f3f3;

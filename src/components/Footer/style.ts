@@ -57,6 +57,7 @@ export const StyledFooter = styled.footer`
             border-radius: 25px 25px;
             color: ${ ({theme}) => theme.color.primary };
             border: solid 2px ${ ({theme}) => theme.color.primary };
+            transition: background-color .3s;
 
             &:hover {
                 color:#fff;

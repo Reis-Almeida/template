@@ -19,7 +19,15 @@ interface SelectProps {
     label: string
     children: ReactNode
     className?: string
-    onChange: (novoValor: any) => void
+    onChange?: (novoValor: any) => void
+}
+
+interface TextProps {
+    name: string
+    label: string
+    rows: number
+    className?: string
+    onChange?: (novoValor: any) => void
 }
 
 export function Input(props:InputProps) {
@@ -48,6 +56,15 @@ export function Select(props: SelectProps) {
             <select name={props.name}  onChange={props.onChange} >
                 {props.children}
             </select>
+        </span>
+    )
+}
+
+export function TextArea(props: TextProps) {
+    return(
+        <span className={props.className}>
+            <label>{props.label}</label>
+            <textarea name={props.name} onChange={props.onChange} rows={props.rows} />
         </span>
     )
 }

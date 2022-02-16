@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useProperty } from '../../context/useProperty';
 import useJson from '../../hook/useJson';
+import Cookies from '../Cookies';
 import Footer from '../Footer';
 import Header from '../Header';
 import { StyledMain } from './style';
@@ -10,6 +11,7 @@ import { StyledMain } from './style';
 
 export default function Layout({children}:any) {
     const { property, setProperty, filter, setFilter } = useProperty()
+    const [cookies, setCookies] = useState<boolean>(false)
 
     const init = async (json:any) => {
         const P = await json()
@@ -19,16 +21,23 @@ export default function Layout({children}:any) {
     }
 
     useEffect(()=> {
+        if(!localStorage.getItem("warning-cookies")) {
+            setCookies(true)
+        }
+    }, [cookies])
+    
+    useEffect(()=> {
         if(property === null && filter === null) {
             init(useJson)
         }
-      }, [property, filter])
+    }, [property, filter])
 
     function renderContent() {
         return (
             <>
                 <Header />
                     {children}
+                {cookies && <Cookies disable={setCookies} />}
                 <Footer/>
             </>
         )

@@ -68,7 +68,7 @@ export default function Gallery({src}:any) {
       }
 
       setSide(0)
-    }, 495)
+    }, 500)
   }
 
   function onlyOne(side: boolean, id:number): Params {

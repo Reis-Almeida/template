@@ -9,6 +9,7 @@ import Qualification from '../components/Qualification'
 import Filter from '../components/Filter'
 import { useProperty } from '../context/useProperty'
 import CardProperty from '../components/CardProperty'
+import { useEffect } from 'react'
 
 type PropsClient = {
   src: string
