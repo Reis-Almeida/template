@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useProperty } from '../../context/useProperty';
 import useJson from '../../hook/useJson';
+import website from '../../shared/json/website';
 import Cookies from '../Cookies';
 import Footer from '../Footer';
 import Header from '../Header';
@@ -46,7 +47,7 @@ export default function Layout({children}:any) {
     function renderLoading() {
         return (
             <StyledMain>
-                <LazyLoadImage src="/loading.gif" alt="gif loading" width="200" height="200" />
+                <LazyLoadImage src={website.loading} alt="gif loading" width="200" height="200" />
             </StyledMain>
         )
     }

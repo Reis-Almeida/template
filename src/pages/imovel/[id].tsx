@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import Navigation from '../../components/Navigation'
 import Realtor from '../../components/CardRealtor'
 import Head from 'next/head'
+import website from '../../shared/json/website'
 
 import dynamic from "next/dynamic"
 import Indication from '../../components/Indication'
@@ -17,14 +18,6 @@ import { useEffect, useState } from 'react'
 import CardProperty from '../../components/CardProperty'
 
 const Map = dynamic(() => import("../../components/Map"), { ssr:false })
-
-const realtor = {
-    name: 'Andrew Man',
-    src: '/images/equipe/person1.jpg',
-    email: 'info@example.com',
-    telephone: '(61) 90000-0000'
-
-}
 
 const title = (title:string) => {
     return (
@@ -267,7 +260,7 @@ export default function Imovel() {
                         </ul>
                         { title("Video") }
                         <video controls controlsList="nodownload">
-                            <source src="/videoteste.mp4" type="video/mp4" />
+                            <source src={website.property.video} type="video/mp4" />
                         </video>
 
                         { title("Mapa") }
@@ -290,7 +283,7 @@ export default function Imovel() {
                         </div>
                         <div>
                             <h3>CORRETOR</h3>
-                            <Realtor obj={realtor} />
+                            <Realtor obj={website.property.realtor} />
                         </div>
                         <div>
                             <h3>CONTATO</h3>

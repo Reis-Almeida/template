@@ -41,13 +41,15 @@ export const StyledMain = styled.main`
         /* border: solid 1px red;  */
     }
 
-
-    p, h1, 
-    svg ,
-    article {
+    .detail, .specification {
+        p, h1, 
+        svg ,
+        article {
             display: flex;
             color: ${ ({theme}) => theme.fontColor.bigTitle };
         }
+    }
+
 
     .detail {
         width: 100%;

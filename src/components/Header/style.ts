@@ -83,7 +83,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
 
         &, * {
             display: flex;
-            font-size: 20px;
+            font-size: 19px;
             justify-content: space-between;
         }
 
@@ -114,6 +114,13 @@ export const StyledHeader = styled.header<{ open:boolean }>`
             }
         }
 
+        @media(max-width: 1150px) and (min-width:890px) {
+            span, li > a {
+                padding: 0 20px;
+                font-size: 18px;
+            }
+        }
+
         @media(max-width: 992px) {
             padding: 0 30px;
         }
@@ -124,7 +131,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
 
             ul {
                 position: absolute;
-                margin-left: -30px;
+                margin-left: -32px;
                 transform-origin: 1px;
                 flex-direction: column;
                 border: solid 1px #f3f3f3;
@@ -136,15 +143,13 @@ export const StyledHeader = styled.header<{ open:boolean }>`
                 span, li > a {
                     padding: 0;
                     height: 50px;
-                    width: 100vw;
+                    width: 98vw;
                     justify-content: center;
                     color: #fff;
                     background-color: ${ ({theme}) => theme.color.third };
 
                     &:hover {
-                    background-color: ${ ({theme}) => theme.color.default };
-                    color: ${ ({theme}) => theme.color.third };
-
+                        background-color: ${ ({theme}) => theme.color.primary };
                     }
 
                 }

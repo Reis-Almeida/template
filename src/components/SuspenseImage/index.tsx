@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import website from "../../shared/json/website";
 import { StyledSuspense } from "./style";
 
 const SuspenseImage : React.FC<any> = ({ src, className, ...rest }) => {
 
     const [imageLoaded, setImageLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState("/noImg.jpg");
+    const [imgSrc, setImgSrc] = useState(website.noImg);
 
     useEffect(() => {
         const imageToLoad = new Image();
@@ -16,7 +17,7 @@ const SuspenseImage : React.FC<any> = ({ src, className, ...rest }) => {
         }
 
         imageToLoad.onerror = () => {
-            src = "/noImg.jpg";
+            src = website.noImg;
             imageToLoad.src = src;
         }
 

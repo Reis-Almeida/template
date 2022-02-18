@@ -5,7 +5,7 @@ export default function Cookies({disable}:any) {
 
     function myCookies() {
         localStorage.setItem("warning-cookies", "aceito")
-        disable(true)
+        disable(false)
     }
 
     return(

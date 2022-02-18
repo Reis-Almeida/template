@@ -3,6 +3,7 @@ import { StyledMain } from '../styles/quemsomos'
 import company from '../shared/json/company'
 import Navigation from '../components/Navigation'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import website from '../shared/json/website'
 
 export default function QuemSomos() {
   return(
@@ -10,7 +11,7 @@ export default function QuemSomos() {
        <Navigation router={"Quem Somos"} />
        <StyledMain>
           <span className="history">
-            <LazyLoadImage src='/images/teste/ab3.webp' className="img" alt='predios' />
+            <LazyLoadImage src={website.quemsomos.img1} className="img" alt='predios' />
             <div>
               <h1>Quem é {company.name}?</h1>
               <hr />
@@ -19,7 +20,7 @@ export default function QuemSomos() {
           </span>
 
           <span className="business">
-            <LazyLoadImage src='/quemsomos.jpg' className="img" alt='predios' />
+            <LazyLoadImage src={website.quemsomos.img2} className="img" alt='predios' />
             <div className="info">
               <span>
                   <div className="content">

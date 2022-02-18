@@ -8,6 +8,7 @@ import Document, {
   NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import company from '../shared/json/company'
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -42,7 +43,7 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
-          <link rel="shortcut icon" href="/head.png"/>
+          <link rel="shortcut icon" href={company.logo.head} />
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat+Brush&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"/>
         </Head>
