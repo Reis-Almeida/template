@@ -31,7 +31,7 @@ export const StyledList = styled.div<{ change:boolean }>`
             cursor: pointer;
             font-size: 1rem;
             margin: 0 0 10px 20px;
-            background-color: #d82460;
+            background-color: ${ ({theme}) => theme.color.primary };
         }
 
         select {
@@ -39,6 +39,7 @@ export const StyledList = styled.div<{ change:boolean }>`
             outline: none;
             padding: 6px 4px;
             font-size: 1.0rem;
+            margin-bottom: 10px;
             background-color: ${ ({theme}) => theme.color.second };
         }
 

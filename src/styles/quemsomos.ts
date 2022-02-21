@@ -7,6 +7,18 @@ export const StyledMain = styled.div`
     justify-content: center;
     flex-direction: column;
 
+    .title {
+        color: ${ ({theme}) => theme.color.primary };
+        border-bottom: solid 2px ${ ({theme}) => theme.color.primary };
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .title.last {
+        width: 1170px;
+       text-align: center;
+    }
+
     .history {
         width: 100%;
         display: flex;
@@ -22,17 +34,6 @@ export const StyledMain = styled.div`
 
         div {
             width: 50%;
-        }
-
-        h1 {
-            color: ${ ({theme}) => theme.color.primary };
-        }
-
-        hr {
-            margin: 20px 0;
-            border: none;
-            height: 2px;
-            background-color: ${ ({theme}) => theme.color.primary };
         }
 
     }
@@ -89,6 +90,18 @@ export const StyledMain = styled.div`
         }
     }
 
+    .team {
+        max-width: 1313px;
+        padding: 60px;
+        padding-top: 30px;
+
+        &, * {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+
     @media(max-width: 992px) {
         .history {
             padding: 60px 30px 0 30px;
@@ -102,6 +115,10 @@ export const StyledMain = styled.div`
         .business {
             height: 500px;
         }
+    }
+
+    @media(max-width: 890px) {
+       .team { justify-content: space-around }
     }
 
     @media(max-width: 880px) {

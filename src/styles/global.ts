@@ -1,4 +1,47 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
+
+type ThemeProps = {
+    fontFamily: {
+        title: string
+        city: string
+    }
+    fontColor: {
+        title: string
+        default: string
+        bigTitle: string
+        describe: string
+    },
+    color : {
+        primary: string
+        primaryRgb: string
+        second: string
+        third: string
+        main: string
+        featured: string
+    }
+}
+
+export const theme: ThemeProps = {
+    fontFamily: {
+        title: 'Abril Fatface', //cursive
+        city: 'Caveat Brush'
+    },
+    fontColor: {
+        title: '#333',
+        default: '#444',
+        bigTitle: '#656565',
+        describe: '#323232'
+    },
+    color : {
+        primary: '#145ade',
+        primaryRgb: '20, 90, 222',
+        second: '#f3f3f3',
+        third: '#222',
+        main: '#484848',
+        featured: '#1b1d2a'
+    }
+}
+
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -24,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     input:focus, select:focus, textArea:focus {
-        color: #82b440;
+        color: ${theme.color.primary};
     }
 
     
@@ -33,22 +76,3 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 `
-export const theme: object = {
-    fontFamily: {
-        title: 'Abril Fatface', //cursive
-        city: 'Caveat Brush'
-    },
-    fontColor: {
-        title: '#333',
-        default: '#444',
-        bigTitle: '#656565',
-        describe: '#323232'
-    },
-    color : {
-        primary: '#d82460',
-        second: '#f3f3f3',
-        third: '#222',
-        main: '#484848',
-        featured: '#1b1d2a'
-    }
-}

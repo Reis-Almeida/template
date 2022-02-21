@@ -27,6 +27,8 @@ export const Main = styled.div<{ n:number }>`
             font-size: 1.2rem;
             text-align: center;
             position: absolute;
+            user-select: none;
+            cursor: pointer;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             background-color: ${ ({theme}) => theme.color.primary };
@@ -69,7 +71,7 @@ export const Main = styled.div<{ n:number }>`
     }
 `
 
-const Form = styled.form`
+const Form = styled.form<{ show?:boolean }>`
 
     &, * {
         display: flex;
@@ -125,6 +127,7 @@ export const Form1 = styled(Form)`
         }
     }
     @media(max-width: 600px) {
+        display: ${({show}) => show ? 'current' : 'none'};
         padding: 80px 0 30px 0;
         align-items: center;
         position: absolute;
@@ -140,14 +143,13 @@ export const Form1 = styled(Form)`
             top: 30px;
             right: 40px;
             cursor: pointer;
+            color: ${ ({theme}) => theme.color.primary};
 
-            &:hover { color: ${ ({theme}) => theme.color.primary } }
         }
 
         select, input {
             width: 85vw;
         }
-        display: none;
     }
 `
 
@@ -180,9 +182,9 @@ export const Form2 = styled(Form)`
 
 
     h2,
+    .field:nth-child(2),
     .field:nth-child(3),
-    .field:nth-child(4),
-    .field:nth-child(12) {
+    .field:nth-child(11) {
         display: none;
     }
 

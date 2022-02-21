@@ -211,13 +211,13 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
             position: absolute;
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
-            border-right: 14px solid rgba(216, 36, 96, 0.6);
+            border-right: 14px solid rgba(${ ({theme}) => theme.color.primaryRgb }, 0.6);
         }
 
         p {
             font-size: .9rem;
             padding: 5px 5px 5px 0;
-            background-color: rgba(216, 36, 96, 0.6);
+            background-color: rgba(${ ({theme}) => theme.color.primaryRgb }, 0.6);
         }
     }
 

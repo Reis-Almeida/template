@@ -17,7 +17,7 @@ export default function Cookies({disable}:any) {
             A utilização de cookies ocorre pelas funções de navegação. 
             A desativação dos cookies pode prejudicar a navegabilidade no site.
            </article>
-           <button onClick={() => myCookies()}>Aceito Todos os Cookies</button>
+           <button onClick={() => myCookies()}>Entendi</button>
         </StyledCookies>
     )
 }

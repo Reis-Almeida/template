@@ -96,7 +96,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
 
             &:hover {
                 color: #fff;
-                background-color: ${ ({theme}) => theme.color.third };
+                background-color: ${ ({theme}) => theme.color.primary };
             }
         }
 
@@ -106,11 +106,13 @@ export const StyledHeader = styled.header<{ open:boolean }>`
             display: none;
             padding: 2px;
             cursor: pointer;
+            background-color: ${ ({theme}) => theme.color.main };
+            border-radius: 25%;
+            color: #fff;
             
             &:hover {
                 color: #fff;
-                border-radius: 25%;
-                background-color: ${ ({theme}) => theme.color.third };
+                background-color: ${ ({theme}) => theme.color.primary };
             }
         }
 
@@ -146,7 +148,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
                     width: 98vw;
                     justify-content: center;
                     color: #fff;
-                    background-color: ${ ({theme}) => theme.color.third };
+                    background-color: ${ ({theme}) => theme.color.main };
 
                     &:hover {
                         background-color: ${ ({theme}) => theme.color.primary };

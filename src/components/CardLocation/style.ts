@@ -26,7 +26,7 @@ export const StyledCard = styled.div`
         background-color: rgba(0, 0, 0, 0.65);
 
         &:hover {
-            background-image: linear-gradient(to left, #323837ba, rgba(218, 37, 97,0.39), rgba(218, 37, 97,0.59));
+            background-image: linear-gradient(to left, #323837ba, rgba(${ ({theme}) => theme.color.primaryRgb }, 0.39), rgba(${ ({theme}) => theme.color.primaryRgb }, 0.59));
         }
     }
 

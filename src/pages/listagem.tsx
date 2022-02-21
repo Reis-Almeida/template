@@ -17,6 +17,7 @@ export default function Listagem() {
   const { filter, setFilter } = useProperty()
 
   const [change, setChange] = useState<boolean>(true)
+  const [show, setShow] = useState<boolean>(false)
   const [count, setCount] = useState<number>(1)
 
   const items: number = 9
@@ -33,7 +34,7 @@ export default function Listagem() {
               <span>
                 <Icon.listMain  onClick={() => setChange(false)} />
                 <Icon.listDefault onClick={() => setChange(true)} />
-                <button>Filtrar Imóvel</button>
+                <button onClick={() => setShow(true)}>Filtrar Imóvel</button>
               </span>
               <span>
                 <Select label="Ordenar por:" name="class" onChange={(ev) => setFilter([...orderUpdate(filter, ev.target.name, ev.target.value)])}>
@@ -70,7 +71,7 @@ export default function Listagem() {
           ): false}
             
           </span>
-          <Filter />
+            <Filter show={show} setShow={setShow} />
         </StyledList>  
       </div>
     </Layout>

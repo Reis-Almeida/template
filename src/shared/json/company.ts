@@ -2,8 +2,8 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH
 
 const company = {
     name: 'Allmatech Imobiliária',
-    endereco: 'Rua 09 Norte, Lote 01, Salas 507 e 509 - Águas Claras, Brasília - DF, 71908-540',
-    telefone: '61 3797-5389',
+    endereco: 'SCN – Setor Comercial Norte Quadra 04 Bloco “B” Sala 702, Parte 455 - Asa Norte, Brasília - DF, 70.714-020',
+    telefone: '61 9418-6386',
     whatsapp: '61 9 9418-6386',
     telegram: '61 9 9418-6386',
     email: 'atendimento@allmatech.com.br',

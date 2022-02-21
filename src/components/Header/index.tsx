@@ -11,6 +11,10 @@ import Head from 'next/head'
 
 const Links = [
   {
+    name: 'Home',
+    path: '/',
+  },
+  {
     name: 'Favoritos',
     path: '/favoritos',
   },
@@ -21,10 +25,6 @@ const Links = [
   {
     name: 'Quem Somos',
     path: '/quemsomos',
-  },
-  {
-    name: 'Equipe',
-    path: '/equipe',
   },
   {
     name: 'Contato',

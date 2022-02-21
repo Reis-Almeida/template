@@ -4,6 +4,7 @@ import company from '../shared/json/company'
 import Navigation from '../components/Navigation'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import website from '../shared/json/website'
+import CardServant from '../components/CardServant'
 
 export default function QuemSomos() {
   return(
@@ -13,8 +14,7 @@ export default function QuemSomos() {
           <span className="history">
             <LazyLoadImage src={website.quemsomos.img1} className="img" alt='predios' />
             <div>
-              <h1>Quem é {company.name}?</h1>
-              <hr />
+              <h1 className="title">Quem é {company.name}?</h1>
               <article>{company.quemsomos}</article>
             </div>
           </span>
@@ -41,6 +41,13 @@ export default function QuemSomos() {
                   </div>
               </span>
             </div>
+          </span>
+          <h1 className="title last" >Nossa Equipe</h1>
+          <span className="team">
+            {company.equipe.map((i, e) => (
+              <CardServant  key={`servant${e}`} obj={i} />
+            
+            ))}
           </span>
         </StyledMain>
     </Layout>

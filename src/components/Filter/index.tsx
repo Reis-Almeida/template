@@ -5,7 +5,12 @@ import userFilter from '../../hook/useFilter'
 import { Form1, Form2, Main } from './style'
 import { Input, Select } from '../Fields'
 
-export default function Filter() {
+type FilterProps = {
+    show?:boolean
+    setShow?: (show:boolean) => void
+}
+
+export default function Filter({show, setShow}:FilterProps) {
 
   const { values, toUpdate, price, city, district, handleForm } = userFilter()
 
@@ -14,7 +19,7 @@ export default function Filter() {
 function form() {
   return (
     <div>
-    <Icon.close />
+    {setShow && <Icon.close onClick={() => setShow(false)} />}
     <h2>Filtrar Imovel</h2>
 
     <Input
@@ -143,7 +148,7 @@ function form() {
  } else{
    
     return (
-      <Form1 onSubmit={handleForm}>
+      <Form1 show={show} onSubmit={handleForm}>
         {form()} 
       </Form1>
     )
