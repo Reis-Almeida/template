@@ -1,7 +1,7 @@
 import { StyledCard } from './style'
 import Icon from '../../shared/icons'
 import Link from 'next/link'
-import SuspenseImage from '../SuspenseImage'
+import { SuspenseImage } from '../Image'
 import { useEffect, useState } from 'react'
 
 type cardProps = {

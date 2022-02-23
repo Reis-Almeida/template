@@ -47,6 +47,7 @@ export const StyledList = styled.div<{ change:boolean }>`
 
         svg {
             padding: 10px;
+            cursor: pointer;
             font-size: 2.4rem;
             border-radius: 5px;
             border: solid 1px #cccccc;

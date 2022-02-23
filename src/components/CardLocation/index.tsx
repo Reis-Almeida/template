@@ -1,6 +1,6 @@
 import { StyledCard } from './style'
 import Icon from '../../shared/icons'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import { useProperty } from '../../context/useProperty'
 
 
@@ -16,7 +16,7 @@ export default function CardLocation({obj}:any) {
 
     return (
       <StyledCard>
-        <LazyLoadImage src={obj.src} className="img" alt="imagem indisponivel"/>
+        <MyImage src={obj.src} className="img" alt="imagem indisponivel"/>
         <div className="layer">
           <h1>{obj.city}</h1>
           <span>

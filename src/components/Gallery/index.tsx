@@ -1,7 +1,7 @@
 import Icon from '../../shared/icons'
 import { useState } from 'react'
 import { StyledCarousel } from './style'
-import SuspenseImage from '../SuspenseImage'
+import { SuspenseImage } from '../Image'
 
 type Params = [
   {

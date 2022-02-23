@@ -1,16 +1,18 @@
 import styled from 'styled-components'
 
 export const StyledUl= styled.ul`
-        display: flex;
+    display: flex;
+    
+    button {
+        color: #fff;
+        border: none;
+        padding: 8px;
+        margin: 0 5px;
+        background-color: ${({ theme }) => theme.color.third};
+        border-radius: 5px;
+    }
 
-        .color {
-            border-color: ${({ theme }) => theme.color.primary};
-            background-color: ${({ theme }) => theme.color.primary};
-            color: #fff;
-        }
-
-        button {
-            padding: 5px;
-            margin: 0 5px;
-        }
+    .color {
+        background-color: ${({ theme }) => theme.color.primary};
+    }
 `

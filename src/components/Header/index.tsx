@@ -5,32 +5,10 @@ import { ReactNode } from 'react'
 import { StyledHeader } from './style'
 import Icon from '../../shared/icons'
 import company from '../../shared/json/company'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import SocialNetwork from '../SocialNetwork'
 import Head from 'next/head'
-
-const Links = [
-  {
-    name: 'Home',
-    path: '/',
-  },
-  {
-    name: 'Favoritos',
-    path: '/favoritos',
-  },
-  {
-    name: 'Avaliação',
-    path: '/avaliacao',
-  },
-  {
-    name: 'Quem Somos',
-    path: '/quemsomos',
-  },
-  {
-    name: 'Contato',
-    path: '/contato',
-  }
-]
+import website from '../../shared/json/website'
 
 type TnavAnchor = {
   path: string
@@ -49,7 +27,7 @@ export default function Header() {
   return (
     <StyledHeader open={open}>
        <Head>
-        {Links.map(({name, path}) => {
+        {website.navigation.map(({name, path}) => {
           if(pathname === path) {
             return <title key={`title${name}`}>{name} - {company.name}</title>
           }
@@ -68,10 +46,10 @@ export default function Header() {
 
       <div className="headerNav">
         <Link href={'/'}>
-          <a><LazyLoadImage src={company.logo.default} height={50} width={220} alt="logo" /></a>
+          <a><MyImage src={company.logo.default} height={50} width={220} alt="logo" /></a>
         </Link>
         <ul>
-          {Links.map(({name, path}) => (
+          {website.navigation.map(({name, path}) => (
             <li key={path}>
               {path === pathname ? <span>{name}</span> : <NavAnchor path={path}>{name}</NavAnchor>}
             </li>

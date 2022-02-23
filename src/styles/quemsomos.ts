@@ -46,6 +46,10 @@ export const StyledMain = styled.div`
         margin: 60px 0;
         position: relative;
 
+        p, h1 {
+            color: #fff;
+        }
+
         img {
             height: 100%;
             width: 100%;
@@ -72,7 +76,6 @@ export const StyledMain = styled.div`
         }
 
         .content {
-            color: #fff;
             width: 250px;
             height: 200px;
             display: flex;

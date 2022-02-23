@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import { StyledMain } from '../styles/quemsomos'
 import company from '../shared/json/company'
 import Navigation from '../components/Navigation'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../components/Image'
 import website from '../shared/json/website'
 import CardServant from '../components/CardServant'
 
@@ -12,7 +12,7 @@ export default function QuemSomos() {
        <Navigation router={"Quem Somos"} />
        <StyledMain>
           <span className="history">
-            <LazyLoadImage src={website.quemsomos.img1} className="img" alt='predios' />
+            <MyImage src={website.quemsomos.img1} className="img" alt='predios' />
             <div>
               <h1 className="title">Quem é {company.name}?</h1>
               <article>{company.quemsomos}</article>
@@ -20,7 +20,7 @@ export default function QuemSomos() {
           </span>
 
           <span className="business">
-            <LazyLoadImage src={website.quemsomos.img2} className="img" alt='predios' />
+            <MyImage src={website.quemsomos.img2} className="img" alt='predios' />
             <div className="info">
               <span>
                   <div className="content">

@@ -13,7 +13,7 @@ export const StyledForm = styled.form`
         margin-bottom: 20px;
     }
 
-    label { color: ${ ({theme}) => theme.fontColor.default }; }
+    label { }
     span { width: 100% }
 
     input, textarea, .button {

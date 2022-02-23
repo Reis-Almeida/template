@@ -32,12 +32,12 @@ export const StyledMain = styled.main`
 
         svg {
             font-size: 42px;
-            color: ${ ({theme}) => theme.fontColor.bigTitle };
+            color: ${({ theme }) => theme.color.primary};
         }
         
         h3 {
             color: ${({ theme }) => theme.color.primary};
-            font-weight: 600;
+            font-weight: 800;
             margin: 10px 0;
         }
 
@@ -48,12 +48,12 @@ export const StyledMain = styled.main`
         }
 
         a svg{
-            color: pink;
+            color: ${({ theme }) => theme.color.primary};
             padding: 6px;
             margin: 0 5px;
             font-size: 35px;
             border-radius: 20px;
-            border: solid 2px pink;
+            border: solid 2px ${({ theme }) => theme.color.primary};
         }
     }
 

@@ -1,7 +1,7 @@
 import { StyledFooter } from './style'
 import company from '../../shared/json/company'
 import Icon from '../../shared/icons'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import SocialNetwork from '../SocialNetwork'
 
 export default function Footer() {
@@ -33,7 +33,7 @@ export default function Footer() {
           <p>
             © 2021 {company.name} – Todos os direitos reservados – Desenvolvido por Allmatech TI
           </p>
-            <LazyLoadImage className="img" src={company.logo.footer} height={30} width={30} alt="logo" />
+            <MyImage className="img" src={company.logo.footer} height={30} width={30} alt="logo" />
         </div>
     </StyledFooter>
   )

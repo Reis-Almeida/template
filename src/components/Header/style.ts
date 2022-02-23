@@ -9,7 +9,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
         height: auto;
         width: 100%;
         padding: 0 60px;
-        background-color: ${ ({theme}) => theme.color.main };
+        background-color: ${ ({theme}) => theme.color.third };
 
         &, * {
             display: flex;
@@ -31,7 +31,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
         padding: 0 10px;
 
             &:hover {
-                background-color: ${ ({theme}) => theme.color.third };
+                background-color: ${ ({theme}) => theme.color.primary };
             }
         }
 
@@ -92,7 +92,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
             padding: 0 40px;
             user-select: none;
             cursor: pointer;
-            color: ${ ({theme}) => theme.fontColor.default };
+           
 
             &:hover {
                 color: #fff;
@@ -106,7 +106,6 @@ export const StyledHeader = styled.header<{ open:boolean }>`
             display: none;
             padding: 2px;
             cursor: pointer;
-            background-color: ${ ({theme}) => theme.color.main };
             border-radius: 25%;
             color: #fff;
             
@@ -148,7 +147,7 @@ export const StyledHeader = styled.header<{ open:boolean }>`
                     width: 98vw;
                     justify-content: center;
                     color: #fff;
-                    background-color: ${ ({theme}) => theme.color.main };
+                    background-color: ${ ({theme}) => theme.color.third };
 
                     &:hover {
                         background-color: ${ ({theme}) => theme.color.primary };

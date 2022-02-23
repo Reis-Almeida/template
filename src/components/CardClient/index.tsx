@@ -1,4 +1,4 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import { StyledCard } from './style'
 import Icon from '../../shared/icons'
 
@@ -19,7 +19,7 @@ export default function CardClient({obj}:PropsClient) {
   return (
     <StyledCard>
         <span>
-        <LazyLoadImage src={obj.src} className="img" alt="imagem indisponivel"/>
+        <MyImage src={obj.src} className="img" alt="imagem indisponivel"/>
         </span>
         <article>
           <h3>{obj.title}</h3>

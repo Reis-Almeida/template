@@ -35,11 +35,17 @@ export default function Favoritos() {
       <Layout>
         <Navigation router="Favoritos" />
         <StyledMain>
-            <div className="groupCard">
-              {favorite?.map((i:any, e:number) => (
-                <CardProperty className="card" key={`favorite${e}`} obj={i} card={1} change={false}/>
-                ))}
-            </div>
+            {favorite?.length > 0 ? (
+              <div className="groupCard">
+                {favorite?.map((i:any, e:number) => (
+                  <CardProperty className="card" key={`favorite${e}`} obj={i} card={1} change={false}/>
+                  ))}
+              </div>
+            ) : (
+              <div className="empty">
+                  Nenhum imovel foi adicionado a sua lista de favoritos.
+              </div>
+            )}
         </StyledMain>
       </Layout>
     )

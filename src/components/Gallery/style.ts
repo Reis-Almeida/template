@@ -33,7 +33,7 @@ export const StyledCarousel = styled.div<{ direction:boolean, side:number }>`
             height:100%;
             display: flex;
             justify-content: center;
-            background-color: ${ ({theme}) => theme.color.third };
+            background-color: #222;
         }
 
         &>div:nth-child(1) {

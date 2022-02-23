@@ -77,7 +77,7 @@ export const StyledSlider = styled.div<{ element:number, current:number }>`
             }
             p {
                 font-size: 19px;
-                color: ${ ({theme}) => theme.fontColor.default };
+               
 
                 svg {
                     margin-bottom: 3px;
@@ -105,7 +105,7 @@ export const StyledSlider = styled.div<{ element:number, current:number }>`
                     align-items: flex-start;
                     &:nth-child(1) { grid-area: descri; }
                     &:nth-child(2) { grid-area: number; }
-                    color: ${ ({theme}) => theme.fontColor.default };
+                   
                 }
 
             }

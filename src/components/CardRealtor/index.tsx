@@ -1,4 +1,4 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import Icon from '../../shared/icons'
 import { StyledCard } from './style'
 
@@ -13,7 +13,7 @@ export default function Realtor({obj}:{obj:RealtorProps}) {
   
     return (
           <StyledCard>
-              <LazyLoadImage className="img" src={obj.src} alt="imagem indisponivel" />
+              <MyImage className="img" src={obj.src} alt="imagem indisponivel" />
             <span>
               <h2>{obj.name}</h2>
               <hr />

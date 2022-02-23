@@ -8,10 +8,6 @@ const normal = css<{ featured:string }>`
         width: 270px;
         height: 180px;
     }
-    .image {   
-        width: 270px;
-        height: 180px;
-    }
 
     .E { display: none; } 
 
@@ -32,9 +28,6 @@ const normal = css<{ featured:string }>`
             width: 28vw;
         }
 
-        .image {   
-            width: 28vw;
-        }
         .desc {
             width: 28vw;
 
@@ -48,11 +41,6 @@ const normal = css<{ featured:string }>`
 const featured = css`
 
     &>div:nth-child(1) {   
-        width: 370px;
-        height: 260px;
-    }
-    
-    .image {   
         width: 370px;
         height: 260px;
     }
@@ -72,7 +60,7 @@ const featured = css`
     }
 
     @media(max-width:1270px) and (min-width: 860px) {
-        .image, .desc,
+        .desc,
         &>div:nth-child(1){ 
             width: 28vw;
             min-width: 265px;
@@ -82,7 +70,7 @@ const featured = css`
     }
 
     @media(max-width:810px) and (min-width: 730px) {
-        .image, .desc,
+        .desc,
         &>div:nth-child(1){ 
             width: 330px;
         }
@@ -98,7 +86,7 @@ const list = css<{ change:boolean, featured:string }>`
 
     flex-direction: ${({change}) => change ? 'row' : 'column' };
 
-    .image, &>div:nth-child(1) {   
+    &>div:nth-child(1) {   
         width: 32vw;
         height: 280px;
         min-width: 300px;
@@ -112,7 +100,7 @@ const list = css<{ change:boolean, featured:string }>`
     }
 
     @media(min-width: 1318px) {
-        .image, &>div:nth-child(1) {
+        &>div:nth-child(1) {
             max-width: 400px;
         }
 
@@ -124,7 +112,7 @@ const list = css<{ change:boolean, featured:string }>`
     @media (max-width: 992px) and (min-width:600px) {
         flex-direction: column;
 
-        .desc, .image, &>div:nth-child(1) {   
+        .desc, &>div:nth-child(1) {   
             width: 46vw;
         }
     }
@@ -132,7 +120,7 @@ const list = css<{ change:boolean, featured:string }>`
     @media (max-width: 600px) {
         flex-direction: column;
         
-        .desc, .image, &>div:nth-child(1) {   
+        .desc, &>div:nth-child(1) {   
             width: 70vw;
         }
     }
@@ -154,6 +142,7 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
     img {
         width: 100%;
         height:100%;
+        object-fit: cover;
     }
 
 
@@ -162,6 +151,8 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
     h2 { width: 100%; }
 
     .image {
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -279,7 +270,7 @@ export const StyledCard = styled.div<{ change:boolean, featured:string, card:num
         margin-top: 10px;
         padding: 9px 10px;
         border-radius: 5px;
-        background-color: ${ ({theme}) => theme.fontColor.title };
+        background-color: ${ ({theme}) => theme.color.third };
 
         &:hover { background-color:${ ({theme}) => theme.color.primary }; }
     }

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { StyledCarousel, StyledSlider } from './style'
 import Icon from '../../shared/icons'
 import { useState } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import website from '../../shared/json/website'
 
 export default function Carousel() {
@@ -46,7 +46,7 @@ export default function Carousel() {
                             </span>
                         </div>
                     </span>
-                    <LazyLoadImage src={i.src} className="img" alt="imagem indisponivel"/>
+                    <MyImage src={i.src} className="img" alt="imagem indisponivel"/>
                 </StyledSlider>
             ))}
         </StyledCarousel>

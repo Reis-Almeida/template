@@ -16,7 +16,6 @@ type ThemeProps = {
         primaryRgb: string
         second: string
         third: string
-        main: string
         featured: string
     }
 }
@@ -33,11 +32,10 @@ export const theme: ThemeProps = {
         describe: '#323232'
     },
     color : {
-        primary: '#145ade',
+        primary: '#205cc9',
         primaryRgb: '20, 90, 222',
         second: '#f3f3f3',
-        third: '#222',
-        main: '#484848',
+        third: '#444',
         featured: '#1b1d2a'
     }
 }
@@ -50,10 +48,17 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         align-items: center;
-        /* color: #444; */
         text-decoration: none;
         overflow-x: hidden;
         font-weight: 600;
+    }
+
+    h1, h2, h3, h4, h5, p, a, article, div, span {
+        color: ${theme.fontColor.default};
+    }
+
+    article {
+        white-space: pre-line;
     }
 
     .media {

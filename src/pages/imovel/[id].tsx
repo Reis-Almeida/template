@@ -184,7 +184,7 @@ export default function Imovel() {
                         </ul>
 
                         { title("Descrição do Imovel") }
-                        <article>{data?.obs}</article>
+                        <article className="obs">{data?.obs}</article>
                     
                         { title("Locais Proximos") }
                         <span className="location">
@@ -279,7 +279,7 @@ export default function Imovel() {
                             <h3>GOSTOU? ADICIONE AO FAVORITOS</h3>
                             <button className="favorite"
                                     onClick={() => myFavorite(!favorite)}
-                            >{favorite ? 'Remover' : 'Adicionar'}</button>
+                            >{favorite ? 'Remover' : 'Adicionar'}<Icon.heart /></button>
                         </div>
                         <div>
                             <h3>CORRETOR</h3>

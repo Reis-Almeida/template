@@ -2,11 +2,16 @@ import { useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import website from "../../shared/json/website";
 import { StyledSuspense } from "./style";
+const base = process.env.NEXT_PUBLIC_BASE_PATH
 
-const SuspenseImage : React.FC<any> = ({ src, className, ...rest }) => {
+export const MyImage : React.FC<any> = ({ src, className, ...rest }) => {
+    return <LazyLoadImage src={base + src} className={className} alt="imagem indisponivel" {...rest} />
+}
+
+export const SuspenseImage : React.FC<any> = ({ src, className, ...rest }) => {
 
     const [imageLoaded, setImageLoaded] = useState(false);
-    const [imgSrc, setImgSrc] = useState(website.noImg);
+    const [imgSrc, setImgSrc] = useState(base + website.noImg);
 
     useEffect(() => {
         const imageToLoad = new Image();
@@ -17,7 +22,7 @@ const SuspenseImage : React.FC<any> = ({ src, className, ...rest }) => {
         }
 
         imageToLoad.onerror = () => {
-            src = website.noImg;
+            src = base + website.noImg;
             imageToLoad.src = src;
         }
 
@@ -34,5 +39,3 @@ const SuspenseImage : React.FC<any> = ({ src, className, ...rest }) => {
 
     return <LazyLoadImage {...imageProps} src={imgSrc} />
 }
-
-export default SuspenseImage;

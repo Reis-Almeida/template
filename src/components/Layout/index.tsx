@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { MyImage } from '../Image';
 import { useProperty } from '../../context/useProperty';
 import useJson from '../../hook/useJson';
 import website from '../../shared/json/website';
@@ -47,7 +47,7 @@ export default function Layout({children}:any) {
     function renderLoading() {
         return (
             <StyledMain>
-                <LazyLoadImage src={website.loading} alt="gif loading" width="200" height="200" />
+                <MyImage src={website.loading} alt="gif loading" width="200" height="200" />
             </StyledMain>
         )
     }

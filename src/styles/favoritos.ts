@@ -35,4 +35,9 @@ export const StyledMain = styled.main`
         }
     }
 
+    .empty {
+        padding: 200px 0;
+        font-size: 1.5rem;
+    }
+
 `

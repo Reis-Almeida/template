@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { MyImage } from '../Image'
 import website from '../../shared/json/website'
 import { StyledNav } from './style'
 
@@ -14,7 +14,7 @@ export default function Navigation(props:NavigationProps) {
   return (
     <StyledNav>
       <div className="img">
-        <LazyLoadImage src={website.navigation} alt="navegação" />
+        <MyImage src={website.navImg} alt="navegação" />
       </div>
       <div className="info">
       <h1>{router}</h1>
